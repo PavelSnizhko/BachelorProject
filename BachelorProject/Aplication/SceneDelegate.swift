@@ -13,14 +13,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window?.windowScene = windowScene
-        let questionsVC = ViewController(
-            nibName: "ViewController",
-            bundle: Bundle.main)
-        window?.rootViewController = UINavigationController(rootViewController: questionsVC)
-        window?.makeKeyAndVisible()
+        
+        if !UserDefaults.standard.bool(forKey: "firstLaunch") {
+            guard let windowScene = (scene as? UIWindowScene) else { return }
+            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+            window?.windowScene = windowScene
+            let questionsVC = IntroViewController(
+                nibName: "IntroViewController",
+                bundle: Bundle.main)
+            window?.rootViewController = UINavigationController(rootViewController: questionsVC)
+            window?.makeKeyAndVisible()
+        }
+        else {
+            guard let windowScene = (scene as? UIWindowScene) else { return }
+            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+            window?.windowScene = windowScene
+            let questionsVC = LoginViewController(
+                nibName: "LoginViewController",
+                bundle: Bundle.main)
+            window?.rootViewController = UINavigationController(rootViewController: questionsVC)
+            window?.makeKeyAndVisible()
+        }
+           
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

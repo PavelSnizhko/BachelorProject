@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntroViewController" customModule="BachelorProject" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="2PO-Wa-x3W"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="family" translatesAutoresizingMaskIntoConstraints="NO" id="2fm-Ar-OnU">
+                    <rect key="frame" x="41.5" y="92" width="331" height="269"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Secure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dZb-VG-yqN">
+                    <rect key="frame" x="141" y="406.5" width="132.5" height="51"/>
+                    <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="44"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pY-bd-aK5">
+                    <rect key="frame" x="41.5" y="808" width="331" height="54"/>
+                    <color key="backgroundColor" name="redColor"/>
+                    <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="25"/>
+                    <state key="normal" title="Get Sarted">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="moveForwardPressed:" destination="-1" eventType="touchUpInside" id="LIj-eF-eJ8"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="backgroundColor"/>
+            <constraints>
+                <constraint firstItem="8pY-bd-aK5" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.06" id="3sr-oR-mIf"/>
+                <constraint firstItem="8pY-bd-aK5" firstAttribute="leading" secondItem="2fm-Ar-OnU" secondAttribute="leading" id="Cdj-0R-PKz"/>
+                <constraint firstItem="dZb-VG-yqN" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="KRI-HL-wkz"/>
+                <constraint firstItem="dZb-VG-yqN" firstAttribute="top" secondItem="2fm-Ar-OnU" secondAttribute="bottom" constant="45.5" id="Tsg-ip-H4F"/>
+                <constraint firstItem="2fm-Ar-OnU" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="V0O-az-zm7"/>
+                <constraint firstItem="2fm-Ar-OnU" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.5" id="WXh-fN-P1q"/>
+                <constraint firstItem="2fm-Ar-OnU" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.3" id="aGg-Vc-rUU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8pY-bd-aK5" secondAttribute="bottom" id="leW-RJ-lNd"/>
+                <constraint firstItem="2fm-Ar-OnU" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="oac-hY-ruK"/>
+                <constraint firstItem="8pY-bd-aK5" firstAttribute="trailing" secondItem="2fm-Ar-OnU" secondAttribute="trailing" id="ooc-pv-T1e"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="45.535714285714285"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="family" width="512" height="512"/>
+        <namedColor name="backgroundColor">
+            <color red="0.94509803921568625" green="0.96078431372549022" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="redColor">
+            <color red="0.9137254901960784" green="0.11372549019607843" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

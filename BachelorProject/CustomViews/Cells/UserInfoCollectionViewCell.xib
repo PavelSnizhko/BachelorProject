@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="UserInfoCollectionViewCell" customModule="BachelorProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="420" height="127"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="420" height="127"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="884-u5-Vb3">
+                        <rect key="frame" x="0.0" y="0.0" width="420" height="127"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vMA-ae-rF8" customClass="PhotoView" customModule="BachelorProject" customModuleProvider="target">
+                                <rect key="frame" x="16" y="12.5" width="101.5" height="102"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vMA-ae-rF8" secondAttribute="height" multiplier="1:1" id="ERF-Pv-pQY"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fbU-yy-mfa">
+                                <rect key="frame" x="148" y="12.5" width="252" height="102"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your first name " borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pt5-vG-X34">
+                                        <rect key="frame" x="0.0" y="0.0" width="252" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter your second name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CVR-nh-r8p">
+                                        <rect key="frame" x="0.0" y="56" width="252" height="46"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fbU-yy-mfa" firstAttribute="width" secondItem="884-u5-Vb3" secondAttribute="width" multiplier="0.6" id="AjN-s6-oQ2"/>
+                            <constraint firstItem="vMA-ae-rF8" firstAttribute="height" secondItem="884-u5-Vb3" secondAttribute="height" multiplier="0.8" id="Dcv-dQ-kKP"/>
+                            <constraint firstItem="vMA-ae-rF8" firstAttribute="centerY" secondItem="884-u5-Vb3" secondAttribute="centerY" id="XK2-0a-hqE"/>
+                            <constraint firstItem="fbU-yy-mfa" firstAttribute="centerY" secondItem="884-u5-Vb3" secondAttribute="centerY" id="du0-EI-dFj"/>
+                            <constraint firstAttribute="trailing" secondItem="fbU-yy-mfa" secondAttribute="trailing" constant="20" id="g1h-bS-3IY"/>
+                            <constraint firstItem="fbU-yy-mfa" firstAttribute="height" secondItem="884-u5-Vb3" secondAttribute="height" multiplier="0.8" id="kMd-sq-R26"/>
+                            <constraint firstItem="vMA-ae-rF8" firstAttribute="leading" secondItem="884-u5-Vb3" secondAttribute="leading" constant="16" id="phV-Da-ivO"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="884-u5-Vb3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="K4W-yc-J5m"/>
+                <constraint firstItem="884-u5-Vb3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Tp6-1G-Us3"/>
+                <constraint firstAttribute="trailing" secondItem="884-u5-Vb3" secondAttribute="trailing" id="TqI-W6-fcH"/>
+                <constraint firstAttribute="bottom" secondItem="884-u5-Vb3" secondAttribute="bottom" id="eSw-Iw-bxm"/>
+            </constraints>
+            <size key="customSize" width="413" height="129"/>
+            <point key="canvasLocation" x="277.536231884058" y="82.03125"/>
+        </collectionViewCell>
+    </objects>
+</document>

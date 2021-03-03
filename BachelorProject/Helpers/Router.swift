@@ -13,8 +13,8 @@ class Router {
     
     private init () {}
         
-    func buildRoot() {
-        //TODO: implement this func 
+    func buildRoot(window: inout UIWindow?, windowScene: UIWindowScene) {
+        // TODO: implement or delete this whole class
     }
     
 }

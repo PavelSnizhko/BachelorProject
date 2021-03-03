@@ -9,15 +9,24 @@
 /* Begin PBXBuildFile section */
 		AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226625EF46410032D029 /* AppDelegate.swift */; };
 		AE8D226925EF46410032D029 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226825EF46410032D029 /* SceneDelegate.swift */; };
-		AE8D226B25EF46410032D029 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226A25EF46410032D029 /* ViewController.swift */; };
+		AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226A25EF46410032D029 /* IntroViewController.swift */; };
 		AE8D226E25EF46410032D029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8D226C25EF46410032D029 /* Main.storyboard */; };
 		AE8D227125EF46410032D029 /* BachelorProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226F25EF46410032D029 /* BachelorProject.xcdatamodeld */; };
 		AE8D227325EF46460032D029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE8D227225EF46460032D029 /* Assets.xcassets */; };
 		AE8D227625EF46460032D029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE8D227425EF46460032D029 /* LaunchScreen.storyboard */; };
 		AE8D228125EF46470032D029 /* BachelorProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D228025EF46470032D029 /* BachelorProjectTests.swift */; };
 		AE8D228C25EF46470032D029 /* BachelorProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D228B25EF46470032D029 /* BachelorProjectUITests.swift */; };
-		AE8D22B525EF4E670032D029 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D22B425EF4E670032D029 /* ViewController.xib */; };
+		AE8D22B525EF4E670032D029 /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D22B425EF4E670032D029 /* IntroViewController.xib */; };
 		AE8D22BE25EF503A0032D029 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D22BD25EF503A0032D029 /* Router.swift */; };
+		AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D22DB25EF64010032D029 /* LoginViewController.swift */; };
+		AE8D22DE25EF64010032D029 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D22DC25EF64010032D029 /* LoginViewController.xib */; };
+		AE8D22E425EF64420032D029 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D22E225EF64420032D029 /* RegisterViewController.swift */; };
+		AE8D22E525EF64420032D029 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D22E325EF64420032D029 /* RegisterViewController.xib */; };
+		AE8D22F125EF70C90032D029 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D22F025EF70C80032D029 /* NibLoadable.swift */; };
+		AE8D22F925EF74280032D029 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D22F825EF74270032D029 /* PhotoView.swift */; };
+		AE8D230825EF8CBD0032D029 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D230725EF8CBD0032D029 /* Extension + UIView.swift */; };
+		AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D231025EF990E0032D029 /* UserInfoCollectionViewCell.swift */; };
+		AE8D231325EF990E0032D029 /* UserInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D231125EF990E0032D029 /* UserInfoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +50,7 @@
 		AE8D226325EF46410032D029 /* BachelorProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BachelorProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8D226625EF46410032D029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8D226825EF46410032D029 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE8D226A25EF46410032D029 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AE8D226A25EF46410032D029 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		AE8D226D25EF46410032D029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AE8D227025EF46410032D029 /* BachelorProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BachelorProject.xcdatamodel; sourceTree = "<group>"; };
 		AE8D227225EF46460032D029 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,8 +62,17 @@
 		AE8D228725EF46470032D029 /* BachelorProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BachelorProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8D228B25EF46470032D029 /* BachelorProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BachelorProjectUITests.swift; sourceTree = "<group>"; };
 		AE8D228D25EF46470032D029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AE8D22B425EF4E670032D029 /* ViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		AE8D22B425EF4E670032D029 /* IntroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
 		AE8D22BD25EF503A0032D029 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		AE8D22DB25EF64010032D029 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AE8D22DC25EF64010032D029 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		AE8D22E225EF64420032D029 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		AE8D22E325EF64420032D029 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		AE8D22F025EF70C80032D029 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		AE8D22F825EF74270032D029 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
+		AE8D230725EF8CBD0032D029 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		AE8D231025EF990E0032D029 /* UserInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE8D231125EF990E0032D029 /* UserInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +123,15 @@
 		AE8D226525EF46410032D029 /* BachelorProject */ = {
 			isa = PBXGroup;
 			children = (
+				AE8D230625EF8C970032D029 /* Extensions */,
+				AE8D230225EF7F490032D029 /* Models */,
+				AE8D22EF25EF709A0032D029 /* Protocols */,
+				AE8D22D425EF60660032D029 /* CustomViews */,
 				AE8D22BC25EF50270032D029 /* Helpers */,
 				AE8D22B225EF4DF20032D029 /* Resources */,
 				AE8D22B125EF4D6D0032D029 /* Controller */,
 				AE8D22B025EF4D550032D029 /* Aplication */,
 				AE8D22B325EF4E120032D029 /* CoreData */,
-				AE8D22B425EF4E670032D029 /* ViewController.xib */,
 				AE8D227725EF46460032D029 /* Info.plist */,
 			);
 			path = BachelorProject;
@@ -147,7 +168,12 @@
 		AE8D22B125EF4D6D0032D029 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				AE8D226A25EF46410032D029 /* ViewController.swift */,
+				AE8D226A25EF46410032D029 /* IntroViewController.swift */,
+				AE8D22B425EF4E670032D029 /* IntroViewController.xib */,
+				AE8D22DB25EF64010032D029 /* LoginViewController.swift */,
+				AE8D22DC25EF64010032D029 /* LoginViewController.xib */,
+				AE8D22E225EF64420032D029 /* RegisterViewController.swift */,
+				AE8D22E325EF64420032D029 /* RegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -175,6 +201,47 @@
 				AE8D22BD25EF503A0032D029 /* Router.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AE8D22D425EF60660032D029 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D230F25EF98D40032D029 /* Cells */,
+				AE8D22F825EF74270032D029 /* PhotoView.swift */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		AE8D22EF25EF709A0032D029 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D22F025EF70C80032D029 /* NibLoadable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AE8D230225EF7F490032D029 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AE8D230625EF8C970032D029 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D230725EF8CBD0032D029 /* Extension + UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AE8D230F25EF98D40032D029 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D231025EF990E0032D029 /* UserInfoCollectionViewCell.swift */,
+				AE8D231125EF990E0032D029 /* UserInfoCollectionViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,10 +347,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8D22DE25EF64010032D029 /* LoginViewController.xib in Resources */,
 				AE8D227625EF46460032D029 /* LaunchScreen.storyboard in Resources */,
 				AE8D227325EF46460032D029 /* Assets.xcassets in Resources */,
-				AE8D22B525EF4E670032D029 /* ViewController.xib in Resources */,
+				AE8D22B525EF4E670032D029 /* IntroViewController.xib in Resources */,
+				AE8D231325EF990E0032D029 /* UserInfoCollectionViewCell.xib in Resources */,
 				AE8D226E25EF46410032D029 /* Main.storyboard in Resources */,
+				AE8D22E525EF64420032D029 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,8 +378,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE8D226B25EF46410032D029 /* ViewController.swift in Sources */,
+				AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */,
+				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
+				AE8D22F125EF70C90032D029 /* NibLoadable.swift in Sources */,
+				AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */,
+				AE8D22F925EF74280032D029 /* PhotoView.swift in Sources */,
+				AE8D22E425EF64420032D029 /* RegisterViewController.swift in Sources */,
 				AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */,
+				AE8D230825EF8CBD0032D029 /* Extension + UIView.swift in Sources */,
 				AE8D22BE25EF503A0032D029 /* Router.swift in Sources */,
 				AE8D226925EF46410032D029 /* SceneDelegate.swift in Sources */,
 				AE8D227125EF46410032D029 /* BachelorProject.xcdatamodeld in Sources */,
