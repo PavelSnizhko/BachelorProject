@@ -7,15 +7,13 @@
 
 import UIKit
 
-@IBDesignable
 final class PhotoView: UIView {
     private let imageView: UIImageView = UIImageView()
     private let label: UILabel = UILabel()
-    private let stackView = UIStackView()
     
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
-        addStackView()
+        addImageView()
     }
     
     override func layoutSubviews() {
@@ -27,44 +25,32 @@ final class PhotoView: UIView {
 
 // MARK: private extension
 private extension PhotoView {
-    func addStackView() {
-        self.addSubview(stackView)
-        setUpStackViewConstraints()
-        stackView.axis = .vertical
-        stackView.distribution = .fillEqually
-        stackView.alignment = .fill
-        stackView.spacing = 0
-        addImageView()
-        addLabel()
-    
-    }
-    
-    func setUpStackViewConstraints() {
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([stackView.topAnchor.constraint(equalTo: self.topAnchor, constant:  self.bounds.height / 4),
-                                     stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: self.bounds.width / 4),
-                                     stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-                                     stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor)])
-        
-    }
     
     func addImageView() {
         imageView.image = UIImage(named: "camera")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        stackView.addArrangedSubview(imageView)
+        self.addSubview(imageView)
+        setUpImageConstraints()
     }
     
     func addLabel() {
         label.text = "Photo"
         label.textAlignment = .center
-        stackView.addArrangedSubview(label)
+    }
+    
+    func setUpImageConstraints() {
+        NSLayoutConstraint.activate([
+            self.imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4),
+            self.imageView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.4),
+            self.imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+            self.imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        ])
     }
 }
 
 // MARK: Decorator extension
 extension PhotoView {
-    
     
     fileprivate final class Decorator {
         static func decorate(_ view: PhotoView) {

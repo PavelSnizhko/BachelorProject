@@ -27,6 +27,14 @@
 		AE8D230825EF8CBD0032D029 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D230725EF8CBD0032D029 /* Extension + UIView.swift */; };
 		AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D231025EF990E0032D029 /* UserInfoCollectionViewCell.swift */; };
 		AE8D231325EF990E0032D029 /* UserInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D231125EF990E0032D029 /* UserInfoCollectionViewCell.xib */; };
+		AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D232825F0E6980032D029 /* HeaderProtocol.swift */; };
+		AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D232D25F0EC470032D029 /* HeaderCollectionReusableView.swift */; };
+		AE8D233025F0EC470032D029 /* HeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D232E25F0EC470032D029 /* HeaderCollectionReusableView.xib */; };
+		AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D233A25F1056E0032D029 /* DatePickerCollectionViewCell.swift */; };
+		AE8D233D25F1056F0032D029 /* DatePickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D233B25F1056E0032D029 /* DatePickerCollectionViewCell.xib */; };
+		AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D234925F1067B0032D029 /* SegmenterCollectionViewCell.swift */; };
+		AE8D234C25F1067B0032D029 /* SegmenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D234A25F1067B0032D029 /* SegmenterCollectionViewCell.xib */; };
+		AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D235025F109BA0032D029 /* TypeAliasses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +81,14 @@
 		AE8D230725EF8CBD0032D029 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		AE8D231025EF990E0032D029 /* UserInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE8D231125EF990E0032D029 /* UserInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE8D232825F0E6980032D029 /* HeaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProtocol.swift; sourceTree = "<group>"; };
+		AE8D232D25F0EC470032D029 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		AE8D232E25F0EC470032D029 /* HeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		AE8D233A25F1056E0032D029 /* DatePickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE8D233B25F1056E0032D029 /* DatePickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE8D234925F1067B0032D029 /* SegmenterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmenterCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE8D234A25F1067B0032D029 /* SegmenterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmenterCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE8D235025F109BA0032D029 /* TypeAliasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliasses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +222,7 @@
 		AE8D22D425EF60660032D029 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				AE8D231D25F0DC3A0032D029 /* HeaderViews */,
 				AE8D230F25EF98D40032D029 /* Cells */,
 				AE8D22F825EF74270032D029 /* PhotoView.swift */,
 			);
@@ -216,6 +233,8 @@
 			isa = PBXGroup;
 			children = (
 				AE8D22F025EF70C80032D029 /* NibLoadable.swift */,
+				AE8D232825F0E6980032D029 /* HeaderProtocol.swift */,
+				AE8D235025F109BA0032D029 /* TypeAliasses.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -240,8 +259,21 @@
 			children = (
 				AE8D231025EF990E0032D029 /* UserInfoCollectionViewCell.swift */,
 				AE8D231125EF990E0032D029 /* UserInfoCollectionViewCell.xib */,
+				AE8D233A25F1056E0032D029 /* DatePickerCollectionViewCell.swift */,
+				AE8D233B25F1056E0032D029 /* DatePickerCollectionViewCell.xib */,
+				AE8D234925F1067B0032D029 /* SegmenterCollectionViewCell.swift */,
+				AE8D234A25F1067B0032D029 /* SegmenterCollectionViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		AE8D231D25F0DC3A0032D029 /* HeaderViews */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D232D25F0EC470032D029 /* HeaderCollectionReusableView.swift */,
+				AE8D232E25F0EC470032D029 /* HeaderCollectionReusableView.xib */,
+			);
+			path = HeaderViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,11 +381,14 @@
 			files = (
 				AE8D22DE25EF64010032D029 /* LoginViewController.xib in Resources */,
 				AE8D227625EF46460032D029 /* LaunchScreen.storyboard in Resources */,
+				AE8D233025F0EC470032D029 /* HeaderCollectionReusableView.xib in Resources */,
 				AE8D227325EF46460032D029 /* Assets.xcassets in Resources */,
 				AE8D22B525EF4E670032D029 /* IntroViewController.xib in Resources */,
+				AE8D234C25F1067B0032D029 /* SegmenterCollectionViewCell.xib in Resources */,
 				AE8D231325EF990E0032D029 /* UserInfoCollectionViewCell.xib in Resources */,
 				AE8D226E25EF46410032D029 /* Main.storyboard in Resources */,
 				AE8D22E525EF64420032D029 /* RegisterViewController.xib in Resources */,
+				AE8D233D25F1056F0032D029 /* DatePickerCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,7 +413,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */,
+				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
 				AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */,
+				AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */,
+				AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */,
 				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
 				AE8D22F125EF70C90032D029 /* NibLoadable.swift in Sources */,
 				AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */,
@@ -386,6 +425,7 @@
 				AE8D22E425EF64420032D029 /* RegisterViewController.swift in Sources */,
 				AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */,
 				AE8D230825EF8CBD0032D029 /* Extension + UIView.swift in Sources */,
+				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
 				AE8D22BE25EF503A0032D029 /* Router.swift in Sources */,
 				AE8D226925EF46410032D029 /* SceneDelegate.swift in Sources */,
 				AE8D227125EF46410032D029 /* BachelorProject.xcdatamodeld in Sources */,
@@ -567,6 +607,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UPWXFVVHLN;
 				INFOPLIST_FILE = BachelorProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -586,6 +627,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UPWXFVVHLN;
 				INFOPLIST_FILE = BachelorProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
