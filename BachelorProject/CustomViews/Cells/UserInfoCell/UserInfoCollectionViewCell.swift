@@ -8,10 +8,18 @@
 import UIKit
 
 class UserInfoCollectionViewCell: UICollectionViewCell, NibLoadable {
-
+    @IBOutlet private weak var photoView: PhotoView!
+    var photoViewTapped: VoidClosure?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        photoView.tapped = photoViewTapped
+    }
+    
+    func setAvatarImage(image: UIImage?) {
+        photoView.setAvatarImage(image)
     }
 
 }

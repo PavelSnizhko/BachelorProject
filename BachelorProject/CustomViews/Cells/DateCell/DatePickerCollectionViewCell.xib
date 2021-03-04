@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick your birth day" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aaj-9J-O0f">
-                        <rect key="frame" x="16" y="0.0" width="337" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="369" height="50"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
@@ -27,9 +27,9 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Aaj-9J-O0f" secondAttribute="bottom" id="DUy-m4-PfU"/>
-                <constraint firstAttribute="trailing" secondItem="Aaj-9J-O0f" secondAttribute="trailing" constant="16" id="IKE-jI-KdO"/>
+                <constraint firstAttribute="trailing" secondItem="Aaj-9J-O0f" secondAttribute="trailing" id="IKE-jI-KdO"/>
                 <constraint firstItem="Aaj-9J-O0f" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cbj-Ns-dbm"/>
-                <constraint firstItem="Aaj-9J-O0f" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="jNw-1F-7UB"/>
+                <constraint firstItem="Aaj-9J-O0f" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jNw-1F-7UB"/>
             </constraints>
             <size key="customSize" width="369" height="50"/>
             <connections>

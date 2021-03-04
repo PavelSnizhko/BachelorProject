@@ -35,6 +35,10 @@
 		AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D234925F1067B0032D029 /* SegmenterCollectionViewCell.swift */; };
 		AE8D234C25F1067B0032D029 /* SegmenterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D234A25F1067B0032D029 /* SegmenterCollectionViewCell.xib */; };
 		AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D235025F109BA0032D029 /* TypeAliasses.swift */; };
+		AE8D236525F149F40032D029 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D236425F149F20032D029 /* RegisterModel.swift */; };
+		AE8D238825F150740032D029 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D238625F150740032D029 /* ButtonCollectionViewCell.swift */; };
+		AE8D238925F150740032D029 /* ButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */; };
+		AE8D238E25F15ECB0032D029 /* Alerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D238D25F15ECB0032D029 /* Alerting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +93,10 @@
 		AE8D234925F1067B0032D029 /* SegmenterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmenterCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE8D234A25F1067B0032D029 /* SegmenterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SegmenterCollectionViewCell.xib; sourceTree = "<group>"; };
 		AE8D235025F109BA0032D029 /* TypeAliasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliasses.swift; sourceTree = "<group>"; };
+		AE8D236425F149F20032D029 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		AE8D238625F150740032D029 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE8D238D25F15ECB0032D029 /* Alerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +232,8 @@
 			children = (
 				AE8D231D25F0DC3A0032D029 /* HeaderViews */,
 				AE8D230F25EF98D40032D029 /* Cells */,
-				AE8D22F825EF74270032D029 /* PhotoView.swift */,
+				AE8D236F25F14E2F0032D029 /* CustomReusableView */,
+				AE8D239225F172A50032D029 /* ButtonCell */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -235,6 +244,7 @@
 				AE8D22F025EF70C80032D029 /* NibLoadable.swift */,
 				AE8D232825F0E6980032D029 /* HeaderProtocol.swift */,
 				AE8D235025F109BA0032D029 /* TypeAliasses.swift */,
+				AE8D238D25F15ECB0032D029 /* Alerting.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -242,6 +252,7 @@
 		AE8D230225EF7F490032D029 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AE8D236425F149F20032D029 /* RegisterModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,12 +268,9 @@
 		AE8D230F25EF98D40032D029 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				AE8D231025EF990E0032D029 /* UserInfoCollectionViewCell.swift */,
-				AE8D231125EF990E0032D029 /* UserInfoCollectionViewCell.xib */,
-				AE8D233A25F1056E0032D029 /* DatePickerCollectionViewCell.swift */,
-				AE8D233B25F1056E0032D029 /* DatePickerCollectionViewCell.xib */,
-				AE8D234925F1067B0032D029 /* SegmenterCollectionViewCell.swift */,
-				AE8D234A25F1067B0032D029 /* SegmenterCollectionViewCell.xib */,
+				AE8D236925F14DE40032D029 /* UserInfoCell */,
+				AE8D236A25F14DFF0032D029 /* DateCell */,
+				AE8D236E25F14E110032D029 /* SexCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -274,6 +282,50 @@
 				AE8D232E25F0EC470032D029 /* HeaderCollectionReusableView.xib */,
 			);
 			path = HeaderViews;
+			sourceTree = "<group>";
+		};
+		AE8D236925F14DE40032D029 /* UserInfoCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D231025EF990E0032D029 /* UserInfoCollectionViewCell.swift */,
+				AE8D231125EF990E0032D029 /* UserInfoCollectionViewCell.xib */,
+			);
+			path = UserInfoCell;
+			sourceTree = "<group>";
+		};
+		AE8D236A25F14DFF0032D029 /* DateCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D233A25F1056E0032D029 /* DatePickerCollectionViewCell.swift */,
+				AE8D233B25F1056E0032D029 /* DatePickerCollectionViewCell.xib */,
+			);
+			path = DateCell;
+			sourceTree = "<group>";
+		};
+		AE8D236E25F14E110032D029 /* SexCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D234925F1067B0032D029 /* SegmenterCollectionViewCell.swift */,
+				AE8D234A25F1067B0032D029 /* SegmenterCollectionViewCell.xib */,
+			);
+			path = SexCell;
+			sourceTree = "<group>";
+		};
+		AE8D236F25F14E2F0032D029 /* CustomReusableView */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D22F825EF74270032D029 /* PhotoView.swift */,
+			);
+			path = CustomReusableView;
+			sourceTree = "<group>";
+		};
+		AE8D239225F172A50032D029 /* ButtonCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE8D238625F150740032D029 /* ButtonCollectionViewCell.swift */,
+				AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */,
+			);
+			path = ButtonCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +431,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE8D238925F150740032D029 /* ButtonCollectionViewCell.xib in Resources */,
 				AE8D22DE25EF64010032D029 /* LoginViewController.xib in Resources */,
 				AE8D227625EF46460032D029 /* LaunchScreen.storyboard in Resources */,
 				AE8D233025F0EC470032D029 /* HeaderCollectionReusableView.xib in Resources */,
@@ -419,6 +472,7 @@
 				AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */,
 				AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */,
 				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
+				AE8D238E25F15ECB0032D029 /* Alerting.swift in Sources */,
 				AE8D22F125EF70C90032D029 /* NibLoadable.swift in Sources */,
 				AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */,
 				AE8D22F925EF74280032D029 /* PhotoView.swift in Sources */,
@@ -426,8 +480,10 @@
 				AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */,
 				AE8D230825EF8CBD0032D029 /* Extension + UIView.swift in Sources */,
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
+				AE8D236525F149F40032D029 /* RegisterModel.swift in Sources */,
 				AE8D22BE25EF503A0032D029 /* Router.swift in Sources */,
 				AE8D226925EF46410032D029 /* SceneDelegate.swift in Sources */,
+				AE8D238825F150740032D029 /* ButtonCollectionViewCell.swift in Sources */,
 				AE8D227125EF46410032D029 /* BachelorProject.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
