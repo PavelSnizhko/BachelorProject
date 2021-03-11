@@ -9,7 +9,6 @@ import UIKit
 
 class DatePickerCollectionViewCell: UICollectionViewCell, NibLoadable {
     @IBOutlet weak var textField: UITextField!
-
     
     override func awakeFromNib() {
         super.awakeFromNib()

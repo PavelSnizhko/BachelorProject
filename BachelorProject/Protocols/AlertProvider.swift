@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol Alerting {
+protocol AlertProvider {
     func showAlert(from controller: UIViewController, with title: String, and message: String)
 }
 
 
-extension Alerting {
+extension AlertProvider {
     func showAlert(from controller: UIViewController, with title: String, and message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)

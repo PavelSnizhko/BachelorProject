@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,7 +38,7 @@
 		AE8D236525F149F40032D029 /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D236425F149F20032D029 /* RegisterModel.swift */; };
 		AE8D238825F150740032D029 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D238625F150740032D029 /* ButtonCollectionViewCell.swift */; };
 		AE8D238925F150740032D029 /* ButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */; };
-		AE8D238E25F15ECB0032D029 /* Alerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D238D25F15ECB0032D029 /* Alerting.swift */; };
+		AE8D238E25F15ECB0032D029 /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D238D25F15ECB0032D029 /* AlertProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +96,7 @@
 		AE8D236425F149F20032D029 /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
 		AE8D238625F150740032D029 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCollectionViewCell.xib; sourceTree = "<group>"; };
-		AE8D238D25F15ECB0032D029 /* Alerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerting.swift; sourceTree = "<group>"; };
+		AE8D238D25F15ECB0032D029 /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,7 +244,7 @@
 				AE8D22F025EF70C80032D029 /* NibLoadable.swift */,
 				AE8D232825F0E6980032D029 /* HeaderProtocol.swift */,
 				AE8D235025F109BA0032D029 /* TypeAliasses.swift */,
-				AE8D238D25F15ECB0032D029 /* Alerting.swift */,
+				AE8D238D25F15ECB0032D029 /* AlertProvider.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -472,7 +472,7 @@
 				AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */,
 				AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */,
 				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
-				AE8D238E25F15ECB0032D029 /* Alerting.swift in Sources */,
+				AE8D238E25F15ECB0032D029 /* AlertProvider.swift in Sources */,
 				AE8D22F125EF70C90032D029 /* NibLoadable.swift in Sources */,
 				AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */,
 				AE8D22F925EF74280032D029 /* PhotoView.swift in Sources */,

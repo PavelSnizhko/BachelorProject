@@ -7,16 +7,22 @@
 
 import UIKit
 
-final class RegisterViewController: UIViewController, NibLoadable, Alerting {
+final class RegisterViewController: UIViewController, NibLoadable, AlertProvider {
     @IBOutlet weak var collectionView: UICollectionView!
 
     private var headersType: [HeaderType] = [.userInfo, .sex, .date, .button]
+    private var segmentTypes: [Sex] = [.male, .female]
     private var registerModel = RegisterModel()
+    //INFO: this gonna be replaced due to apple's recomendation
     private let picker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .date
         picker.minimumDate = Calendar.current.date(byAdding: .year, value: -100, to: Date())
         picker.maximumDate = Date()
+        if #available(iOS 14, *) {
+            picker.preferredDatePickerStyle = .wheels
+            picker.sizeToFit()
+        }
         return picker
     }()
     
@@ -26,7 +32,8 @@ final class RegisterViewController: UIViewController, NibLoadable, Alerting {
         registerCells()
         launchDelegating()
         configDatePicker()
-        collectionView.keyboardDismissMode = .interactive
+        collectionView.alwaysBounceVertical = true
+        collectionView.keyboardDismissMode = .onDrag
         // Do any additional setup after loading the view.
     }
     
@@ -62,17 +69,27 @@ final class RegisterViewController: UIViewController, NibLoadable, Alerting {
     }
     
     private func phototViewTapped() {
+        // for triggering taping on view
+        print("phototViewTapped")
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
     }
 }
 
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[UIImagePickerController.InfoKey.originalImage] else {
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             return
         }
         
+        registerModel.image = image
+        
+        collectionView.reloadData()
     }
 }
 
@@ -84,7 +101,9 @@ extension RegisterViewController {
         let headerView: UICollectionReusableView!
         switch headersType[indexPath.section] {
         case .userInfo, .button, .date:
-            headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "EmptyHeader", for: indexPath)
+            headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                         withReuseIdentifier: "EmptyHeader",
+                                                                         for: indexPath)
         case .sex:
             guard let headerCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.name, for: indexPath) as? HeaderCollectionReusableView else {
                 return UICollectionReusableView()
@@ -115,15 +134,34 @@ extension RegisterViewController: UICollectionViewDataSource {
         
         switch headersType[indexPath.section].cellModel[indexPath.item]{
         case .userInfo:
+            // todo move to another func logi creating this cell
             guard let userInfoCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: UserInfoCollectionViewCell.name, for: indexPath) as? UserInfoCollectionViewCell else { fatalError() }
+            
+            userInfoCollectionViewCell.nameIsChanged  = { [weak self]  text in
+                self?.registerModel.firstName = text
+            }
+               
+            userInfoCollectionViewCell.surnameIsChanged  = { [weak self]  text in
+                self?.registerModel.secondName = text
+            }
+           
+
             userInfoCollectionViewCell.photoViewTapped = phototViewTapped
+            userInfoCollectionViewCell.setAvatarImage(image: registerModel.image)
+            
             cell = userInfoCollectionViewCell
+
         case .sex:
             guard let segmenterCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: SegmenterCollectionViewCell.name, for: indexPath) as? SegmenterCollectionViewCell else { fatalError() }
-            segmenterCollectionViewCell.indexChanged = { index in
-                print(index)
+            
+            segmenterCollectionViewCell.setTitles(with: segmentTypes.map{ $0.rawValue.capitalized })
+            
+            segmenterCollectionViewCell.indexChanged = { [weak self] index in
+                self?.registerModel.sex = index == 0 ? .male : .female
             }
+            
             cell = segmenterCollectionViewCell
+            
         case .date:
             guard let datePickerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: DatePickerCollectionViewCell.name, for: indexPath) as? DatePickerCollectionViewCell else { fatalError() }
             datePickerCollectionViewCell.textField.inputView = picker
@@ -134,6 +172,7 @@ extension RegisterViewController: UICollectionViewDataSource {
             buttonCollectionViewCell.buttonTapped = { [ weak self] in
                 guard let self = self else { return }
                 guard self.registerModel.isFilled else { self.showAlert(from: self, with: "Dangerous", and: "Please, fill all forms"); return }
+                self.showAlert(from: self, with: "\(self.registerModel.firstName)", and: "\(self.registerModel.secondName) \(self.registerModel.sex.rawValue) \n \(self.registerModel.birthday)")
                 // TODO: handle when will be full filled model
             }
             cell = buttonCollectionViewCell

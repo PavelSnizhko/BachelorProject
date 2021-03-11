@@ -17,6 +17,13 @@ class SegmenterCollectionViewCell: UICollectionViewCell, NibLoadable {
         // Initialization code
     }
     
+    func setTitles(with titles: [String]) {
+        segmentedControll.removeAllSegments()
+        titles.enumerated().forEach{
+            segmentedControll.insertSegment(withTitle: $1, at: $0, animated: true)
+        }
+    }
+    
     private func addTarget() {
         segmentedControll.addTarget(self, action: #selector(changeIndex(sender:)), for: .valueChanged)
     }

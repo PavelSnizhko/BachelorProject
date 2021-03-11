@@ -64,7 +64,9 @@
             </constraints>
             <size key="customSize" width="413" height="129"/>
             <connections>
+                <outlet property="nameField" destination="pt5-vG-X34" id="E9X-q9-fnd"/>
                 <outlet property="photoView" destination="vMA-ae-rF8" id="8Q8-zy-bxr"/>
+                <outlet property="surnameField" destination="CVR-nh-r8p" id="FwM-Oi-He3"/>
             </connections>
             <point key="canvasLocation" x="277.536231884058" y="82.03125"/>
         </collectionViewCell>

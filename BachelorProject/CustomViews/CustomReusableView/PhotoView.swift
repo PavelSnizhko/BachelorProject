@@ -16,6 +16,8 @@ final class PhotoView: UIView {
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         addImageView()
+        addAvatarImageView()
+        clipsToBounds = true
     }
     
     override func layoutSubviews() {
@@ -27,21 +29,19 @@ final class PhotoView: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         tapped?()
+        print("fuck it works")
     }
 }
 
 // MARK: private extension
 private extension PhotoView {
     func addAvatarImageView() {
+        self.addSubview(avatarImageView)
         avatarImageView.isHidden = true
         avatarImageView.contentMode = .scaleAspectFill
         setUpAvatarImageViewConstraints()
     }
     
-    func addAvatarImage(image: UIImage?) {
-        avatarImageView.image = image
-        avatarImageView.isHidden = image == nil
-    }
     
     func setUpAvatarImageViewConstraints() {
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,6 +79,13 @@ private extension PhotoView {
 // MARK: Decorator extension
 extension PhotoView {
     
+    func addAvatarImage(image: UIImage?) {
+        avatarImageView.image = image
+        avatarImageView.isHidden = image == nil
+    }
+    
+    
+    //TODO: think is it ok??
     fileprivate final class Decorator {
         static func decorate(_ view: PhotoView) {
             view.layer.borderColor = UIColor.green.cgColor

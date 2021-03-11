@@ -9,7 +9,7 @@ import UIKit
 
 class ButtonCollectionViewCell: UICollectionViewCell, NibLoadable {
     
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet private weak var button: UIButton!
     var buttonTapped: VoidClosure?
     
     var buttonTitle: String? {
@@ -26,6 +26,11 @@ class ButtonCollectionViewCell: UICollectionViewCell, NibLoadable {
     override func prepareForReuse() {
         super.prepareForReuse()
         buttonTitle = nil
+    }
+    
+    func changeButtonEnabling(state: Bool) {
+        self.button.isEnabled = state
+        self.button.backgroundColor = state ? UIColor(named: "redColor") :  UIColor.gray
     }
     
     @IBAction func didTapButton(sender: UIButton) {
