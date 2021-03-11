@@ -20,11 +20,18 @@ struct RegisterModel {
     var password: String?
     var sex: Sex = .male
     var birthday: Date?
+    var email: String?
     
     var isFilled: Bool {
-        guard image != nil, !(firstName ?? " ").isEmpty, !(secondName ?? " ").isEmpty, !(password ?? " ").isEmpty, birthday != nil  else {
+        
+        let isFilledUserInfo = image != nil && !(firstName ?? " ").isEmpty && !(secondName ?? " ").isEmpty &&  birthday != nil
+        
+        let isFilledAuthInfo = !(password ?? " ").isEmpty  && !(email ?? " ").isEmpty
+        
+        guard  isFilledUserInfo && isFilledAuthInfo  else {
             return false
         }
+        
         return true
     }
 }

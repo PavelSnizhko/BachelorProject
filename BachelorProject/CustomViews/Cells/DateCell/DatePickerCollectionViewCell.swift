@@ -15,6 +15,4 @@ class DatePickerCollectionViewCell: UICollectionViewCell, NibLoadable {
         // Initialization code
     }
     
-    
-
 }

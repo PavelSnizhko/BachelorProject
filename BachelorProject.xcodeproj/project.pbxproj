@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE4CF80425FA6887008024C9 /* AuthDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4CF80225FA6887008024C9 /* AuthDataCollectionViewCell.swift */; };
+		AE4CF80525FA6887008024C9 /* AuthDataCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE4CF80325FA6887008024C9 /* AuthDataCollectionViewCell.xib */; };
 		AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226625EF46410032D029 /* AppDelegate.swift */; };
 		AE8D226925EF46410032D029 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226825EF46410032D029 /* SceneDelegate.swift */; };
 		AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226A25EF46410032D029 /* IntroViewController.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE4CF80225FA6887008024C9 /* AuthDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE4CF80325FA6887008024C9 /* AuthDataCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthDataCollectionViewCell.xib; sourceTree = "<group>"; };
 		AE8D226325EF46410032D029 /* BachelorProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BachelorProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8D226625EF46410032D029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8D226825EF46410032D029 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE4CF80925FA688E008024C9 /* AuthDataCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE4CF80225FA6887008024C9 /* AuthDataCollectionViewCell.swift */,
+				AE4CF80325FA6887008024C9 /* AuthDataCollectionViewCell.xib */,
+			);
+			path = AuthDataCell;
+			sourceTree = "<group>";
+		};
 		AE8D225A25EF46410032D029 = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +284,7 @@
 				AE8D236925F14DE40032D029 /* UserInfoCell */,
 				AE8D236A25F14DFF0032D029 /* DateCell */,
 				AE8D236E25F14E110032D029 /* SexCell */,
+				AE4CF80925FA688E008024C9 /* AuthDataCell */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -441,6 +455,7 @@
 				AE8D231325EF990E0032D029 /* UserInfoCollectionViewCell.xib in Resources */,
 				AE8D226E25EF46410032D029 /* Main.storyboard in Resources */,
 				AE8D22E525EF64420032D029 /* RegisterViewController.xib in Resources */,
+				AE4CF80525FA6887008024C9 /* AuthDataCollectionViewCell.xib in Resources */,
 				AE8D233D25F1056F0032D029 /* DatePickerCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -470,6 +485,7 @@
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
 				AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */,
 				AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */,
+				AE4CF80425FA6887008024C9 /* AuthDataCollectionViewCell.swift in Sources */,
 				AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */,
 				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
 				AE8D238E25F15ECB0032D029 /* AlertProvider.swift in Sources */,

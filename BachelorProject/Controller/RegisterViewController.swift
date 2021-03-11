@@ -10,7 +10,7 @@ import UIKit
 final class RegisterViewController: UIViewController, NibLoadable, AlertProvider {
     @IBOutlet weak var collectionView: UICollectionView!
 
-    private var headersType: [HeaderType] = [.userInfo, .sex, .date, .button]
+    private var headersType: [HeaderType] = [.userInfo, .sex, .date, .auth, .button ]
     private var segmentTypes: [Sex] = [.male, .female]
     private var registerModel = RegisterModel()
     //INFO: this gonna be replaced due to apple's recomendation
@@ -41,6 +41,7 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
         collectionView.register(UserInfoCollectionViewCell.nib, forCellWithReuseIdentifier: UserInfoCollectionViewCell.name)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.register(SegmenterCollectionViewCell.nib, forCellWithReuseIdentifier: SegmenterCollectionViewCell.name)
+        collectionView.register(AuthDataCollectionViewCell.nib, forCellWithReuseIdentifier: AuthDataCollectionViewCell.name)
         collectionView.register(DatePickerCollectionViewCell.nib,
                                 forCellWithReuseIdentifier: DatePickerCollectionViewCell.name)
         collectionView.register(ButtonCollectionViewCell.nib, forCellWithReuseIdentifier: ButtonCollectionViewCell.name)
@@ -100,7 +101,7 @@ extension RegisterViewController {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView: UICollectionReusableView!
         switch headersType[indexPath.section] {
-        case .userInfo, .button, .date:
+        case .userInfo, .button, .date, .auth:
             headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                                          withReuseIdentifier: "EmptyHeader",
                                                                          for: indexPath)
@@ -177,6 +178,18 @@ extension RegisterViewController: UICollectionViewDataSource {
             }
             cell = buttonCollectionViewCell
             
+        case .auth:
+            guard let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: AuthDataCollectionViewCell.name, for: indexPath) as? AuthDataCollectionViewCell  else { fatalError() }
+            
+            customCell.emailText = { [weak self] text in
+                self?.registerModel.email = text
+            }
+            
+            customCell.passwordText = { [weak self] text in
+                self?.registerModel.password = text
+            }
+            
+            cell = customCell
         }
         return cell
     }
@@ -188,6 +201,7 @@ extension RegisterViewController: UICollectionViewDelegate {
 
 
 
+// MARK: HeaderType && ModelsType
 private extension RegisterViewController {
     
     enum HeaderType: HeaderProtocol {
@@ -195,6 +209,7 @@ private extension RegisterViewController {
         case userInfo
         case sex
         case date
+        case auth
         case button
         
         var cellModel: [RegisterViewController.ModelsType] {
@@ -203,6 +218,7 @@ private extension RegisterViewController {
             case .sex: return [.sex]
             case .date: return [.date]
             case .button: return [.button]
+            case .auth: return [.auth]
             }
         }
     }
@@ -213,6 +229,7 @@ private extension RegisterViewController {
         case sex
         case date
         case button// student or not for the first time probably it's not needed
+        case auth
     }
     
 }
@@ -224,7 +241,7 @@ extension RegisterViewController: UICollectionViewDelegateFlowLayout {
         let screenHeight = collectionView.bounds.height
 
         switch headersType[section] {
-        case .userInfo, .button, .date:
+        case .userInfo, .button, .date, .auth:
             return CGSize(width: 0, height: screenHeight * 0.02)
         case .sex:
             return CGSize(width: screenWidth * 0.9, height: screenHeight * 0.08)
@@ -246,6 +263,9 @@ extension RegisterViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: width, height: height)
         case .button:
             let height = collectionView.bounds.height * 0.06
+            return CGSize(width: width, height: height)
+        case .auth:
+            let height = collectionView.bounds.height * 0.1
             return CGSize(width: width, height: height)
         }
     }
