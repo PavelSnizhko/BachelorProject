@@ -16,21 +16,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if !UserDefaults.standard.bool(forKey: "firstLaunch") {
             guard let windowScene = (scene as? UIWindowScene) else { return }
+            
             window = UIWindow(frame: windowScene.coordinateSpace.bounds)
             window?.windowScene = windowScene
+            
             let questionsVC = IntroViewController(
                 nibName: "IntroViewController",
                 bundle: Bundle.main)
+            
             window?.rootViewController = UINavigationController(rootViewController: questionsVC)
             window?.makeKeyAndVisible()
         }
         else {
             guard let windowScene = (scene as? UIWindowScene) else { return }
+            
             window = UIWindow(frame: windowScene.coordinateSpace.bounds)
             window?.windowScene = windowScene
+            
             let questionsVC = LoginViewController(
                 nibName: "LoginViewController",
                 bundle: Bundle.main)
+            
             window?.rootViewController = UINavigationController(rootViewController: questionsVC)
             window?.makeKeyAndVisible()
         }

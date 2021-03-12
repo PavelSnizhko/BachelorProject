@@ -37,6 +37,8 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
         // Do any additional setup after loading the view.
     }
     
+    
+    
     private func registerCells() {
         collectionView.register(UserInfoCollectionViewCell.nib, forCellWithReuseIdentifier: UserInfoCollectionViewCell.name)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
@@ -172,9 +174,12 @@ extension RegisterViewController: UICollectionViewDataSource {
             buttonCollectionViewCell.buttonTitle = "Create account"
             buttonCollectionViewCell.buttonTapped = { [ weak self] in
                 guard let self = self else { return }
-                guard self.registerModel.isFilled else { self.showAlert(from: self, with: "Dangerous", and: "Please, fill all forms"); return }
-                self.showAlert(from: self, with: "\(self.registerModel.firstName)", and: "\(self.registerModel.secondName) \(self.registerModel.sex.rawValue) \n \(self.registerModel.birthday)")
-                // TODO: handle when will be full filled model
+//                guard self.registerModel.isFilled else { self.showAlert(from: self, with: "Dangerous", and: "Please, fill all forms"); return }
+//                self.showAlert(from: self, with: "\(self.registerModel.firstName)", and: "\(self.registerModel.secondName) \(self.registerModel.sex.rawValue) \n \(self.registerModel.birthday)")
+                let loginVC = LoginViewController(nibName: LoginViewController.name, bundle: .main)
+                self.navigationController?.pushViewController(loginVC, animated: true)
+                
+
             }
             cell = buttonCollectionViewCell
             
