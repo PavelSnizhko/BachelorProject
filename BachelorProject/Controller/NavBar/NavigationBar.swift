@@ -7,8 +7,13 @@
 
 import UIKit
 
+@IBDesignable
 class NavigationBar: UINavigationBar {
 
+    @IBOutlet weak var menuButton: UIButton!
+    @IBOutlet weak var mainTitle: UILabel!
+    @IBOutlet weak var logOutButton: UIButton!
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

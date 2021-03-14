@@ -86,7 +86,12 @@ extension LoginViewController: UICollectionViewDataSource {
             guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell else { fatalError() }
             buttonCell.buttonTitle = "Log in"
             // TODO: handle buttonTapped
-//            buttonCell.buttonTapped = { }
+            buttonCell.buttonTapped = { [weak self] in
+                let homeVC = ContainerViewController()
+//                let navigationController = UINavigationController(rootViewController: homeVC)
+//                self?.navigationController?.pushViewController(homeVC, animated: true)
+                self?.present(homeVC, animated: true, completion: nil)
+            }
             cell = buttonCell
         case .linkingLabels:
             guard let linkingLabelsCell = collectionView.dequeueReusableCell(withReuseIdentifier: LinkingLabelsCollectionViewCell.name, for: indexPath) as? LinkingLabelsCollectionViewCell else { fatalError() }

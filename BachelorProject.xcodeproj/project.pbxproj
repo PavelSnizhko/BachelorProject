@@ -15,6 +15,9 @@
 		AE72403925FB719A005A39E5 /* MainPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE72403725FB719A005A39E5 /* MainPageViewController.xib */; };
 		AE72404225FB764D005A39E5 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72404125FB764D005A39E5 /* NavigationBar.swift */; };
 		AE72404725FB7661005A39E5 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE72404625FB7661005A39E5 /* NavigationBar.xib */; };
+		AE72405025FB7F1E005A39E5 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72404F25FB7F1E005A39E5 /* ContainerViewController.swift */; };
+		AE72405E25FB8480005A39E5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72405C25FB8480005A39E5 /* MenuViewController.swift */; };
+		AE72405F25FB8480005A39E5 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE72405D25FB8480005A39E5 /* MenuViewController.xib */; };
 		AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226625EF46410032D029 /* AppDelegate.swift */; };
 		AE8D226925EF46410032D029 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226825EF46410032D029 /* SceneDelegate.swift */; };
 		AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D226A25EF46410032D029 /* IntroViewController.swift */; };
@@ -47,6 +50,12 @@
 		AE8D238825F150740032D029 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D238625F150740032D029 /* ButtonCollectionViewCell.swift */; };
 		AE8D238925F150740032D029 /* ButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */; };
 		AE8D238E25F15ECB0032D029 /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D238D25F15ECB0032D029 /* AlertProvider.swift */; };
+		AEC84C9325FC93780068A479 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84C9125FC93770068A479 /* MenuItemTableViewCell.swift */; };
+		AEC84C9425FC93780068A479 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC84C9225FC93770068A479 /* MenuItemTableViewCell.xib */; };
+		AEC84CA425FCA90A0068A479 /* MenuControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */; };
+		AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD025FE42120068A479 /* CustomButton.swift */; };
+		AEC84CD925FEAFFB0068A479 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD825FEAFFA0068A479 /* Extension + UIViewController.swift */; };
+		AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */; };
 		AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC15D725FB607C00E204B9 /* LogoCollectionViewCell.swift */; };
 		AEFC15DA25FB607C00E204B9 /* LogoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEFC15D825FB607C00E204B9 /* LogoCollectionViewCell.xib */; };
 		AEFC15E725FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC15E525FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift */; };
@@ -79,6 +88,9 @@
 		AE72403725FB719A005A39E5 /* MainPageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainPageViewController.xib; sourceTree = "<group>"; };
 		AE72404125FB764D005A39E5 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		AE72404625FB7661005A39E5 /* NavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBar.xib; sourceTree = "<group>"; };
+		AE72404F25FB7F1E005A39E5 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		AE72405C25FB8480005A39E5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		AE72405D25FB8480005A39E5 /* MenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		AE8D226325EF46410032D029 /* BachelorProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BachelorProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE8D226625EF46410032D029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE8D226825EF46410032D029 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +129,12 @@
 		AE8D238625F150740032D029 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		AE8D238D25F15ECB0032D029 /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
+		AEC84C9125FC93770068A479 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
+		AEC84C9225FC93770068A479 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
+		AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuControllerDelegate.swift; sourceTree = "<group>"; };
+		AEC84CD025FE42120068A479 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		AEC84CD825FEAFFA0068A479 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
+		AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewController.swift; sourceTree = "<group>"; };
 		AEFC15D725FB607C00E204B9 /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AEFC15D825FB607C00E204B9 /* LogoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoCollectionViewCell.xib; sourceTree = "<group>"; };
 		AEFC15E525FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingLabelsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -198,6 +216,10 @@
 			children = (
 				AE72403625FB719A005A39E5 /* MainPageViewController.swift */,
 				AE72403725FB719A005A39E5 /* MainPageViewController.xib */,
+				AE72404F25FB7F1E005A39E5 /* ContainerViewController.swift */,
+				AE72406325FB8487005A39E5 /* Menu */,
+				AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */,
+				AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -209,6 +231,15 @@
 				AE72404625FB7661005A39E5 /* NavigationBar.xib */,
 			);
 			path = NavBar;
+			sourceTree = "<group>";
+		};
+		AE72406325FB8487005A39E5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				AE72405C25FB8480005A39E5 /* MenuViewController.swift */,
+				AE72405D25FB8480005A39E5 /* MenuViewController.xib */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		AE8D225A25EF46410032D029 = {
@@ -347,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				AE8D230725EF8CBD0032D029 /* Extension + UIView.swift */,
+				AEC84CD825FEAFFA0068A479 /* Extension + UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -354,6 +386,7 @@
 		AE8D230F25EF98D40032D029 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				AEC84C9F25FC93C00068A479 /* TableViews */,
 				AE8D239225F172A50032D029 /* ButtonCell */,
 				AE8D236925F14DE40032D029 /* UserInfoCell */,
 				AE8D236A25F14DFF0032D029 /* DateCell */,
@@ -405,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				AE8D22F825EF74270032D029 /* PhotoView.swift */,
+				AEC84CD025FE42120068A479 /* CustomButton.swift */,
 			);
 			path = CustomReusableView;
 			sourceTree = "<group>";
@@ -416,6 +450,23 @@
 				AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */,
 			);
 			path = ButtonCell;
+			sourceTree = "<group>";
+		};
+		AEC84C9825FC93800068A479 /* MenuItemCell */ = {
+			isa = PBXGroup;
+			children = (
+				AEC84C9125FC93770068A479 /* MenuItemTableViewCell.swift */,
+				AEC84C9225FC93770068A479 /* MenuItemTableViewCell.xib */,
+			);
+			path = MenuItemCell;
+			sourceTree = "<group>";
+		};
+		AEC84C9F25FC93C00068A479 /* TableViews */ = {
+			isa = PBXGroup;
+			children = (
+				AEC84C9825FC93800068A479 /* MenuItemCell */,
+			);
+			path = TableViews;
 			sourceTree = "<group>";
 		};
 		AEFC15DE25FB608100E204B9 /* LogoCell */ = {
@@ -552,6 +603,8 @@
 				AE8D231325EF990E0032D029 /* UserInfoCollectionViewCell.xib in Resources */,
 				AE8D226E25EF46410032D029 /* Main.storyboard in Resources */,
 				AE72402E25FB6EC8005A39E5 /* ResetingPasswordViewController.xib in Resources */,
+				AEC84C9425FC93780068A479 /* MenuItemTableViewCell.xib in Resources */,
+				AE72405F25FB8480005A39E5 /* MenuViewController.xib in Resources */,
 				AE72403925FB719A005A39E5 /* MainPageViewController.xib in Resources */,
 				AE8D22E525EF64420032D029 /* RegisterViewController.xib in Resources */,
 				AE4CF80525FA6887008024C9 /* AuthDataCollectionViewCell.xib in Resources */,
@@ -582,6 +635,7 @@
 			files = (
 				AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */,
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
+				AE72405025FB7F1E005A39E5 /* ContainerViewController.swift in Sources */,
 				AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */,
 				AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */,
 				AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */,
@@ -594,16 +648,22 @@
 				AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */,
 				AE8D22F925EF74280032D029 /* PhotoView.swift in Sources */,
 				AEFC15E725FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift in Sources */,
+				AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */,
 				AE8D22E425EF64420032D029 /* RegisterViewController.swift in Sources */,
 				AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */,
 				AE8D230825EF8CBD0032D029 /* Extension + UIView.swift in Sources */,
 				AE72403825FB719A005A39E5 /* MainPageViewController.swift in Sources */,
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
 				AE8D236525F149F40032D029 /* RegisterModel.swift in Sources */,
+				AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */,
 				AE8D22BE25EF503A0032D029 /* Router.swift in Sources */,
+				AE72405E25FB8480005A39E5 /* MenuViewController.swift in Sources */,
 				AE8D226925EF46410032D029 /* SceneDelegate.swift in Sources */,
 				AE8D238825F150740032D029 /* ButtonCollectionViewCell.swift in Sources */,
+				AEC84C9325FC93780068A479 /* MenuItemTableViewCell.swift in Sources */,
+				AEC84CD925FEAFFB0068A479 /* Extension + UIViewController.swift in Sources */,
 				AE8D227125EF46410032D029 /* BachelorProject.xcdatamodeld in Sources */,
+				AEC84CA425FCA90A0068A479 /* MenuControllerDelegate.swift in Sources */,
 				AE72402D25FB6EC8005A39E5 /* ResetingPasswordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

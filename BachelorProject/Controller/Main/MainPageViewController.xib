@@ -20,20 +20,41 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hFu-7t-jeI">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="16" y="60" width="382" height="802"/>
                 </mapView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ng6-er-OM1" customClass="CustomButton" customModule="BachelorProject" customModuleProvider="target">
+                    <rect key="frame" x="149.5" y="777.5" width="115" height="114.5"/>
+                    <color key="backgroundColor" red="1" green="0.29994087209999998" blue="0.19234915899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ng6-er-OM1" secondAttribute="height" multiplier="1:1" id="Cx3-ed-7lU"/>
+                    </constraints>
+                    <state key="normal" title="SOS"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="50"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="ng6-er-OM1" firstAttribute="width" secondItem="hFu-7t-jeI" secondAttribute="width" multiplier="0.3" id="1eO-24-LFr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hFu-7t-jeI" secondAttribute="bottom" id="F3C-et-5h9"/>
-                <constraint firstItem="hFu-7t-jeI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="coi-p2-WXL"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hFu-7t-jeI" secondAttribute="trailing" id="g5d-1E-cj5"/>
-                <constraint firstItem="hFu-7t-jeI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qor-o1-WCB"/>
+                <constraint firstItem="ng6-er-OM1" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="30" id="SFn-ZX-vIZ"/>
+                <constraint firstItem="hFu-7t-jeI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="coi-p2-WXL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hFu-7t-jeI" secondAttribute="trailing" constant="16" id="g5d-1E-cj5"/>
+                <constraint firstItem="hFu-7t-jeI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="qor-o1-WCB"/>
+                <constraint firstItem="ng6-er-OM1" firstAttribute="centerX" secondItem="hFu-7t-jeI" secondAttribute="centerX" id="zyr-Fn-IPv"/>
             </constraints>
             <point key="canvasLocation" x="-10.144927536231885" y="86.383928571428569"/>
         </view>
     </objects>
+    <designables>
+        <designable name="ng6-er-OM1">
+            <size key="intrinsicContentSize" width="36" height="34"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
