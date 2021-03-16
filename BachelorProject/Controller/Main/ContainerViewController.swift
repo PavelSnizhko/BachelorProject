@@ -22,6 +22,8 @@ class ContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHomeViewController()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+
         title = "fsdfsdds"
         // Do any additional setup after loading the view.
     }
@@ -33,30 +35,25 @@ class ContainerViewController: UIViewController {
         
         let swipingViewController = SwipingViewController()
         swipingViewController.menuDelegate = self
-        swipingViewController.view.frame = view.frame
+        swipingViewController.view.frame = view.bounds
         
         centerViewController = swipingViewController
         
         navigationCenterController = UINavigationController(rootViewController: centerViewController)
         
         addChild(navigationCenterController)
-        navigationCenterController.view.frame = view.frame
+        navigationCenterController.view.frame = view.bounds
         view.addSubview(navigationCenterController.view)
         navigationCenterController.didMove(toParent: self)
-        
-        
-//        view.addSubview(mainPage.view)
-//        addChild(mainPage)
-//        navigationController.didMove(toParent: self)
-        
     }
     
     func configureMenuController() {
         if menuController == nil {
             print("New menuController")
             menuController = MenuViewController(nibName: MenuViewController.name, bundle: .main)
-            view.insertSubview(menuController.view, at: 0)
-            menuController.didMove(toParent: self)
+            let navigation = UINavigationController(rootViewController: menuController)
+            view.insertSubview(navigation.view, at: 0)
+            navigation.didMove(toParent: self)
         } else {
             print("Fuck you)))")
         }

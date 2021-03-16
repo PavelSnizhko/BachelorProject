@@ -9,8 +9,17 @@ import UIKit
 
 class SwipingViewController: UIViewController {
 
-    private var viewControllers = [MainPageViewController(nibName: MainPageViewController.name, bundle: .main), MainPageViewController(nibName: MainPageViewController.name, bundle: .main)]
-    private var collectionView: UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private var viewControllers = [MainPageViewController(nibName: MainPageViewController.name, bundle: .main), ChatViewController(nibName: ChatViewController.name, bundle: .main)]
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .white
+        return collectionView
+    }()
 
     weak var menuDelegate: MenuControllerDelegate?
 
@@ -18,25 +27,23 @@ class SwipingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addCollectionView()
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        self.automaticallyAdjustsScrollViewInsets = false
-        configureCollectionView()
+        
+        
         configNavigationBar()
-
-        // Do any additional setup after loading the view.
+        addCollectionView()
+        setDelegeting()
+        configureCollectionView()
     }
     
     
     func configNavigationBar() {
-        if let navigationController = navigationController {
-
+        
+//        if let navigationController = navigationController {
             //TODO: find out how to put image on a bar item and not erease title
             navigationItem.title = "Home"
-            navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "menu", style: .plain, target: self, action: #selector(tappedMenu))
+            navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Mdenu", style: .plain, target: self, action: #selector(tappedMenu))
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logOuttapped))
-        }
+//        }
     }
     
     
@@ -51,18 +58,19 @@ class SwipingViewController: UIViewController {
     }
     
     
-    func configureCollectionView() {
+    private func configureCollectionView() {
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
         collectionView.isPagingEnabled = true
     }
     
-    func setDelegeting() {
+    private func setDelegeting() {
         collectionView.dataSource = self
         collectionView.delegate = self
     }
     
-    func addCollectionView() {
+    private func addCollectionView() {
         view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                                      collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                                      collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -78,12 +86,12 @@ class SwipingViewController: UIViewController {
 
 extension SwipingViewController:  UICollectionViewDelegateFlowLayout {
    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: view.frame.height)
+    CGSize(width: view.frame.width , height: view.frame.height - (view.safeAreaInsets.top + view.safeAreaInsets.bottom))
     }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        0
     }
 }
 

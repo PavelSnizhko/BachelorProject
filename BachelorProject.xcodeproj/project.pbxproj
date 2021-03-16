@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE2CC6172600989B003AFE81 /* ChatViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2CC6162600989B003AFE81 /* ChatViewController+Delegates.swift */; };
+		AE2CC62D2600C2A4003AFE81 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */; };
+		AE2CC62E2600C2A4003AFE81 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */; };
+		AE2CC6342600C58F003AFE81 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2CC6322600C58F003AFE81 /* SettingsTableViewCell.swift */; };
+		AE2CC6352600C58F003AFE81 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2CC6332600C58F003AFE81 /* SettingsTableViewCell.xib */; };
 		AE4CF80425FA6887008024C9 /* AuthDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4CF80225FA6887008024C9 /* AuthDataCollectionViewCell.swift */; };
 		AE4CF80525FA6887008024C9 /* AuthDataCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE4CF80325FA6887008024C9 /* AuthDataCollectionViewCell.xib */; };
 		AE72402D25FB6EC8005A39E5 /* ResetingPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72402B25FB6EC8005A39E5 /* ResetingPasswordViewController.swift */; };
@@ -56,6 +61,9 @@
 		AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD025FE42120068A479 /* CustomButton.swift */; };
 		AEC84CD925FEAFFB0068A479 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD825FEAFFA0068A479 /* Extension + UIViewController.swift */; };
 		AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */; };
+		AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */; };
+		AEF1B94E25FF4445006F65C8 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */; };
+		AEF1B971260091F6006F65C8 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B970260091F5006F65C8 /* MessageTableViewCell.swift */; };
 		AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC15D725FB607C00E204B9 /* LogoCollectionViewCell.swift */; };
 		AEFC15DA25FB607C00E204B9 /* LogoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEFC15D825FB607C00E204B9 /* LogoCollectionViewCell.xib */; };
 		AEFC15E725FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC15E525FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift */; };
@@ -80,6 +88,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE2CC6162600989B003AFE81 /* ChatViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Delegates.swift"; sourceTree = "<group>"; };
+		AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		AE2CC6322600C58F003AFE81 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		AE2CC6332600C58F003AFE81 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		AE4CF80225FA6887008024C9 /* AuthDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE4CF80325FA6887008024C9 /* AuthDataCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthDataCollectionViewCell.xib; sourceTree = "<group>"; };
 		AE72402B25FB6EC8005A39E5 /* ResetingPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetingPasswordViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +148,9 @@
 		AEC84CD025FE42120068A479 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AEC84CD825FEAFFA0068A479 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
 		AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewController.swift; sourceTree = "<group>"; };
+		AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		AEF1B970260091F5006F65C8 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		AEFC15D725FB607C00E204B9 /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AEFC15D825FB607C00E204B9 /* LogoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoCollectionViewCell.xib; sourceTree = "<group>"; };
 		AEFC15E525FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingLabelsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -214,12 +230,12 @@
 		AE72403D25FB7278005A39E5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				AE72403625FB719A005A39E5 /* MainPageViewController.swift */,
-				AE72403725FB719A005A39E5 /* MainPageViewController.xib */,
+				AEF1B94725FF3F3E006F65C8 /* HomePage */,
 				AE72404F25FB7F1E005A39E5 /* ContainerViewController.swift */,
 				AE72406325FB8487005A39E5 /* Menu */,
 				AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */,
 				AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */,
+				AEF1B95225FF444D006F65C8 /* Chat */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -316,6 +332,8 @@
 				AE72403225FB6ECF005A39E5 /* Reseting */,
 				AE72403D25FB7278005A39E5 /* Main */,
 				AE72404B25FB7666005A39E5 /* NavBar */,
+				AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */,
+				AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -394,6 +412,9 @@
 				AE4CF80925FA688E008024C9 /* AuthDataCell */,
 				AEFC15DE25FB608100E204B9 /* LogoCell */,
 				AEFC15EC25FB61A100E204B9 /* LinkingLabelsCell */,
+				AEF1B970260091F5006F65C8 /* MessageTableViewCell.swift */,
+				AE2CC6322600C58F003AFE81 /* SettingsTableViewCell.swift */,
+				AE2CC6332600C58F003AFE81 /* SettingsTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -467,6 +488,25 @@
 				AEC84C9825FC93800068A479 /* MenuItemCell */,
 			);
 			path = TableViews;
+			sourceTree = "<group>";
+		};
+		AEF1B94725FF3F3E006F65C8 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				AE72403625FB719A005A39E5 /* MainPageViewController.swift */,
+				AE72403725FB719A005A39E5 /* MainPageViewController.xib */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
+		AEF1B95225FF444D006F65C8 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */,
+				AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */,
+				AE2CC6162600989B003AFE81 /* ChatViewController+Delegates.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		AEFC15DE25FB608100E204B9 /* LogoCell */ = {
@@ -596,6 +636,7 @@
 				AE8D227625EF46460032D029 /* LaunchScreen.storyboard in Resources */,
 				AE8D233025F0EC470032D029 /* HeaderCollectionReusableView.xib in Resources */,
 				AE8D227325EF46460032D029 /* Assets.xcassets in Resources */,
+				AE2CC6352600C58F003AFE81 /* SettingsTableViewCell.xib in Resources */,
 				AE8D22B525EF4E670032D029 /* IntroViewController.xib in Resources */,
 				AE8D234C25F1067B0032D029 /* SegmenterCollectionViewCell.xib in Resources */,
 				AE72404725FB7661005A39E5 /* NavigationBar.xib in Resources */,
@@ -608,6 +649,8 @@
 				AE72403925FB719A005A39E5 /* MainPageViewController.xib in Resources */,
 				AE8D22E525EF64420032D029 /* RegisterViewController.xib in Resources */,
 				AE4CF80525FA6887008024C9 /* AuthDataCollectionViewCell.xib in Resources */,
+				AEF1B94E25FF4445006F65C8 /* ChatViewController.xib in Resources */,
+				AE2CC62E2600C2A4003AFE81 /* SettingsViewController.xib in Resources */,
 				AE8D233D25F1056F0032D029 /* DatePickerCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -641,13 +684,17 @@
 				AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */,
 				AE72404225FB764D005A39E5 /* NavigationBar.swift in Sources */,
 				AE4CF80425FA6887008024C9 /* AuthDataCollectionViewCell.swift in Sources */,
+				AE2CC6342600C58F003AFE81 /* SettingsTableViewCell.swift in Sources */,
 				AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */,
 				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
 				AE8D238E25F15ECB0032D029 /* AlertProvider.swift in Sources */,
 				AE8D22F125EF70C90032D029 /* NibLoadable.swift in Sources */,
 				AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */,
+				AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */,
 				AE8D22F925EF74280032D029 /* PhotoView.swift in Sources */,
 				AEFC15E725FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift in Sources */,
+				AEF1B971260091F6006F65C8 /* MessageTableViewCell.swift in Sources */,
+				AE2CC6172600989B003AFE81 /* ChatViewController+Delegates.swift in Sources */,
 				AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */,
 				AE8D22E425EF64420032D029 /* RegisterViewController.swift in Sources */,
 				AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */,
@@ -665,6 +712,7 @@
 				AE8D227125EF46410032D029 /* BachelorProject.xcdatamodeld in Sources */,
 				AEC84CA425FCA90A0068A479 /* MenuControllerDelegate.swift in Sources */,
 				AE72402D25FB6EC8005A39E5 /* ResetingPasswordViewController.swift in Sources */,
+				AE2CC62D2600C2A4003AFE81 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

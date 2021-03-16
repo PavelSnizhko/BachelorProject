@@ -14,8 +14,15 @@ class MenuItemTableViewCell: UITableViewCell, NibLoadable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        titleLable.font = .preferredFont(forTextStyle: .headline)
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0))
+
+    }
+    
     
     override func prepareForReuse() {
         super.prepareForReuse()

@@ -9,9 +9,10 @@ import UIKit
 
 class MenuViewController: UIViewController, NibLoadable {
     @IBOutlet weak var tableView: UITableView!
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: false)
         launchDelegating()
         registerCells()
         // Do any additional setup after loading the view.
@@ -45,7 +46,7 @@ extension MenuViewController {
             case .home:
                 return UIImage(named: "home")
             case .setting:
-                return UIImage(named: "setting")
+                return UIImage(named: "settings")
             case .chat:
                 return UIImage(named: "chat")
             }
@@ -57,6 +58,27 @@ extension MenuViewController {
 
 
 extension MenuViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        view.frame.height * 0.04
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let option = MenuItem.allCases[indexPath.row]
+
+        
+        switch option {
+        case .home:
+            print("Home")
+        case .chat:
+            print("chat")
+        case .setting:
+            let settingVC = SettingsViewController(nibName: SettingsViewController.name, bundle: .main)
+            navigationController?.pushViewController(settingVC, animated: true)
+            print("setting")
+
+        }
+    }
     
 }
 

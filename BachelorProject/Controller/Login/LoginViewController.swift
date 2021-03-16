@@ -88,9 +88,7 @@ extension LoginViewController: UICollectionViewDataSource {
             // TODO: handle buttonTapped
             buttonCell.buttonTapped = { [weak self] in
                 let homeVC = ContainerViewController()
-//                let navigationController = UINavigationController(rootViewController: homeVC)
-//                self?.navigationController?.pushViewController(homeVC, animated: true)
-                self?.present(homeVC, animated: true, completion: nil)
+                self?.navigationController?.pushViewController(homeVC, animated: true)
             }
             cell = buttonCell
         case .linkingLabels:
