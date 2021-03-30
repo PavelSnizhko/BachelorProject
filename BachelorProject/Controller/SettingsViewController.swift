@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController, NibLoadable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = false
         configTableView()
     }
     
@@ -60,7 +61,43 @@ extension SettingsViewController: UITableViewDelegate {
             return
         }
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let setting = defaultSettings[indexPath.row]
+        switch setting {
+        case .account:
+            print("Tapped account")
+        case .voice:
+            let fackeVoiceController = FackeVoiceViewController(nibName: FackeVoiceViewController.name, bundle: .main)
+            navigationController?.pushViewController(fackeVoiceController, animated: true)
+        case .audio:
+            let fackeVoiceController = RecordingVoiceViewController(nibName: RecordingVoiceViewController.name, bundle: .main)
+            fackeVoiceController.sendToServer =  { [weak self]  state in
+                self?.handleSendToServerOption(state: state)
+                self?.handleStoreLocally(state: state)
+            }
+            navigationController?.pushViewController(fackeVoiceController, animated: true)
+        case .password:
+            print("Provide as soon as possible")
+        case .logout:
+            navigationController?.popToRootViewController(animated: true)
+        }
+    }
 }
+
+extension SettingsViewController {
+    func handleSendToServerOption(state: Bool) {
+        // TODO: Implement as soon as appears back that can store audio!!!
+        print("Config to store on the server side")
+
+    }
+    
+    func handleStoreLocally(state: Bool) {
+        print("Config to store locally option")
+    }
+}
+
 
 
 extension SettingsViewController: UITableViewDataSource {

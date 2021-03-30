@@ -7,15 +7,21 @@
 
 import UIKit
 
+
+protocol SelectOptionDelegate: class {
+    func choseOption(with item: MenuViewController.MenuItem)
+}
+
+
 class MenuViewController: UIViewController, NibLoadable {
     @IBOutlet weak var tableView: UITableView!
-
+    weak var delegate: SelectOptionDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
+//        navigationController.setNavigationBarHidden(true, animated: false)
         launchDelegating()
         registerCells()
-        // Do any additional setup after loading the view.
     }
     
     
@@ -36,7 +42,7 @@ class MenuViewController: UIViewController, NibLoadable {
 
 extension MenuViewController {
     
-    enum MenuItem: String, CaseIterable {
+   public enum MenuItem: String, CaseIterable {
         case home = "Home"
         case setting = "Setting"
         case chat = "Chat"
@@ -65,17 +71,14 @@ extension MenuViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let option = MenuItem.allCases[indexPath.row]
-
         
         switch option {
         case .home:
-            print("Home")
+            delegate?.choseOption(with: .home)
         case .chat:
-            print("chat")
+            delegate?.choseOption(with: .chat)
         case .setting:
-            let settingVC = SettingsViewController(nibName: SettingsViewController.name, bundle: .main)
-            navigationController?.pushViewController(settingVC, animated: true)
-            print("setting")
+            delegate?.choseOption(with: .setting)
 
         }
     }

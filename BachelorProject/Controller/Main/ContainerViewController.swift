@@ -11,9 +11,9 @@ class ContainerViewController: UIViewController {
 
     // MARK: - Properties
     
-    var menuController: UIViewController!
+    var menuController: MenuViewController!
     var centerViewController: UIViewController!
-    var navigationCenterController: UINavigationController!
+//    var navigationCenterController: UINavigationController!
     var isMenuPresenting: Bool = false
     
     
@@ -35,28 +35,24 @@ class ContainerViewController: UIViewController {
         
         let swipingViewController = SwipingViewController()
         swipingViewController.menuDelegate = self
-        swipingViewController.view.frame = view.bounds
-        
-        centerViewController = swipingViewController
-        
-        navigationCenterController = UINavigationController(rootViewController: centerViewController)
-        
-        addChild(navigationCenterController)
-        navigationCenterController.view.frame = view.bounds
-        view.addSubview(navigationCenterController.view)
-        navigationCenterController.didMove(toParent: self)
+        centerViewController = UINavigationController(rootViewController: swipingViewController)
+        addChild(centerViewController)
+        view.addSubview(centerViewController.view)
+        centerViewController.didMove(toParent: self)
     }
     
     func configureMenuController() {
         if menuController == nil {
             print("New menuController")
             menuController = MenuViewController(nibName: MenuViewController.name, bundle: .main)
-            let navigation = UINavigationController(rootViewController: menuController)
-            view.insertSubview(navigation.view, at: 0)
-            navigation.didMove(toParent: self)
+            menuController.delegate = self
+            view.insertSubview(menuController.view, at: 0)
+            menuController.view.frame = view.bounds
+            centerViewController.didMove(toParent: self)
         } else {
-            print("Fuck you)))")
+            print("I've already created")
         }
+        
         isMenuPresenting.toggle()
         moveCenterViewController(isMenuPresenting)
     }
@@ -71,7 +67,7 @@ class ContainerViewController: UIViewController {
                            options: .curveEaseInOut,
                            animations: { [weak self] in
                             guard let self = self else { return }
-                            self.navigationCenterController.view.frame.origin.x = self.navigationCenterController.view.frame.width - 80
+                            self.centerViewController.view.frame.origin.x = self.centerViewController.view.frame.width - 80
                            },
                            completion: nil)
         }
@@ -83,7 +79,7 @@ class ContainerViewController: UIViewController {
                            options: .curveEaseInOut,
                            animations: { [weak self] in
                             
-                            self?.navigationCenterController.view.frame.origin.x = 0
+                            self?.centerViewController.view.frame.origin.x = 0
                            
                            },
                            completion: nil)
@@ -93,8 +89,35 @@ class ContainerViewController: UIViewController {
 }
 
 
+extension ContainerViewController {
+    private func handleMenuOption() {
+        
+    }
+}
+
+
 extension ContainerViewController: MenuControllerDelegate {
     func handleMenuTapped() {
         configureMenuController()
     }
+
+}
+
+extension ContainerViewController: SelectOptionDelegate {
+    func choseOption(with item: MenuViewController.MenuItem) {
+        switch item {
+        case .chat:
+            let chatVC = ChatViewController(nibName: ChatViewController.name, bundle: .main)
+            self.navigationController?.isNavigationBarHidden = false
+            navigationController?.pushViewController(chatVC, animated: true)
+        case .setting:
+            let settingsVC = SettingsViewController(nibName: SettingsViewController.name, bundle: .main)
+            navigationController?.pushViewController(settingsVC, animated: true)
+        case .home:
+            moveCenterViewController(isMenuPresenting)
+            isMenuPresenting.toggle()
+        }
+    }
+    
+    
 }

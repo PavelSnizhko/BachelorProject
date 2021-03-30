@@ -40,6 +40,9 @@
                                     <real key="value" value="20"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sendMessageTapped:" destination="-1" eventType="touchUpInside" id="2pG-1M-Jqx"/>
+                            </connections>
                         </button>
                     </subviews>
                     <constraints>

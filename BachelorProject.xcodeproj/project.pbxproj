@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE2447A2261398B20047F935 /* FackeVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */; };
+		AE2447A3261398B20047F935 /* FackeVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */; };
+		AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */; };
+		AE2447AA261399600047F935 /* RecordingVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447A8261399600047F935 /* RecordingVoiceViewController.xib */; };
 		AE2CC6172600989B003AFE81 /* ChatViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2CC6162600989B003AFE81 /* ChatViewController+Delegates.swift */; };
 		AE2CC62D2600C2A4003AFE81 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */; };
 		AE2CC62E2600C2A4003AFE81 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */; };
@@ -88,6 +92,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FackeVoiceViewController.swift; sourceTree = "<group>"; };
+		AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FackeVoiceViewController.xib; sourceTree = "<group>"; };
+		AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingVoiceViewController.swift; sourceTree = "<group>"; };
+		AE2447A8261399600047F935 /* RecordingVoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordingVoiceViewController.xib; sourceTree = "<group>"; };
 		AE2CC6162600989B003AFE81 /* ChatViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Delegates.swift"; sourceTree = "<group>"; };
 		AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -334,6 +342,10 @@
 				AE72404B25FB7666005A39E5 /* NavBar */,
 				AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */,
 				AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */,
+				AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */,
+				AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */,
+				AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */,
+				AE2447A8261399600047F935 /* RecordingVoiceViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -634,6 +646,7 @@
 				AE8D22DE25EF64010032D029 /* LoginViewController.xib in Resources */,
 				AEFC15E825FB619900E204B9 /* LinkingLabelsCollectionViewCell.xib in Resources */,
 				AE8D227625EF46460032D029 /* LaunchScreen.storyboard in Resources */,
+				AE2447A3261398B20047F935 /* FackeVoiceViewController.xib in Resources */,
 				AE8D233025F0EC470032D029 /* HeaderCollectionReusableView.xib in Resources */,
 				AE8D227325EF46460032D029 /* Assets.xcassets in Resources */,
 				AE2CC6352600C58F003AFE81 /* SettingsTableViewCell.xib in Resources */,
@@ -643,6 +656,7 @@
 				AEFC15DA25FB607C00E204B9 /* LogoCollectionViewCell.xib in Resources */,
 				AE8D231325EF990E0032D029 /* UserInfoCollectionViewCell.xib in Resources */,
 				AE8D226E25EF46410032D029 /* Main.storyboard in Resources */,
+				AE2447AA261399600047F935 /* RecordingVoiceViewController.xib in Resources */,
 				AE72402E25FB6EC8005A39E5 /* ResetingPasswordViewController.xib in Resources */,
 				AEC84C9425FC93780068A479 /* MenuItemTableViewCell.xib in Resources */,
 				AE72405F25FB8480005A39E5 /* MenuViewController.xib in Resources */,
@@ -680,6 +694,7 @@
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
 				AE72405025FB7F1E005A39E5 /* ContainerViewController.swift in Sources */,
 				AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */,
+				AE2447A2261398B20047F935 /* FackeVoiceViewController.swift in Sources */,
 				AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */,
 				AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */,
 				AE72404225FB764D005A39E5 /* NavigationBar.swift in Sources */,
@@ -701,6 +716,7 @@
 				AE8D230825EF8CBD0032D029 /* Extension + UIView.swift in Sources */,
 				AE72403825FB719A005A39E5 /* MainPageViewController.swift in Sources */,
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
+				AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */,
 				AE8D236525F149F40032D029 /* RegisterModel.swift in Sources */,
 				AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */,
 				AE8D22BE25EF503A0032D029 /* Router.swift in Sources */,

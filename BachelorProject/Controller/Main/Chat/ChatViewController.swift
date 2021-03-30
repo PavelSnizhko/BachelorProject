@@ -40,6 +40,9 @@ class ChatViewController: UIViewController, NibLoadable {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func sendMessageTapped(_ sender: Any) {
+        
+    }
 }
 
 
@@ -137,4 +140,9 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.endUpdates()
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
+}
+
+
+extension ChatViewController {
+    
 }
