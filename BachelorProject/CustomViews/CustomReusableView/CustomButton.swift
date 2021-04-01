@@ -34,27 +34,6 @@ class CustomButton: UIButton {
         }
     }
 
-    /// Border color of the view
-    @IBInspectable public var borderColor: UIColor? = nil {
-        didSet {
-            updateUI()
-        }
-    }
-
-    /// Border width of the view
-    @IBInspectable public var borderWidth: CGFloat = 0 {
-        didSet {
-            updateUI()
-        }
-    }
-
-    /// Corner radius of the view
-    @IBInspectable public var cornerRadius: CGFloat = 0 {
-        didSet {
-            updateUI()
-        }
-    }
-
     // MARK: - Variables
     /// Closure is called on click event of the button
     public var onClick: VoidClosure?

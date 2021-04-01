@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AudioCollectionViewCell" customModule="BachelorProject" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="199" height="131"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="199" height="131"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJJ-uH-aJb">
+                        <rect key="frame" x="10" y="10" width="179" height="111"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="a52-Tz-5aV">
+                                <rect key="frame" x="53.5" y="28" width="72" height="55.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a52-Tz-5aV" firstAttribute="height" secondItem="CJJ-uH-aJb" secondAttribute="height" multiplier="0.5" id="6LP-Ne-1pF"/>
+                            <constraint firstItem="a52-Tz-5aV" firstAttribute="width" secondItem="CJJ-uH-aJb" secondAttribute="width" multiplier="0.4" id="Cmh-ft-ch1"/>
+                            <constraint firstItem="a52-Tz-5aV" firstAttribute="centerY" secondItem="CJJ-uH-aJb" secondAttribute="centerY" id="Jvd-Sb-2Jw"/>
+                            <constraint firstItem="a52-Tz-5aV" firstAttribute="centerX" secondItem="CJJ-uH-aJb" secondAttribute="centerX" id="VxW-3d-L6V"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="CJJ-uH-aJb" secondAttribute="trailing" constant="10" id="3iJ-aO-hEV"/>
+                <constraint firstAttribute="bottom" secondItem="CJJ-uH-aJb" secondAttribute="bottom" constant="10" id="9TZ-y8-CVA"/>
+                <constraint firstItem="CJJ-uH-aJb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="WZc-bo-WhA"/>
+                <constraint firstItem="CJJ-uH-aJb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="kZj-5u-bd2"/>
+            </constraints>
+            <size key="customSize" width="199" height="131"/>
+            <connections>
+                <outlet property="buttonImageView" destination="a52-Tz-5aV" id="7yr-ap-0zh"/>
+                <outlet property="containerView" destination="CJJ-uH-aJb" id="blj-px-wPv"/>
+            </connections>
+            <point key="canvasLocation" x="203.62318840579712" y="98.772321428571431"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="play" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

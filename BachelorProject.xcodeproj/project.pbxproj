@@ -11,6 +11,8 @@
 		AE2447A3261398B20047F935 /* FackeVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */; };
 		AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */; };
 		AE2447AA261399600047F935 /* RecordingVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447A8261399600047F935 /* RecordingVoiceViewController.xib */; };
+		AE2447B026143F520047F935 /* AudioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447AE26143F520047F935 /* AudioCollectionViewCell.swift */; };
+		AE2447B126143F520047F935 /* AudioCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447AF26143F520047F935 /* AudioCollectionViewCell.xib */; };
 		AE2CC6172600989B003AFE81 /* ChatViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2CC6162600989B003AFE81 /* ChatViewController+Delegates.swift */; };
 		AE2CC62D2600C2A4003AFE81 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */; };
 		AE2CC62E2600C2A4003AFE81 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */; };
@@ -44,7 +46,7 @@
 		AE8D22E525EF64420032D029 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D22E325EF64420032D029 /* RegisterViewController.xib */; };
 		AE8D22F125EF70C90032D029 /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D22F025EF70C80032D029 /* NibLoadable.swift */; };
 		AE8D22F925EF74280032D029 /* PhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D22F825EF74270032D029 /* PhotoView.swift */; };
-		AE8D230825EF8CBD0032D029 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D230725EF8CBD0032D029 /* Extension + UIView.swift */; };
+		AE8D230825EF8CBD0032D029 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D230725EF8CBD0032D029 /* UIView.swift */; };
 		AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D231025EF990E0032D029 /* UserInfoCollectionViewCell.swift */; };
 		AE8D231325EF990E0032D029 /* UserInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D231125EF990E0032D029 /* UserInfoCollectionViewCell.xib */; };
 		AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D232825F0E6980032D029 /* HeaderProtocol.swift */; };
@@ -59,11 +61,18 @@
 		AE8D238825F150740032D029 /* ButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D238625F150740032D029 /* ButtonCollectionViewCell.swift */; };
 		AE8D238925F150740032D029 /* ButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */; };
 		AE8D238E25F15ECB0032D029 /* AlertProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D238D25F15ECB0032D029 /* AlertProvider.swift */; };
+		AE99639926146DDE00C2ED0A /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE99639826146DDE00C2ED0A /* AudioManager.swift */; };
+		AE9963AE2615991000C2ED0A /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9963AD2615991000C2ED0A /* UserDefaults.swift */; };
+		AE9963B326159A1400C2ED0A /* VoiceSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9963B226159A1400C2ED0A /* VoiceSetting.swift */; };
+		AE9963BB26159DE100C2ED0A /* PickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9963BA26159DE100C2ED0A /* PickerManager.swift */; };
+		AE9963C02615A87D00C2ED0A /* TimePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9963BF2615A87D00C2ED0A /* TimePickerManager.swift */; };
+		AE9963C52615D5FC00C2ED0A /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9963C42615D5FC00C2ED0A /* CustomAlertController.swift */; };
+		AE9963CA2615EA4600C2ED0A /* VoiceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9963C92615EA4600C2ED0A /* VoiceStorage.swift */; };
 		AEC84C9325FC93780068A479 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84C9125FC93770068A479 /* MenuItemTableViewCell.swift */; };
 		AEC84C9425FC93780068A479 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC84C9225FC93770068A479 /* MenuItemTableViewCell.xib */; };
 		AEC84CA425FCA90A0068A479 /* MenuControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */; };
 		AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD025FE42120068A479 /* CustomButton.swift */; };
-		AEC84CD925FEAFFB0068A479 /* Extension + UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD825FEAFFA0068A479 /* Extension + UIViewController.swift */; };
+		AEC84CD925FEAFFB0068A479 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD825FEAFFA0068A479 /* UIViewController.swift */; };
 		AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */; };
 		AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */; };
 		AEF1B94E25FF4445006F65C8 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */; };
@@ -96,6 +105,8 @@
 		AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FackeVoiceViewController.xib; sourceTree = "<group>"; };
 		AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingVoiceViewController.swift; sourceTree = "<group>"; };
 		AE2447A8261399600047F935 /* RecordingVoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordingVoiceViewController.xib; sourceTree = "<group>"; };
+		AE2447AE26143F520047F935 /* AudioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCollectionViewCell.swift; sourceTree = "<group>"; };
+		AE2447AF26143F520047F935 /* AudioCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioCollectionViewCell.xib; sourceTree = "<group>"; };
 		AE2CC6162600989B003AFE81 /* ChatViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Delegates.swift"; sourceTree = "<group>"; };
 		AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -135,7 +146,7 @@
 		AE8D22E325EF64420032D029 /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		AE8D22F025EF70C80032D029 /* NibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		AE8D22F825EF74270032D029 /* PhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoView.swift; sourceTree = "<group>"; };
-		AE8D230725EF8CBD0032D029 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		AE8D230725EF8CBD0032D029 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		AE8D231025EF990E0032D029 /* UserInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE8D231125EF990E0032D029 /* UserInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCollectionViewCell.xib; sourceTree = "<group>"; };
 		AE8D232825F0E6980032D029 /* HeaderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderProtocol.swift; sourceTree = "<group>"; };
@@ -150,11 +161,18 @@
 		AE8D238625F150740032D029 /* ButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCollectionViewCell.xib; sourceTree = "<group>"; };
 		AE8D238D25F15ECB0032D029 /* AlertProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertProvider.swift; sourceTree = "<group>"; };
+		AE99639826146DDE00C2ED0A /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		AE9963AD2615991000C2ED0A /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		AE9963B226159A1400C2ED0A /* VoiceSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSetting.swift; sourceTree = "<group>"; };
+		AE9963BA26159DE100C2ED0A /* PickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerManager.swift; sourceTree = "<group>"; };
+		AE9963BF2615A87D00C2ED0A /* TimePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerManager.swift; sourceTree = "<group>"; };
+		AE9963C42615D5FC00C2ED0A /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
+		AE9963C92615EA4600C2ED0A /* VoiceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceStorage.swift; sourceTree = "<group>"; };
 		AEC84C9125FC93770068A479 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		AEC84C9225FC93770068A479 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 		AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuControllerDelegate.swift; sourceTree = "<group>"; };
 		AEC84CD025FE42120068A479 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		AEC84CD825FEAFFA0068A479 /* Extension + UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIViewController.swift"; sourceTree = "<group>"; };
+		AEC84CD825FEAFFA0068A479 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewController.swift; sourceTree = "<group>"; };
 		AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -190,6 +208,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE2447B52614455F0047F935 /* AudioCell */ = {
+			isa = PBXGroup;
+			children = (
+				AE2447AE26143F520047F935 /* AudioCollectionViewCell.swift */,
+				AE2447AF26143F520047F935 /* AudioCollectionViewCell.xib */,
+			);
+			path = AudioCell;
+			sourceTree = "<group>";
+		};
 		AE4CF80925FA688E008024C9 /* AuthDataCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,6 +326,7 @@
 				AE8D22B025EF4D550032D029 /* Aplication */,
 				AE8D22B325EF4E120032D029 /* CoreData */,
 				AE8D227725EF46460032D029 /* Info.plist */,
+				AE9963A92614CC0500C2ED0A /* Services */,
 			);
 			path = BachelorProject;
 			sourceTree = "<group>";
@@ -340,12 +368,9 @@
 				AE72403225FB6ECF005A39E5 /* Reseting */,
 				AE72403D25FB7278005A39E5 /* Main */,
 				AE72404B25FB7666005A39E5 /* NavBar */,
-				AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */,
-				AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */,
-				AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */,
-				AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */,
-				AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */,
-				AE2447A8261399600047F935 /* RecordingVoiceViewController.xib */,
+				AE9963A02614CB2B00C2ED0A /* Settings */,
+				AE9963A42614CB3700C2ED0A /* FackeVoice */,
+				AE9963A82614CB4700C2ED0A /* RecordingVoice */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -381,6 +406,7 @@
 				AE8D231D25F0DC3A0032D029 /* HeaderViews */,
 				AE8D230F25EF98D40032D029 /* Cells */,
 				AE8D236F25F14E2F0032D029 /* CustomReusableView */,
+				AE2447B52614455F0047F935 /* AudioCell */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -400,6 +426,8 @@
 			isa = PBXGroup;
 			children = (
 				AE8D236425F149F20032D029 /* RegisterModel.swift */,
+				AE9963B226159A1400C2ED0A /* VoiceSetting.swift */,
+				AE9963C92615EA4600C2ED0A /* VoiceStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -407,8 +435,9 @@
 		AE8D230625EF8C970032D029 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AE8D230725EF8CBD0032D029 /* Extension + UIView.swift */,
-				AEC84CD825FEAFFA0068A479 /* Extension + UIViewController.swift */,
+				AE8D230725EF8CBD0032D029 /* UIView.swift */,
+				AEC84CD825FEAFFA0068A479 /* UIViewController.swift */,
+				AE9963AD2615991000C2ED0A /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -483,6 +512,44 @@
 				AE8D238725F150740032D029 /* ButtonCollectionViewCell.xib */,
 			);
 			path = ButtonCell;
+			sourceTree = "<group>";
+		};
+		AE9963A02614CB2B00C2ED0A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */,
+				AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		AE9963A42614CB3700C2ED0A /* FackeVoice */ = {
+			isa = PBXGroup;
+			children = (
+				AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */,
+				AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */,
+				AE9963BA26159DE100C2ED0A /* PickerManager.swift */,
+				AE9963BF2615A87D00C2ED0A /* TimePickerManager.swift */,
+				AE9963C42615D5FC00C2ED0A /* CustomAlertController.swift */,
+			);
+			path = FackeVoice;
+			sourceTree = "<group>";
+		};
+		AE9963A82614CB4700C2ED0A /* RecordingVoice */ = {
+			isa = PBXGroup;
+			children = (
+				AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */,
+				AE2447A8261399600047F935 /* RecordingVoiceViewController.xib */,
+			);
+			path = RecordingVoice;
+			sourceTree = "<group>";
+		};
+		AE9963A92614CC0500C2ED0A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AE99639826146DDE00C2ED0A /* AudioManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		AEC84C9825FC93800068A479 /* MenuItemCell */ = {
@@ -663,6 +730,7 @@
 				AE72403925FB719A005A39E5 /* MainPageViewController.xib in Resources */,
 				AE8D22E525EF64420032D029 /* RegisterViewController.xib in Resources */,
 				AE4CF80525FA6887008024C9 /* AuthDataCollectionViewCell.xib in Resources */,
+				AE2447B126143F520047F935 /* AudioCollectionViewCell.xib in Resources */,
 				AEF1B94E25FF4445006F65C8 /* ChatViewController.xib in Resources */,
 				AE2CC62E2600C2A4003AFE81 /* SettingsViewController.xib in Resources */,
 				AE8D233D25F1056F0032D029 /* DatePickerCollectionViewCell.xib in Resources */,
@@ -693,12 +761,18 @@
 				AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */,
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
 				AE72405025FB7F1E005A39E5 /* ContainerViewController.swift in Sources */,
+				AE9963CA2615EA4600C2ED0A /* VoiceStorage.swift in Sources */,
+				AE9963C02615A87D00C2ED0A /* TimePickerManager.swift in Sources */,
 				AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */,
+				AE9963C52615D5FC00C2ED0A /* CustomAlertController.swift in Sources */,
 				AE2447A2261398B20047F935 /* FackeVoiceViewController.swift in Sources */,
 				AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */,
 				AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */,
 				AE72404225FB764D005A39E5 /* NavigationBar.swift in Sources */,
+				AE9963B326159A1400C2ED0A /* VoiceSetting.swift in Sources */,
 				AE4CF80425FA6887008024C9 /* AuthDataCollectionViewCell.swift in Sources */,
+				AE2447B026143F520047F935 /* AudioCollectionViewCell.swift in Sources */,
+				AE9963BB26159DE100C2ED0A /* PickerManager.swift in Sources */,
 				AE2CC6342600C58F003AFE81 /* SettingsTableViewCell.swift in Sources */,
 				AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */,
 				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
@@ -713,9 +787,11 @@
 				AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */,
 				AE8D22E425EF64420032D029 /* RegisterViewController.swift in Sources */,
 				AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */,
-				AE8D230825EF8CBD0032D029 /* Extension + UIView.swift in Sources */,
+				AE8D230825EF8CBD0032D029 /* UIView.swift in Sources */,
 				AE72403825FB719A005A39E5 /* MainPageViewController.swift in Sources */,
+				AE9963AE2615991000C2ED0A /* UserDefaults.swift in Sources */,
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
+				AE99639926146DDE00C2ED0A /* AudioManager.swift in Sources */,
 				AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */,
 				AE8D236525F149F40032D029 /* RegisterModel.swift in Sources */,
 				AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */,
@@ -724,7 +800,7 @@
 				AE8D226925EF46410032D029 /* SceneDelegate.swift in Sources */,
 				AE8D238825F150740032D029 /* ButtonCollectionViewCell.swift in Sources */,
 				AEC84C9325FC93780068A479 /* MenuItemTableViewCell.swift in Sources */,
-				AEC84CD925FEAFFB0068A479 /* Extension + UIViewController.swift in Sources */,
+				AEC84CD925FEAFFB0068A479 /* UIViewController.swift in Sources */,
 				AE8D227125EF46410032D029 /* BachelorProject.xcdatamodeld in Sources */,
 				AEC84CA425FCA90A0068A479 /* MenuControllerDelegate.swift in Sources */,
 				AE72402D25FB6EC8005A39E5 /* ResetingPasswordViewController.swift in Sources */,
