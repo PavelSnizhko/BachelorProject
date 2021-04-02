@@ -12,7 +12,9 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
 
     private var headersType: [HeaderType] = [.userInfo, .sex, .date, .auth, .button ]
     private var segmentTypes: [Sex] = [.male, .female]
+    
     private var registerModel = RegisterModel()
+    
     //INFO: this gonna be replaced due to apple's recomendation
     private let picker: UIDatePicker = {
         let picker = UIDatePicker()
@@ -187,7 +189,7 @@ extension RegisterViewController: UICollectionViewDataSource {
             guard let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: AuthDataCollectionViewCell.name, for: indexPath) as? AuthDataCollectionViewCell  else { fatalError() }
             
             customCell.emailText = { [weak self] text in
-                self?.registerModel.email = text
+                self?.registerModel.phoneNumber = text
             }
             
             customCell.passwordText = { [weak self] text in

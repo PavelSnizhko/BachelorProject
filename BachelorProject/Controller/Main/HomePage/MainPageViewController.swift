@@ -21,28 +21,6 @@ struct Preservation {
 }
 
 
-class CustomCLLocationManager: CLLocationManager {
-    
-    private var _location: CLLocation?
-    
-    var anyLocationDelivered = false
-
-    @objc dynamic override var location: CLLocation? {
-        get {
-            guard anyLocationDelivered else { return nil }
-            let usedLocation = _location ?? super.location
-            return usedLocation
-        }
-        set {
-            _location = newValue
-        }
-    }
-    
-}
-
-
-
-
 
 class MainPageViewController: UIViewController, NibLoadable {
     
@@ -50,6 +28,7 @@ class MainPageViewController: UIViewController, NibLoadable {
     @IBOutlet weak var circleAnimationView: CircleAnimationView!
     
     private var voiceStorage = VoiceStorage()
+    private var recordingManager: Recording = RecordingAudioManager(audioRecorder: nil, audioPlayer: nil)
     private let locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
     private var isPressedSOS: Bool = false
@@ -155,12 +134,23 @@ class MainPageViewController: UIViewController, NibLoadable {
         mapView.setRegion(region, animated: true)
         mapView.addAnnotation(annotation)
         
-        manageBluredView()
+        // TODO: logic when user choose proper setting for that
         
-        //Add blured View
+        recordingManager.startRecording { [weak self] result in
+            switch result {
+            
+            case .success():
+                manageBluredView()
+            case .failure(_):
+                print("Show alert")
+            }
+        }
         
-//        bluredView.isHidden = false
-//        mapView.setCenter(guardLocation, animated: true)
+        recordingManager.timeUpdating = { [weak self]  time in
+            self?.bluredView.updateTimeOnLabel(time: time)
+        }
+        
+        
         print("Please implenent me")
     }
     
@@ -176,6 +166,7 @@ class MainPageViewController: UIViewController, NibLoadable {
                 guard let self = self else { return }
                 print("self tapped")
                 
+                self.recordingManager.finishRecording()
                 //TODO: Implement there logic to send on server or store locally data from user
                 
                 self.bluredView.removeFromSuperview()

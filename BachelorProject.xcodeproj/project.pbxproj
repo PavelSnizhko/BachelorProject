@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -76,6 +76,12 @@
 		AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905A261706A200E727FA /* CircleAnimationView.swift */; };
 		AEEE906026170E9D00E727FA /* BluredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905F26170E9D00E727FA /* BluredView.swift */; };
 		AEEE906526170EB500E727FA /* BluredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEE906426170EB500E727FA /* BluredView.xib */; };
+		AEEE906A261729F300E727FA /* RecordingAudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE9069261729F200E727FA /* RecordingAudioManager.swift */; };
+		AEEE906F26177B4400E727FA /* AuthModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE906E26177B4300E727FA /* AuthModel.swift */; };
+		AEEE907426177CBC00E727FA /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE907326177CBC00E727FA /* AuthorizationService.swift */; };
+		AEEE907926177EC900E727FA /* SessionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE907826177EC900E727FA /* SessionStorage.swift */; };
+		AEEE907F26177FA400E727FA /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = AEEE907E26177FA400E727FA /* SwiftKeychainWrapper */; };
+		AEEE9084261780FD00E727FA /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE9083261780FD00E727FA /* ValidationService.swift */; };
 		AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */; };
 		AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */; };
 		AEF1B94E25FF4445006F65C8 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */; };
@@ -179,6 +185,11 @@
 		AEEE905A261706A200E727FA /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		AEEE905F26170E9D00E727FA /* BluredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluredView.swift; sourceTree = "<group>"; };
 		AEEE906426170EB500E727FA /* BluredView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BluredView.xib; sourceTree = "<group>"; };
+		AEEE9069261729F200E727FA /* RecordingAudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingAudioManager.swift; sourceTree = "<group>"; };
+		AEEE906E26177B4300E727FA /* AuthModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthModel.swift; sourceTree = "<group>"; };
+		AEEE907326177CBC00E727FA /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
+		AEEE907826177EC900E727FA /* SessionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStorage.swift; sourceTree = "<group>"; };
+		AEEE9083261780FD00E727FA /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
 		AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewController.swift; sourceTree = "<group>"; };
 		AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -194,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEE907F26177FA400E727FA /* SwiftKeychainWrapper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +258,7 @@
 			children = (
 				AE8D22E225EF64420032D029 /* RegisterViewController.swift */,
 				AE8D22E325EF64420032D029 /* RegisterViewController.xib */,
+				AEEE907326177CBC00E727FA /* AuthorizationService.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -437,6 +450,8 @@
 				AE8D236425F149F20032D029 /* RegisterModel.swift */,
 				AE9963B226159A1400C2ED0A /* VoiceSetting.swift */,
 				AE9963C92615EA4600C2ED0A /* VoiceStorage.swift */,
+				AEEE906E26177B4300E727FA /* AuthModel.swift */,
+				AEEE907826177EC900E727FA /* SessionStorage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -557,6 +572,8 @@
 			isa = PBXGroup;
 			children = (
 				AE99639826146DDE00C2ED0A /* AudioManager.swift */,
+				AEEE9069261729F200E727FA /* RecordingAudioManager.swift */,
+				AEEE9083261780FD00E727FA /* ValidationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -631,6 +648,9 @@
 			dependencies = (
 			);
 			name = BachelorProject;
+			packageProductDependencies = (
+				AEEE907E26177FA400E727FA /* SwiftKeychainWrapper */,
+			);
 			productName = BachelorProject;
 			productReference = AE8D226325EF46410032D029 /* BachelorProject.app */;
 			productType = "com.apple.product-type.application";
@@ -702,6 +722,9 @@
 				Base,
 			);
 			mainGroup = AE8D225A25EF46410032D029;
+			packageReferences = (
+				AEEE907D26177FA400E727FA /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+			);
 			productRefGroup = AE8D226425EF46410032D029 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -768,8 +791,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEEE906A261729F300E727FA /* RecordingAudioManager.swift in Sources */,
 				AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */,
 				AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */,
+				AEEE907426177CBC00E727FA /* AuthorizationService.swift in Sources */,
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
 				AE72405025FB7F1E005A39E5 /* ContainerViewController.swift in Sources */,
 				AE9963CA2615EA4600C2ED0A /* VoiceStorage.swift in Sources */,
@@ -789,9 +814,11 @@
 				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
 				AE8D238E25F15ECB0032D029 /* AlertProvider.swift in Sources */,
 				AE8D22F125EF70C90032D029 /* NibLoadable.swift in Sources */,
+				AEEE907926177EC900E727FA /* SessionStorage.swift in Sources */,
 				AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */,
 				AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */,
 				AE8D22F925EF74280032D029 /* PhotoView.swift in Sources */,
+				AEEE906F26177B4400E727FA /* AuthModel.swift in Sources */,
 				AEFC15E725FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift in Sources */,
 				AEF1B971260091F6006F65C8 /* MessageTableViewCell.swift in Sources */,
 				AE2CC6172600989B003AFE81 /* ChatViewController+Delegates.swift in Sources */,
@@ -802,6 +829,7 @@
 				AE72403825FB719A005A39E5 /* MainPageViewController.swift in Sources */,
 				AE9963AE2615991000C2ED0A /* UserDefaults.swift in Sources */,
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
+				AEEE9084261780FD00E727FA /* ValidationService.swift in Sources */,
 				AEEE906026170E9D00E727FA /* BluredView.swift in Sources */,
 				AE99639926146DDE00C2ED0A /* AudioManager.swift in Sources */,
 				AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */,
@@ -1151,6 +1179,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AEEE907D26177FA400E727FA /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AEEE907E26177FA400E727FA /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEEE907D26177FA400E727FA /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		AE8D226F25EF46410032D029 /* BachelorProject.xcdatamodeld */ = {

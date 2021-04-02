@@ -11,29 +11,43 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="AuthDataCollectionViewCell" customModule="BachelorProject" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="357" height="98"/>
+            <rect key="frame" x="0.0" y="0.0" width="357" height="118"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="357" height="98"/>
+                <rect key="frame" x="0.0" y="0.0" width="357" height="118"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hv9-xm-Q9a">
-                        <rect key="frame" x="0.0" y="0.0" width="357" height="98"/>
+                        <rect key="frame" x="0.0" y="0.0" width="357" height="118"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cIe-cs-Jb1">
-                                <rect key="frame" x="0.0" y="0.0" width="357" height="98"/>
+                                <rect key="frame" x="0.0" y="0.0" width="357" height="118"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uS6-N4-N4e">
-                                        <rect key="frame" x="0.0" y="0.0" width="357" height="46.5"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uS6-N4-N4e">
+                                        <rect key="frame" x="0.0" y="0.0" width="357" height="56.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7vb-YE-vYu">
-                                        <rect key="frame" x="0.0" y="51.5" width="357" height="46.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="3rT-aE-Cpi">
+                                        <rect key="frame" x="0.0" y="61.5" width="357" height="56.5"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7vb-YE-vYu">
+                                                <rect key="frame" x="0.0" y="0.0" width="357" height="56.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXb-f2-zc9">
+                                                <rect key="frame" x="0.0" y="56.5" width="357" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="7vb-YE-vYu" firstAttribute="height" secondItem="uS6-N4-N4e" secondAttribute="height" id="fBw-1w-PsY"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,12 +67,12 @@
                 <constraint firstItem="hv9-xm-Q9a" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="c8v-SG-Yr9"/>
                 <constraint firstItem="hv9-xm-Q9a" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="zTw-MX-N2a"/>
             </constraints>
-            <size key="customSize" width="357" height="98"/>
+            <size key="customSize" width="357" height="118"/>
             <connections>
                 <outlet property="emailTextField" destination="uS6-N4-N4e" id="Mhs-vJ-yCf"/>
                 <outlet property="passwordTextField" destination="7vb-YE-vYu" id="H5Z-ov-8OH"/>
             </connections>
-            <point key="canvasLocation" x="283.33333333333337" y="39.508928571428569"/>
+            <point key="canvasLocation" x="282" y="41"/>
         </collectionViewCell>
     </objects>
 </document>

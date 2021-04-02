@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Sex: String {
+enum Sex: String, Codable {
     case male
     case female
 }
@@ -20,13 +20,13 @@ struct RegisterModel {
     var password: String?
     var sex: Sex = .male
     var birthday: Date?
-    var email: String?
+    var phoneNumber: String?
     
     var isFilled: Bool {
         
         let isFilledUserInfo = image != nil && !(firstName ?? " ").isEmpty && !(secondName ?? " ").isEmpty &&  birthday != nil
         
-        let isFilledAuthInfo = !(password ?? " ").isEmpty  && !(email ?? " ").isEmpty
+        let isFilledAuthInfo = !(password ?? " ").isEmpty  && !(phoneNumber ?? " ").isEmpty
         
         guard  isFilledUserInfo && isFilledAuthInfo  else {
             return false
@@ -34,4 +34,6 @@ struct RegisterModel {
         
         return true
     }
+    
+    
 }

@@ -17,17 +17,17 @@ class AuthDataCollectionViewCell: UICollectionViewCell, NibLoadable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        addTargets()
         self.passwordTextField.isSecureTextEntry = true
         // Initialization code
     }
 
     private func addTargets() {
-        emailTextField.addTarget(self, action: #selector(changedEmailText(sender:)), for: .editingChanged)
+        emailTextField.addTarget(self, action: #selector(changedPhoneText(sender:)), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(changePasswordText(sender:)), for: .editingChanged)
     }
     
-    @objc private func changedEmailText(sender: UITextField) {
+    @objc private func changedPhoneText(sender: UITextField) {
         emailText?(sender.text ?? "")
     }
     
