@@ -47,11 +47,20 @@ class CustomCLLocationManager: CLLocationManager {
 class MainPageViewController: UIViewController, NibLoadable {
     
     
+    @IBOutlet weak var circleAnimationView: CircleAnimationView!
+    
     private var voiceStorage = VoiceStorage()
     private let locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
+    private var isPressedSOS: Bool = false
     let regionMetters: Double = 1000
     
+    private lazy var bluredView: BluredView = {
+        let bluredView = BluredView.loadFromNib()
+        
+        return bluredView
+        
+    }()
   
     
     let preservation = Preservation(id: "0",
@@ -140,13 +149,44 @@ class MainPageViewController: UIViewController, NibLoadable {
         let annotation = MKPointAnnotation()
         annotation.coordinate = userLocationCoordinates
         
+        
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let region = MKCoordinateRegion(center: userLocationCoordinates, span: span)
         mapView.setRegion(region, animated: true)
         mapView.addAnnotation(annotation)
         
+        manageBluredView()
+        
+        //Add blured View
+        
+//        bluredView.isHidden = false
 //        mapView.setCenter(guardLocation, animated: true)
         print("Please implenent me")
+    }
+    
+    func manageBluredView() {
+        
+        // TODO: do I realy need this ???
+        
+        isPressedSOS.toggle()
+        
+        if isPressedSOS {
+            
+            bluredView.stopTapped = { [weak self] in
+                guard let self = self else { return }
+                print("self tapped")
+                
+                //TODO: Implement there logic to send on server or store locally data from user
+                
+                self.bluredView.removeFromSuperview()
+            }
+            
+            self.view.addSubview(bluredView)
+        }
+        else {
+            self.view.willRemoveSubview(bluredView)
+        }
+        
     }
     
 }

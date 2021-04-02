@@ -73,6 +73,9 @@
 		AEC84CA425FCA90A0068A479 /* MenuControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */; };
 		AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD025FE42120068A479 /* CustomButton.swift */; };
 		AEC84CD925FEAFFB0068A479 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD825FEAFFA0068A479 /* UIViewController.swift */; };
+		AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905A261706A200E727FA /* CircleAnimationView.swift */; };
+		AEEE906026170E9D00E727FA /* BluredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905F26170E9D00E727FA /* BluredView.swift */; };
+		AEEE906526170EB500E727FA /* BluredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEE906426170EB500E727FA /* BluredView.xib */; };
 		AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */; };
 		AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */; };
 		AEF1B94E25FF4445006F65C8 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */; };
@@ -173,6 +176,9 @@
 		AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuControllerDelegate.swift; sourceTree = "<group>"; };
 		AEC84CD025FE42120068A479 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AEC84CD825FEAFFA0068A479 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		AEEE905A261706A200E727FA /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
+		AEEE905F26170E9D00E727FA /* BluredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluredView.swift; sourceTree = "<group>"; };
+		AEEE906426170EB500E727FA /* BluredView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BluredView.xib; sourceTree = "<group>"; };
 		AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewController.swift; sourceTree = "<group>"; };
 		AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -407,6 +413,9 @@
 				AE8D230F25EF98D40032D029 /* Cells */,
 				AE8D236F25F14E2F0032D029 /* CustomReusableView */,
 				AE2447B52614455F0047F935 /* AudioCell */,
+				AEEE905A261706A200E727FA /* CircleAnimationView.swift */,
+				AEEE905F26170E9D00E727FA /* BluredView.swift */,
+				AEEE906426170EB500E727FA /* BluredView.xib */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -713,6 +722,7 @@
 				AE8D22DE25EF64010032D029 /* LoginViewController.xib in Resources */,
 				AEFC15E825FB619900E204B9 /* LinkingLabelsCollectionViewCell.xib in Resources */,
 				AE8D227625EF46460032D029 /* LaunchScreen.storyboard in Resources */,
+				AEEE906526170EB500E727FA /* BluredView.xib in Resources */,
 				AE2447A3261398B20047F935 /* FackeVoiceViewController.xib in Resources */,
 				AE8D233025F0EC470032D029 /* HeaderCollectionReusableView.xib in Resources */,
 				AE8D227325EF46460032D029 /* Assets.xcassets in Resources */,
@@ -759,6 +769,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */,
+				AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */,
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
 				AE72405025FB7F1E005A39E5 /* ContainerViewController.swift in Sources */,
 				AE9963CA2615EA4600C2ED0A /* VoiceStorage.swift in Sources */,
@@ -791,6 +802,7 @@
 				AE72403825FB719A005A39E5 /* MainPageViewController.swift in Sources */,
 				AE9963AE2615991000C2ED0A /* UserDefaults.swift in Sources */,
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
+				AEEE906026170E9D00E727FA /* BluredView.swift in Sources */,
 				AE99639926146DDE00C2ED0A /* AudioManager.swift in Sources */,
 				AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */,
 				AE8D236525F149F40032D029 /* RegisterModel.swift in Sources */,
