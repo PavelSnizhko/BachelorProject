@@ -37,7 +37,9 @@ class ChatViewController: UIViewController, NibLoadable {
         tableView.register(MessageTableViewCell.self, forCellReuseIdentifier: "MessageCell")
         tableView.delegate = self
         tableView.dataSource = self
-
+//        navigationController?.isToolbarHidden = false
+        print(navigationController)
+        navigationController?.navigationBar.tintColor = .red
         // Do any additional setup after loading the view.
     }
     @IBAction func sendMessageTapped(_ sender: Any) {

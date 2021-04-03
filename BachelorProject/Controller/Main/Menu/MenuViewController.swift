@@ -17,6 +17,8 @@ class MenuViewController: UIViewController, NibLoadable {
     @IBOutlet weak var tableView: UITableView!
     weak var delegate: SelectOptionDelegate?
     
+    var selectedOption: ItemClosure<MenuItem>?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        navigationController.setNavigationBarHidden(true, animated: false)
@@ -74,11 +76,21 @@ extension MenuViewController: UITableViewDelegate {
         
         switch option {
         case .home:
-            delegate?.choseOption(with: .home)
+            // TODO: thow to coordinator that is above
+            
+            selectedOption?(.home)
+            
+//            delegate?.choseOption(with: .home)
         case .chat:
-            delegate?.choseOption(with: .chat)
+            
+            selectedOption?(.chat)
+            
+//            delegate?.choseOption(with: .chat)
         case .setting:
-            delegate?.choseOption(with: .setting)
+            
+            selectedOption?(.setting)
+            
+//            delegate?.choseOption(with: .setting)
 
         }
     }

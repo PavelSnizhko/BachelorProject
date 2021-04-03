@@ -7,18 +7,28 @@
 
 import UIKit
 
-class IntroViewController: UIViewController {
+class IntroViewController: UIViewController, NibLoadable {
     @IBOutlet weak var moveToLoginButton: UIButton!
     
+    //TODO: make checking is user logged
+    
+    
+    var isLogin: ItemClosure<Bool>?
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     
     
 
     @IBAction func moveForwardPressed(_ sender: Any) {
-        let registrationVC = RegisterViewController(nibName: "RegisterViewController", bundle: Bundle.main)
-        self.navigationController?.pushViewController(registrationVC, animated: true)
+        isLogin?(false)
+
+        
+        
+//        let registrationVC = RegisterViewController(nibName: "RegisterViewController", bundle: Bundle.main)
+//        self.navigationController?.pushViewController(registrationVC, animated: true)
     }
 }
 

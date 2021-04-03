@@ -13,48 +13,50 @@ class ContainerViewController: UIViewController {
     
     var menuController: MenuViewController!
     var centerViewController: UIViewController!
+    
 //    var navigationCenterController: UINavigationController!
     var isMenuPresenting: Bool = false
-    
+    var showingMenuScreen: VoidClosure?
     
     // MARK: - Init
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureHomeViewController()
-        navigationController?.setNavigationBarHidden(true, animated: false)
-
-        title = "fsdfsdds"
+        title = "Safe Home"
         // Do any additional setup after loading the view.
     }
     
 
     // MARK: - Handlers
     
-    func configureHomeViewController() {
+    func configureHomeViewController(swipingViewController: SwipingViewController) {
         
-        let swipingViewController = SwipingViewController()
-        swipingViewController.menuDelegate = self
+//        let swipingViewController = SwipingViewController()
+
+//        swipingViewController.menuDelegate = self
+        
         centerViewController = UINavigationController(rootViewController: swipingViewController)
+        
         addChild(centerViewController)
         view.addSubview(centerViewController.view)
         centerViewController.didMove(toParent: self)
     }
     
-    func configureMenuController() {
+    func configureMenuController(menuViewController: MenuViewController) {
         if menuController == nil {
             print("New menuController")
-            menuController = MenuViewController(nibName: MenuViewController.name, bundle: .main)
-            menuController.delegate = self
+            menuController = menuViewController
+//                MenuViewController(nibName: MenuViewController.name, bundle: .main)
+//            menuController.delegate = self
             view.insertSubview(menuController.view, at: 0)
             menuController.view.frame = view.bounds
             centerViewController.didMove(toParent: self)
         } else {
             print("I've already created")
         }
-        
-        isMenuPresenting.toggle()
-        moveCenterViewController(isMenuPresenting)
+
+//        isMenuPresenting.toggle()
+//        moveCenterViewController(isMenuPresenting)
     }
     
     
@@ -98,7 +100,7 @@ extension ContainerViewController {
 
 extension ContainerViewController: MenuControllerDelegate {
     func handleMenuTapped() {
-        configureMenuController()
+//        configureMenuController(menuViewController: <#MenuViewController#>)
     }
 
 }

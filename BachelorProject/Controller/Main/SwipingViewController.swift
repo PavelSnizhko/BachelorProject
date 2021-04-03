@@ -8,8 +8,11 @@
 import UIKit
 
 class SwipingViewController: UIViewController {
-
-    private var viewControllers = [MainPageViewController(nibName: MainPageViewController.name, bundle: .main), ChatViewController(nibName: ChatViewController.name, bundle: .main)]
+    
+    var finishFlow: VoidClosure?
+    
+    private var viewControllers = [MainPageViewController(nibName: MainPageViewController.name, bundle: .main),
+                                   ChatViewController(nibName: ChatViewController.name, bundle: .main)]
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -23,16 +26,17 @@ class SwipingViewController: UIViewController {
 
     weak var menuDelegate: MenuControllerDelegate?
 
+    var menuPressed: VoidClosure?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         configNavigationBar()
         addCollectionView()
         setDelegeting()
         configureCollectionView()
+        
     }
     
     
@@ -48,13 +52,15 @@ class SwipingViewController: UIViewController {
     
     
     @objc func logOuttapped() {
+        finishFlow?()
         print("Log out")
+        
     }
     
     
     @objc func tappedMenu() {
         print("tappedMenu")
-        menuDelegate?.handleMenuTapped()
+        menuPressed?()
     }
     
     

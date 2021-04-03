@@ -8,6 +8,13 @@
 import UIKit
 
 final class RegisterViewController: UIViewController, NibLoadable, AlertProvider {
+    
+    // TODO: make abstration using protocols, maybe...
+    
+    var finishFlow: VoidClosure?
+    var isError: ItemClosure<Error>?
+    var onLogin: VoidClosure?
+    
     @IBOutlet weak var collectionView: UICollectionView!
 
     private var headersType: [HeaderType] = [.userInfo, .sex, .date, .auth, .button ]
@@ -178,9 +185,14 @@ extension RegisterViewController: UICollectionViewDataSource {
                 guard let self = self else { return }
 //                guard self.registerModel.isFilled else { self.showAlert(from: self, with: "Dangerous", and: "Please, fill all forms"); return }
 //                self.showAlert(from: self, with: "\(self.registerModel.firstName)", and: "\(self.registerModel.secondName) \(self.registerModel.sex.rawValue) \n \(self.registerModel.birthday)")
-                let loginVC = LoginViewController(nibName: LoginViewController.name, bundle: .main)
-                self.navigationController?.pushViewController(loginVC, animated: true)
                 
+                //register is done move to main screen with coordinator
+                self.finishFlow?()
+                
+//
+//                let loginVC = LoginViewController(nibName: LoginViewController.name, bundle: .main)
+//                self.navigationController?.pushViewController(loginVC, animated: true)
+//
 
             }
             cell = buttonCollectionViewCell

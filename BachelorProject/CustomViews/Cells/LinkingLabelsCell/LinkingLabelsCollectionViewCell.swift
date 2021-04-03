@@ -8,8 +8,10 @@
 import UIKit
 
 class LinkingLabelsCollectionViewCell: UICollectionViewCell, NibLoadable {
-    @IBOutlet weak var aboveLabel: UILabel!
-    @IBOutlet weak var belowLabel: UILabel!
+    @IBOutlet private  weak var aboveLabel: UILabel!
+    @IBOutlet private weak var belowLabel: UILabel!
+    @IBOutlet private weak var button: UIButton!
+    var buttonTapped: VoidClosure?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,5 +30,14 @@ class LinkingLabelsCollectionViewCell: UICollectionViewCell, NibLoadable {
 
     func setBelowLabel(title: String) {
         self.belowLabel.text = title
+    }
+    
+    func setButtonLabel(title: String) {
+        self.button.setTitle(title, for: .normal)
+    }
+    
+    
+    @IBAction func tapppedButton(_ sender: Any) {
+        buttonTapped?()
     }
 }

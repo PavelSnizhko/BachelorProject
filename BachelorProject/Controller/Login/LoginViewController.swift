@@ -8,6 +8,10 @@
 import UIKit
 
 class LoginViewController: UIViewController, NibLoadable {
+    
+    var onLogin: VoidClosure?
+    var onRegister: VoidClosure?
+    
     @IBOutlet private weak var collectionView: UICollectionView!
     
     private var headersType: [HeaderType] = [.logo, .auth, .button, .linkingLabels]
@@ -75,20 +79,27 @@ extension LoginViewController: UICollectionViewDataSource {
         switch headersType[indexPath.section].cellModel[indexPath.item] {
          
         case .logo:
+            
             guard let logoCell = collectionView.dequeueReusableCell(withReuseIdentifier: LogoCollectionViewCell.name, for: indexPath) as? LogoCollectionViewCell else { fatalError() }
             cell = logoCell
             
         case .auth:
+            
             guard let authCell = collectionView.dequeueReusableCell(withReuseIdentifier: AuthDataCollectionViewCell.name, for: indexPath) as? AuthDataCollectionViewCell else { fatalError() }
             cell = authCell
             
         case .button:
+            
             guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell else { fatalError() }
             buttonCell.buttonTitle = "Log in"
             // TODO: handle buttonTapped
             buttonCell.buttonTapped = { [weak self] in
-                let homeVC = ContainerViewController()
-                self?.navigationController?.pushViewController(homeVC, animated: true)
+                
+                self?.onLogin?()
+                
+//                let homeVC = ContainerViewController()
+//                self?.navigationController?.pushViewController(homeVC, animated: true)
+                
             }
             cell = buttonCell
         case .linkingLabels:
@@ -96,7 +107,11 @@ extension LoginViewController: UICollectionViewDataSource {
             
             linkingLabelsCell.setAboveLabelTitle(title: "Forgot password")
             linkingLabelsCell.setBelowLabel(title: "Don't have an account")
-
+            linkingLabelsCell.setButtonLabel(title: "Register")
+            linkingLabelsCell.buttonTapped = { [weak self] in
+                self?.onRegister?()
+            }
+            
             cell = linkingLabelsCell
         }
         return cell
