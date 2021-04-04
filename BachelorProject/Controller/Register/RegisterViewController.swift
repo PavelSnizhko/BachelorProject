@@ -12,9 +12,10 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
 
     private var headersType: [HeaderType] = [.userInfo, .sex, .date, .auth, .button ]
     private var segmentTypes: [Sex] = [.male, .female]
-    
+    //mb bad decision
+    private weak var cellWithTextField: DatePickerCollectionViewCell?
     private var registerModel = RegisterModel()
-    
+    private var authService = AuthorizationService(authorizationService: NetworkService())
     //INFO: this gonna be replaced due to apple's recomendation
     private let picker: UIDatePicker = {
         let picker = UIDatePicker()
@@ -68,8 +69,13 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
     }
     
     @objc private func pickNewDate(sender: UIDatePicker) {
-        let date = sender.date
+               
+        let date = sender.date.stringed(using: DateFormatter.pmDateFormatter)
+
         registerModel.birthday = date
+        
+        cellWithTextField?.setToField(text: date)
+        
         
     }
     
@@ -168,8 +174,11 @@ extension RegisterViewController: UICollectionViewDataSource {
             cell = segmenterCollectionViewCell
             
         case .date:
-            guard let datePickerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: DatePickerCollectionViewCell.name, for: indexPath) as? DatePickerCollectionViewCell else { fatalError() }
+            guard let datePickerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: DatePickerCollectionViewCell.name,
+                                                                                        for: indexPath) as? DatePickerCollectionViewCell else { fatalError() }
             datePickerCollectionViewCell.textField.inputView = picker
+            
+            cellWithTextField = datePickerCollectionViewCell
             cell = datePickerCollectionViewCell
         case .button:
             guard let buttonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell else { fatalError() }
@@ -178,8 +187,9 @@ extension RegisterViewController: UICollectionViewDataSource {
                 guard let self = self else { return }
 //                guard self.registerModel.isFilled else { self.showAlert(from: self, with: "Dangerous", and: "Please, fill all forms"); return }
 //                self.showAlert(from: self, with: "\(self.registerModel.firstName)", and: "\(self.registerModel.secondName) \(self.registerModel.sex.rawValue) \n \(self.registerModel.birthday)")
-                let loginVC = LoginViewController(nibName: LoginViewController.name, bundle: .main)
-                self.navigationController?.pushViewController(loginVC, animated: true)
+                let main = ContainerViewController()
+                self.navigationController?.isToolbarHidden = true
+                self.navigationController?.pushViewController(main, animated: true)
                 
 
             }
@@ -230,7 +240,6 @@ private extension RegisterViewController {
         }
     }
 
-    //TODO when I got a model type the add associated value for each item if need it
     enum ModelsType {
         case userInfo
         case sex

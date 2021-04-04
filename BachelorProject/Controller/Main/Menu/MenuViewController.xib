@@ -20,7 +20,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="30" sectionHeaderHeight="28" estimatedSectionHeaderHeight="10" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4ix-2I-gJp">
-                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                    <rect key="frame" x="0.0" y="84" width="414" height="812"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -31,7 +31,7 @@
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="4ix-2I-gJp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KVz-De-vta"/>
-                <constraint firstItem="4ix-2I-gJp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Lar-zB-zYZ"/>
+                <constraint firstItem="4ix-2I-gJp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="Lar-zB-zYZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4ix-2I-gJp" secondAttribute="trailing" id="mGG-95-uTf"/>
                 <constraint firstAttribute="bottom" secondItem="4ix-2I-gJp" secondAttribute="bottom" id="pnU-eR-Kqb"/>
             </constraints>

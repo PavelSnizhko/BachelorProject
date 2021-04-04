@@ -13,13 +13,19 @@ enum Sex: String, Codable {
 }
 
 
-struct RegisterModel {
-    var image: UIImage?
+struct RegisterModel: Codable {
+    var _image: Data?
+    
+    var image: UIImage? {
+        didSet {
+            self._image = image?.pngData()
+        }
+    }
     var firstName: String?
     var secondName: String?
     var password: String?
     var sex: Sex = .male
-    var birthday: Date?
+    var birthday: String?
     var phoneNumber: String?
     
     var isFilled: Bool {
@@ -35,5 +41,10 @@ struct RegisterModel {
         return true
     }
     
+    private enum CodingKeys : String, CodingKey {
+        case _image = "image"
+        case firstName, birthday, password
+        case phoneNumber = "phone"
+    }
     
 }

@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "NetworkLibrary",
+        "repositoryURL": "https://github.com/PavelSnizhko/NetworkLibrary.git",
+        "state": {
+          "branch": null,
+          "revision": "ee8c4331076e34d9b50b56bb760217d9de022040",
+          "version": "1.2.1"
+        }
+      },
+      {
         "package": "SwiftKeychainWrapper",
         "repositoryURL": "https://github.com/jrendel/SwiftKeychainWrapper",
         "state": {

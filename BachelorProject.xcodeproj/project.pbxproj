@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE0BA3F826197C5400C73D55 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3F726197C5400C73D55 /* Date.swift */; };
+		AE0BA3FD26197E0C00C73D55 /* DateFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3FC26197E0C00C73D55 /* DateFormater.swift */; };
+		AE0BA4022619805E00C73D55 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA4012619805E00C73D55 /* Networking.swift */; };
+		AE0BA408261980D600C73D55 /* NetworkLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = AE0BA407261980D600C73D55 /* NetworkLibrary */; };
+		AE0BA40D2619846A00C73D55 /* Alerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA40C2619846A00C73D55 /* Alerting.swift */; };
 		AE2447A2261398B20047F935 /* FackeVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */; };
 		AE2447A3261398B20047F935 /* FackeVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */; };
 		AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */; };
@@ -110,6 +115,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE0BA3F726197C5400C73D55 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		AE0BA3FC26197E0C00C73D55 /* DateFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormater.swift; sourceTree = "<group>"; };
+		AE0BA4012619805E00C73D55 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		AE0BA40C2619846A00C73D55 /* Alerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerting.swift; sourceTree = "<group>"; };
 		AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FackeVoiceViewController.swift; sourceTree = "<group>"; };
 		AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FackeVoiceViewController.xib; sourceTree = "<group>"; };
 		AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingVoiceViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEEE907F26177FA400E727FA /* SwiftKeychainWrapper in Frameworks */,
+				AE0BA408261980D600C73D55 /* NetworkLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +268,6 @@
 			children = (
 				AE8D22E225EF64420032D029 /* RegisterViewController.swift */,
 				AE8D22E325EF64420032D029 /* RegisterViewController.xib */,
-				AEEE907326177CBC00E727FA /* AuthorizationService.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -462,6 +471,9 @@
 				AE8D230725EF8CBD0032D029 /* UIView.swift */,
 				AEC84CD825FEAFFA0068A479 /* UIViewController.swift */,
 				AE9963AD2615991000C2ED0A /* UserDefaults.swift */,
+				AE0BA3F726197C5400C73D55 /* Date.swift */,
+				AE0BA3FC26197E0C00C73D55 /* DateFormater.swift */,
+				AE0BA40C2619846A00C73D55 /* Alerting.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -571,9 +583,11 @@
 		AE9963A92614CC0500C2ED0A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AEEE907326177CBC00E727FA /* AuthorizationService.swift */,
 				AE99639826146DDE00C2ED0A /* AudioManager.swift */,
 				AEEE9069261729F200E727FA /* RecordingAudioManager.swift */,
 				AEEE9083261780FD00E727FA /* ValidationService.swift */,
+				AE0BA4012619805E00C73D55 /* Networking.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -650,6 +664,7 @@
 			name = BachelorProject;
 			packageProductDependencies = (
 				AEEE907E26177FA400E727FA /* SwiftKeychainWrapper */,
+				AE0BA407261980D600C73D55 /* NetworkLibrary */,
 			);
 			productName = BachelorProject;
 			productReference = AE8D226325EF46410032D029 /* BachelorProject.app */;
@@ -724,6 +739,7 @@
 			mainGroup = AE8D225A25EF46410032D029;
 			packageReferences = (
 				AEEE907D26177FA400E727FA /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				AE0BA406261980D600C73D55 /* XCRemoteSwiftPackageReference "NetworkLibrary" */,
 			);
 			productRefGroup = AE8D226425EF46410032D029 /* Products */;
 			projectDirPath = "";
@@ -791,9 +807,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0BA4022619805E00C73D55 /* Networking.swift in Sources */,
 				AEEE906A261729F300E727FA /* RecordingAudioManager.swift in Sources */,
 				AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */,
 				AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */,
+				AE0BA3FD26197E0C00C73D55 /* DateFormater.swift in Sources */,
 				AEEE907426177CBC00E727FA /* AuthorizationService.swift in Sources */,
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
 				AE72405025FB7F1E005A39E5 /* ContainerViewController.swift in Sources */,
@@ -826,12 +844,14 @@
 				AE8D22E425EF64420032D029 /* RegisterViewController.swift in Sources */,
 				AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */,
 				AE8D230825EF8CBD0032D029 /* UIView.swift in Sources */,
+				AE0BA40D2619846A00C73D55 /* Alerting.swift in Sources */,
 				AE72403825FB719A005A39E5 /* MainPageViewController.swift in Sources */,
 				AE9963AE2615991000C2ED0A /* UserDefaults.swift in Sources */,
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
 				AEEE9084261780FD00E727FA /* ValidationService.swift in Sources */,
 				AEEE906026170E9D00E727FA /* BluredView.swift in Sources */,
 				AE99639926146DDE00C2ED0A /* AudioManager.swift in Sources */,
+				AE0BA3F826197C5400C73D55 /* Date.swift in Sources */,
 				AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */,
 				AE8D236525F149F40032D029 /* RegisterModel.swift in Sources */,
 				AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */,
@@ -1181,6 +1201,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		AE0BA406261980D600C73D55 /* XCRemoteSwiftPackageReference "NetworkLibrary" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/PavelSnizhko/NetworkLibrary.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
 		AEEE907D26177FA400E727FA /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
@@ -1192,6 +1220,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		AE0BA407261980D600C73D55 /* NetworkLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE0BA406261980D600C73D55 /* XCRemoteSwiftPackageReference "NetworkLibrary" */;
+			productName = NetworkLibrary;
+		};
 		AEEE907E26177FA400E727FA /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AEEE907D26177FA400E727FA /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;

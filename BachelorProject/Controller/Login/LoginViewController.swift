@@ -7,24 +7,27 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, NibLoadable {
+
+class LoginViewController: UIViewController, NibLoadable, Alerting {
     @IBOutlet private weak var collectionView: UICollectionView!
     
     private var headersType: [HeaderType] = [.logo, .auth, .button, .linkingLabels]
-
+    private var authModel = AuthModel()
+    private var validationService: ValidationService = DefaultValidationService()
+    private var authService = AuthorizationService(authorizationService: NetworkService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         launchDelegating()
         registerCells()
         setCollectionViewScrolling(flag: false)
+        hideOportunityMoveBack()
         
     }
     
     
-    //TODO now it's not needed
-    func hideOportunityMoveBack() {
-        // when I change navigation then delete this func 
+    private func hideOportunityMoveBack() {
+        // TODO:  when I change navigation then delete this func
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.hidesBackButton = true
         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
@@ -82,13 +85,53 @@ extension LoginViewController: UICollectionViewDataSource {
             guard let authCell = collectionView.dequeueReusableCell(withReuseIdentifier: AuthDataCollectionViewCell.name, for: indexPath) as? AuthDataCollectionViewCell else { fatalError() }
             cell = authCell
             
+            authCell.emailText = { [weak self] text in
+                self?.authModel.phoneNumber = text
+            }
+            
+            authCell.passwordText = { [weak self] text in
+                self?.authModel.password = text
+            }
+            
         case .button:
             guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell else { fatalError() }
             buttonCell.buttonTitle = "Log in"
             // TODO: handle buttonTapped
             buttonCell.buttonTapped = { [weak self] in
-                let homeVC = ContainerViewController()
-                self?.navigationController?.pushViewController(homeVC, animated: true)
+                
+                guard let self = self else { return }
+                
+                do {
+                    try self.validationService.validate(for: self.authModel)
+                    
+                    self.authService.logIn(authModel: self.authModel) { [weak self] error in
+
+                        if error != nil {
+                            
+                            guard let self = self else { return }
+                            
+//                            print(error.localizedDescription)
+                            self.showAlert(from: self,
+                                           title: "Oops some troubles with data",
+                                           message: error?.localizedDescription ?? "Smth wrong")
+                            return
+                        }
+                        else {
+                            print("Я тут")
+                            let homeVC = ContainerViewController()
+                            self?.navigationController?.pushViewController(homeVC, animated: true)
+
+                        }
+                    }
+                    
+                } catch let error {
+                    print(error.localizedDescription)
+                    self.showAlert(from: self, title: "Oops some mistakes", message: error.localizedDescription)
+                    
+                }
+                
+                
+                
             }
             cell = buttonCell
         case .linkingLabels:

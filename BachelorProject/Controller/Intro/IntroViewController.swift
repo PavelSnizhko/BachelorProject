@@ -17,8 +17,9 @@ class IntroViewController: UIViewController {
     
 
     @IBAction func moveForwardPressed(_ sender: Any) {
-        let registrationVC = RegisterViewController(nibName: "RegisterViewController", bundle: Bundle.main)
-        self.navigationController?.pushViewController(registrationVC, animated: true)
+        let loginVC = LoginViewController(nibName: LoginViewController.name, bundle: .main)
+        self.navigationController?.isToolbarHidden = true
+        self.navigationController?.pushViewController(loginVC, animated: true)
     }
 }
 

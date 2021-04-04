@@ -14,4 +14,9 @@ struct AuthModel: Codable {
     var isFilled: Bool {
         !(phoneNumber ?? "").isEmpty && !(password ?? "").isEmpty
     }
+    
+    private enum CodingKeys : String, CodingKey {
+        case phoneNumber = "number"
+        case password
+    }
 }

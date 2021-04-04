@@ -15,4 +15,9 @@ class DatePickerCollectionViewCell: UICollectionViewCell, NibLoadable {
         // Initialization code
     }
     
+    
+    func setToField(text: String) {
+        textField.text = text
+    }
+    
 }

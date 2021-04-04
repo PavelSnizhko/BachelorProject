@@ -71,7 +71,7 @@ extension MenuViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let option = MenuItem.allCases[indexPath.row]
-        
+        print(option)
         switch option {
         case .home:
             delegate?.choseOption(with: .home)
