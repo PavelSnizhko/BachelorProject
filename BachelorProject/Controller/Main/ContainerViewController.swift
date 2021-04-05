@@ -22,20 +22,39 @@ class ContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHomeViewController()
-        navigationController?.setNavigationBarHidden(true, animated: false)
 
-        title = "fsdfsdds"
         // Do any additional setup after loading the view.
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideOportunityMoveBack()
+        
+    }
+    
     // MARK: - Handlers
+
+    private func hideOportunityMoveBack() {
+        // TODO:  when I change navigation then delete this func
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.hidesBackButton = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+        self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
+    }
+
     
     func configureHomeViewController() {
         
         let swipingViewController = SwipingViewController()
+        
+        swipingViewController.finishFlow = { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
+        }
+        
         swipingViewController.menuDelegate = self
         centerViewController = UINavigationController(rootViewController: swipingViewController)
+        
         addChild(centerViewController)
         view.addSubview(centerViewController.view)
         centerViewController.didMove(toParent: self)

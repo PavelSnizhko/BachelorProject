@@ -12,6 +12,7 @@
 		AE0BA4022619805E00C73D55 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA4012619805E00C73D55 /* Networking.swift */; };
 		AE0BA408261980D600C73D55 /* NetworkLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = AE0BA407261980D600C73D55 /* NetworkLibrary */; };
 		AE0BA40D2619846A00C73D55 /* Alerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA40C2619846A00C73D55 /* Alerting.swift */; };
+		AE0BA438261A0DB200C73D55 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA437261A0DB100C73D55 /* LocationService.swift */; };
 		AE2447A2261398B20047F935 /* FackeVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */; };
 		AE2447A3261398B20047F935 /* FackeVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */; };
 		AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */; };
@@ -119,6 +120,7 @@
 		AE0BA3FC26197E0C00C73D55 /* DateFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormater.swift; sourceTree = "<group>"; };
 		AE0BA4012619805E00C73D55 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		AE0BA40C2619846A00C73D55 /* Alerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerting.swift; sourceTree = "<group>"; };
+		AE0BA437261A0DB100C73D55 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FackeVoiceViewController.swift; sourceTree = "<group>"; };
 		AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FackeVoiceViewController.xib; sourceTree = "<group>"; };
 		AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingVoiceViewController.swift; sourceTree = "<group>"; };
@@ -588,6 +590,7 @@
 				AEEE9069261729F200E727FA /* RecordingAudioManager.swift */,
 				AEEE9083261780FD00E727FA /* ValidationService.swift */,
 				AE0BA4012619805E00C73D55 /* Networking.swift */,
+				AE0BA437261A0DB100C73D55 /* LocationService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				AE2CC6172600989B003AFE81 /* ChatViewController+Delegates.swift in Sources */,
 				AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */,
 				AE8D22E425EF64420032D029 /* RegisterViewController.swift in Sources */,
+				AE0BA438261A0DB200C73D55 /* LocationService.swift in Sources */,
 				AE8D226725EF46410032D029 /* AppDelegate.swift in Sources */,
 				AE8D230825EF8CBD0032D029 /* UIView.swift in Sources */,
 				AE0BA40D2619846A00C73D55 /* Alerting.swift in Sources */,

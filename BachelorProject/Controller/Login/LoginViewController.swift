@@ -117,7 +117,6 @@ extension LoginViewController: UICollectionViewDataSource {
                             return
                         }
                         else {
-                            print("Я тут")
                             let homeVC = ContainerViewController()
                             self?.navigationController?.pushViewController(homeVC, animated: true)
 
@@ -139,6 +138,15 @@ extension LoginViewController: UICollectionViewDataSource {
             
             linkingLabelsCell.setAboveLabelTitle(title: "Forgot password")
             linkingLabelsCell.setBelowLabel(title: "Don't have an account")
+            
+            // TODO: move this part to coordinator pattern
+            linkingLabelsCell.bellowLabelTapped = { [weak self] in
+                
+                let registerViewController = RegisterViewController(nibName: RegisterViewController.name,
+                                                                    bundle: .main)
+                
+                self?.navigationController?.pushViewController(registerViewController, animated: true)
+            }
 
             cell = linkingLabelsCell
         }

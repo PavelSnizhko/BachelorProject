@@ -9,7 +9,15 @@ import UIKit
 
 class SwipingViewController: UIViewController {
 
-    private var viewControllers = [MainPageViewController(nibName: MainPageViewController.name, bundle: .main), ChatViewController(nibName: ChatViewController.name, bundle: .main)]
+    var finishFlow: VoidClosure?
+    private var viewControllers = [MainPageViewController(nibName: MainPageViewController.name,
+                                                          bundle: .main),
+                                   ChatViewController(nibName: ChatViewController.name,
+                                                      bundle: .main)]
+    
+    //super violation of SOLID when will be created Coordinator it will be solved....
+    //just create for that closure and stram up logout action on the coordinator level
+    private var sessionStorage = SessionStorage()
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -39,21 +47,29 @@ class SwipingViewController: UIViewController {
     func configNavigationBar() {
         
 //        if let navigationController = navigationController {
-            //TODO: find out how to put image on a bar item and not erease title
+
             navigationItem.title = "Home"
-            navigationItem.leftBarButtonItem =  UIBarButtonItem(title: "Mdenu", style: .plain, target: self, action: #selector(tappedMenu))
+        
+            let image = UIImage(named: "list-text")
+        
+            navigationItem.leftBarButtonItem = UIBarButtonItem(image: image,
+                                                               style:.plain,
+                                                               target: self,
+                                                               action: #selector(tappedMenu))
+
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logOuttapped))
 //        }
     }
     
     
     @objc func logOuttapped() {
-        print("Log out")
+        sessionStorage.sessionId = nil
+        finishFlow?()
+//        super.navigationController?.popToRootViewController(animated: true)
     }
     
     
     @objc func tappedMenu() {
-        print("tappedMenu")
         menuDelegate?.handleMenuTapped()
     }
     
@@ -86,7 +102,8 @@ class SwipingViewController: UIViewController {
 
 extension SwipingViewController:  UICollectionViewDelegateFlowLayout {
    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    CGSize(width: view.frame.width , height: view.frame.height - (view.safeAreaInsets.top + view.safeAreaInsets.bottom))
+    CGSize(width: view.frame.width ,
+           height: view.frame.height - (view.safeAreaInsets.top + view.safeAreaInsets.bottom))
     }
     
     

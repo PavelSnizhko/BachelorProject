@@ -21,14 +21,15 @@ class FackeVoiceViewController: UIViewController, NibLoadable {
     private var voiceSetting = VoiceSetting()
     private var languagePickerManager: LanguagePickerManager = LanguagePickerManager()
     private var timePickerManager: TimePickerManager = TimePickerManager()
+    private weak var previousActiveCell: AudioCollectionViewCell?
     
     private lazy var timePicker: UIPickerView = {
         
         let pickerFrame: CGRect = CGRect(x: 35, y: 52, width: 200, height: 140)
         let picker = UIPickerView(frame: pickerFrame)
-
-        picker.dataSource = self.languagePickerManager
-        picker.delegate = self.languagePickerManager
+        
+        picker.dataSource = self.timePickerManager
+        picker.delegate = self.timePickerManager
         
         return picker
     }()
@@ -38,9 +39,9 @@ class FackeVoiceViewController: UIViewController, NibLoadable {
         let pickerFrame: CGRect = CGRect(x: 35, y: 52, width: 200, height: 140)
         let picker = UIPickerView(frame: pickerFrame)
         
-        picker.dataSource = self.timePickerManager
-        picker.delegate = self.timePickerManager
-        
+        picker.dataSource = self.languagePickerManager
+        picker.delegate = self.languagePickerManager
+       
         return picker
     }()
     
@@ -109,7 +110,7 @@ class FackeVoiceViewController: UIViewController, NibLoadable {
 
     //TODO: move to datasource
 
-    private var audioURIList = ["callResponse", "url", "url", "url", "url", "url", "url"]
+    private var audioURIList = ["CallResponse", "url", "url", "url", "url", "url", "url"]
     
     // MARK: - Lifecycle
     
@@ -135,8 +136,10 @@ class FackeVoiceViewController: UIViewController, NibLoadable {
         collectionView.register(AudioCollectionViewCell.nib, forCellWithReuseIdentifier: AudioCollectionViewCell.name)
     }
     
-    private func handleAudionPlaying() {
-        audioManager.playAudioAsset("CallResponse")
+    private func handleAudionPlaying(for audioName: String?) {
+        guard let title = audioName else { return }
+        
+        audioManager.playAudioAsset(title)
         
     }
     
@@ -154,6 +157,7 @@ class FackeVoiceViewController: UIViewController, NibLoadable {
     @IBAction func tappedSubmit(_ sender: Any) {
         
         voiceStorage.voice = voiceSetting
+
         navigationController?.popViewController(animated: true)
     }
 }
@@ -191,7 +195,9 @@ extension FackeVoiceViewController: UICollectionViewDataSource {
             fatalError()
         }
         
-        cell.buttonTapped = handleAudionPlaying
+        cell.buttonTapped = { [weak self] in
+            self?.handleAudionPlaying(for: self?.audioURIList[indexPath.item])
+        }
 
         return cell
     }
@@ -206,7 +212,12 @@ extension FackeVoiceViewController: UICollectionViewDelegate {
             
         }
         
-//        voiceStorage.voice = audioURIList[indexPath.item]
+        if previousActiveCell != nil {
+            previousActiveCell?.setBackgoundActiveColor()
+        }
+        
+        previousActiveCell = cell
+        
         voiceSetting.name = audioURIList[indexPath.item]
         
         cell.setBackgoundActiveColor()

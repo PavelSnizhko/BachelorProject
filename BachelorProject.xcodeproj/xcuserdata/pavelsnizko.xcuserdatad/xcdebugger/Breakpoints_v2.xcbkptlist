@@ -27,5 +27,84 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98FB2122-5F95-41A3-BE6C-731D02A4ED44"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BachelorProject/Services/LocationService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getGuardLocation(completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "98FB2122-5F95-41A3-BE6C-731D02A4ED44 - d585053a133ae132"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;BachelorProject.GuardResponse&gt;, Swift.Error&gt;) -&gt; () in BachelorProject.LocationService.getGuardLocation(completion: (Swift.Result&lt;Swift.Optional&lt;BachelorProject.Location&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BachelorProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pavelsnizko/University/BachelorProject/BachelorProject/Services/LocationService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "170">
+               </Location>
+               <Location
+                  uuid = "98FB2122-5F95-41A3-BE6C-731D02A4ED44 - d585053a133ae132"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;BachelorProject.GuardResponse&gt;, Swift.Error&gt;) -&gt; () in BachelorProject.LocationService.getGuardLocation(completion: (Swift.Result&lt;Swift.Optional&lt;BachelorProject.Location&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BachelorProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pavelsnizko/University/BachelorProject/BachelorProject/Services/LocationService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "198">
+               </Location>
+               <Location
+                  uuid = "98FB2122-5F95-41A3-BE6C-731D02A4ED44 - d585053a133ae132"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Optional&lt;BachelorProject.GuardResponse&gt;, Swift.Error&gt;) -&gt; () in BachelorProject.LocationService.getGuardLocation(completion: (Swift.Result&lt;Swift.Optional&lt;BachelorProject.Location&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "BachelorProject"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pavelsnizko/University/BachelorProject/BachelorProject/Services/LocationService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "589">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "76CFF5AF-1F29-4FD4-8C7A-B25DD71871F2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BachelorProject/Controller/Main/HomePage/MainPageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
+            landmarkName = "pressedSOS(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

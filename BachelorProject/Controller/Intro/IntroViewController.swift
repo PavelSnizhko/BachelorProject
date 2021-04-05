@@ -10,8 +10,19 @@ import UIKit
 class IntroViewController: UIViewController {
     @IBOutlet weak var moveToLoginButton: UIButton!
     
+    private var authService: AuthorizationService = AuthorizationService(authorizationService: NetworkService())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //TODO: move to coordinator
+        
+        if authService.isLogged {
+            let contrainerController = ContainerViewController()
+            self.navigationController?.isToolbarHidden = true
+            self.navigationController?.pushViewController(contrainerController, animated: true)
+        }
+        
     }
     
     

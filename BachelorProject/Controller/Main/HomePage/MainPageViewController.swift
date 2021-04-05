@@ -22,17 +22,21 @@ struct Preservation {
 
 
 
-class MainPageViewController: UIViewController, NibLoadable {
+class MainPageViewController: UIViewController, NibLoadable, Alerting {
     
     
     @IBOutlet weak var circleAnimationView: CircleAnimationView!
-    
+    // TODO: move to Di
     private var voiceStorage = VoiceStorage()
     private var recordingManager: Recording = RecordingAudioManager(audioRecorder: nil, audioPlayer: nil)
+    private var audioManager: AudioManager = AudioManager()
     private let locationManager = CLLocationManager()
     private var currentLocation: CLLocation?
     private var isPressedSOS: Bool = false
+    private var locationService: LocationService = LocationService()
     let regionMetters: Double = 1000
+    
+    weak var timer: Timer?
     
     private lazy var bluredView: BluredView = {
         let bluredView = BluredView.loadFromNib()
@@ -90,7 +94,9 @@ class MainPageViewController: UIViewController, NibLoadable {
             centerViewOnUserLocation()
         }
         else {
-            print("Not a;;pwed ")
+            showAlert(from: self,
+                      title: "Something wrong",
+                      message: "You must allowed location on your phone's setting")
         }
     }
     
@@ -119,11 +125,9 @@ class MainPageViewController: UIViewController, NibLoadable {
         }
     }
     
-    
-    @IBAction func pressedSOS(_ sender: Any) {
-                
-        //Center the map on the place location
-        let userLocationCoordinates = CLLocationCoordinate2D(latitude: preservation.lat, longitude: preservation.lon)
+    func showGuardLocation(location: Location) {
+        let userLocationCoordinates = CLLocationCoordinate2D(latitude: location.latitude,
+                                                             longitude: location.longitude)
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = userLocationCoordinates
@@ -133,25 +137,65 @@ class MainPageViewController: UIViewController, NibLoadable {
         let region = MKCoordinateRegion(center: userLocationCoordinates, span: span)
         mapView.setRegion(region, animated: true)
         mapView.addAnnotation(annotation)
+    }
+    
+    
+    @IBAction func pressedSOS(_ sender: Any) {
+        
+        // TODO: write calling method from locationService! 
+        locationService.getGuardLocation { [weak self] result in
+            
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let location):
+                if let location = location {
+                    self.showGuardLocation(location: location)
+                } else {
+                    self.showAlert(from: self,
+                              title: "Dangerous",
+                              message: "There is no free guard !!!! Move to their side")
+                }
+            case .failure(_):
+                print("The token is expired")
+                self.showAlert(from: self,
+                               title: "non authorized",
+                               message: "Your time in app is over. Please make registration")
+            }
+        }
+        
+        
         
         // TODO: logic when user choose proper setting for that
         
         recordingManager.startRecording { [weak self] result in
+            guard let self = self else { return }
+
             switch result {
             
             case .success():
-                manageBluredView()
+                self.manageBluredView()
             case .failure(_):
-                print("Show alert")
+                self.showAlert(from: self,
+                          title: "Recording troubles",
+                          message: "Probably you should allow access to recording in the setting of your phone")
             }
         }
         
-        recordingManager.timeUpdating = { [weak self]  time in
+        let voice = voiceStorage.voice
+        guard let time = voice?.timeStamp, let name = voice?.name else {
+            return
+        }
+        
+//        audioManager.playAudioAsset(name)
+        
+        audioManager.playAudioAssets(after: time, and: name)
+        
+        recordingManager.timeUpdating = { [weak self] time in
             self?.bluredView.updateTimeOnLabel(time: time)
         }
         
         
-        print("Please implenent me")
     }
     
     func manageBluredView() {

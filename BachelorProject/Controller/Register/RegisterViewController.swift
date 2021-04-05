@@ -15,6 +15,7 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
     //mb bad decision
     private weak var cellWithTextField: DatePickerCollectionViewCell?
     private var registerModel = RegisterModel()
+    private var validationService: ValidationService = DefaultValidationService()
     private var authService = AuthorizationService(authorizationService: NetworkService())
     //INFO: this gonna be replaced due to apple's recomendation
     private let picker: UIDatePicker = {
@@ -187,9 +188,30 @@ extension RegisterViewController: UICollectionViewDataSource {
                 guard let self = self else { return }
 //                guard self.registerModel.isFilled else { self.showAlert(from: self, with: "Dangerous", and: "Please, fill all forms"); return }
 //                self.showAlert(from: self, with: "\(self.registerModel.firstName)", and: "\(self.registerModel.secondName) \(self.registerModel.sex.rawValue) \n \(self.registerModel.birthday)")
-                let main = ContainerViewController()
-                self.navigationController?.isToolbarHidden = true
-                self.navigationController?.pushViewController(main, animated: true)
+                do {
+                    try self.validationService.validate(for: self.registerModel)
+                } catch let error {
+                    self.showAlert(from: self, with: "Bad data in fields", and: "Please, check your data and refill register info")
+                }
+                
+                print("Я был здесь")
+                self.authService.registrate(registerModel: self.registerModel) { [weak self]  error in
+                    print("И был здесь")
+                    guard let self = self else { return }
+                    if (error != nil) {
+                        self.showAlert(from: self,
+                                  with: "It's not allowed",
+                                  and: error!.localizedDescription)
+                    }
+                    else {
+                        let main = ContainerViewController()
+                        self.navigationController?.isToolbarHidden = true
+                        self.navigationController?.pushViewController(main, animated: true)
+                    }
+
+                }
+                
+               
                 
 
             }

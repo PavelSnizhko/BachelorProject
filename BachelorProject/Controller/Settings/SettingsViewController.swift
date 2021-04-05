@@ -53,7 +53,7 @@ extension SettingsViewController: UITableViewDelegate {
         cell.setLabel(item.rawValue)
         switch item {
         case .account:
-            cell.configStatusLabelIfNeeded("CONNECT")
+            cell.configStatusLabelIfNeeded("DISCONNECTED")
             cell.changeAccessoryTypeVisibility(accessoryType: .none)
         case .logout:
             cell.changeAccessoryTypeVisibility(accessoryType: .none)

@@ -25,6 +25,10 @@ struct AuthorizationService: LogInService, RegistrationService {
     private let service: LogInService & RegistrationService
     private var sessionStorage = SessionStorage()
     
+    var isLogged: Bool {
+        sessionStorage.sessionId != nil
+    }
+    
     init(authorizationService: LogInService & RegistrationService) {
         service = authorizationService
     }
