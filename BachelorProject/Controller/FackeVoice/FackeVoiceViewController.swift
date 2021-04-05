@@ -203,7 +203,6 @@ extension FackeVoiceViewController: UICollectionViewDataSource {
     }
 }
 
-//TODO: fix when choose one cell in another cancel choosing background color
 
 extension FackeVoiceViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

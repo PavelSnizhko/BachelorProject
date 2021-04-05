@@ -120,7 +120,7 @@ extension NetworkService: LogInService, RegistrationService {
                                                           body: jsonData,
                                                           headers: nil)
 
-                let resourceWithBody = Resource<ResponseModel>(requestMetaData: requestDataWithBody,
+                let resourceWithBody = Resource(requestMetaData: requestDataWithBody,
                                                                decodingType: ResponseModel.self)
 
                 network.execute(resource: resourceWithBody) { [weak self] result in

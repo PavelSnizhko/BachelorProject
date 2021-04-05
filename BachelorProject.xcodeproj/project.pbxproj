@@ -19,6 +19,9 @@
 		AE2447AA261399600047F935 /* RecordingVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447A8261399600047F935 /* RecordingVoiceViewController.xib */; };
 		AE2447B026143F520047F935 /* AudioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447AE26143F520047F935 /* AudioCollectionViewCell.swift */; };
 		AE2447B126143F520047F935 /* AudioCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447AF26143F520047F935 /* AudioCollectionViewCell.xib */; };
+		AE27959B261B060300F6A0D2 /* SocketIOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27959A261B060300F6A0D2 /* SocketIOManager.swift */; };
+		AE2795A0261B063300F6A0D2 /* SocketIOManagerDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27959F261B063300F6A0D2 /* SocketIOManagerDefault.swift */; };
+		AE2795A6261B06EC00F6A0D2 /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = AE2795A5261B06EC00F6A0D2 /* SocketIO */; };
 		AE2CC6172600989B003AFE81 /* ChatViewController+Delegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2CC6162600989B003AFE81 /* ChatViewController+Delegates.swift */; };
 		AE2CC62D2600C2A4003AFE81 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */; };
 		AE2CC62E2600C2A4003AFE81 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */; };
@@ -127,6 +130,8 @@
 		AE2447A8261399600047F935 /* RecordingVoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordingVoiceViewController.xib; sourceTree = "<group>"; };
 		AE2447AE26143F520047F935 /* AudioCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE2447AF26143F520047F935 /* AudioCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AudioCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE27959A261B060300F6A0D2 /* SocketIOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManager.swift; sourceTree = "<group>"; };
+		AE27959F261B063300F6A0D2 /* SocketIOManagerDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketIOManagerDefault.swift; sourceTree = "<group>"; };
 		AE2CC6162600989B003AFE81 /* ChatViewController+Delegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Delegates.swift"; sourceTree = "<group>"; };
 		AE2CC62B2600C2A4003AFE81 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AE2CC62C2600C2A4003AFE81 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -218,6 +223,7 @@
 			files = (
 				AEEE907F26177FA400E727FA /* SwiftKeychainWrapper in Frameworks */,
 				AE0BA408261980D600C73D55 /* NetworkLibrary in Frameworks */,
+				AE2795A6261B06EC00F6A0D2 /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +597,8 @@
 				AEEE9083261780FD00E727FA /* ValidationService.swift */,
 				AE0BA4012619805E00C73D55 /* Networking.swift */,
 				AE0BA437261A0DB100C73D55 /* LocationService.swift */,
+				AE27959A261B060300F6A0D2 /* SocketIOManager.swift */,
+				AE27959F261B063300F6A0D2 /* SocketIOManagerDefault.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -668,6 +676,7 @@
 			packageProductDependencies = (
 				AEEE907E26177FA400E727FA /* SwiftKeychainWrapper */,
 				AE0BA407261980D600C73D55 /* NetworkLibrary */,
+				AE2795A5261B06EC00F6A0D2 /* SocketIO */,
 			);
 			productName = BachelorProject;
 			productReference = AE8D226325EF46410032D029 /* BachelorProject.app */;
@@ -743,6 +752,7 @@
 			packageReferences = (
 				AEEE907D26177FA400E727FA /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				AE0BA406261980D600C73D55 /* XCRemoteSwiftPackageReference "NetworkLibrary" */,
+				AE2795A4261B06EC00F6A0D2 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
 			);
 			productRefGroup = AE8D226425EF46410032D029 /* Products */;
 			projectDirPath = "";
@@ -814,6 +824,7 @@
 				AEEE906A261729F300E727FA /* RecordingAudioManager.swift in Sources */,
 				AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */,
 				AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */,
+				AE2795A0261B063300F6A0D2 /* SocketIOManagerDefault.swift in Sources */,
 				AE0BA3FD26197E0C00C73D55 /* DateFormater.swift in Sources */,
 				AEEE907426177CBC00E727FA /* AuthorizationService.swift in Sources */,
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
@@ -826,6 +837,7 @@
 				AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */,
 				AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */,
 				AE72404225FB764D005A39E5 /* NavigationBar.swift in Sources */,
+				AE27959B261B060300F6A0D2 /* SocketIOManager.swift in Sources */,
 				AE9963B326159A1400C2ED0A /* VoiceSetting.swift in Sources */,
 				AE4CF80425FA6887008024C9 /* AuthDataCollectionViewCell.swift in Sources */,
 				AE2447B026143F520047F935 /* AudioCollectionViewCell.swift in Sources */,
@@ -1213,6 +1225,14 @@
 				minimumVersion = 1.2.1;
 			};
 		};
+		AE2795A4261B06EC00F6A0D2 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 16.0.1;
+			};
+		};
 		AEEE907D26177FA400E727FA /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
@@ -1228,6 +1248,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE0BA406261980D600C73D55 /* XCRemoteSwiftPackageReference "NetworkLibrary" */;
 			productName = NetworkLibrary;
+		};
+		AE2795A5261B06EC00F6A0D2 /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE2795A4261B06EC00F6A0D2 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
+			productName = SocketIO;
 		};
 		AEEE907E26177FA400E727FA /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
