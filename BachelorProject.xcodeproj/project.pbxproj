@@ -78,6 +78,7 @@
 		AEC84CA425FCA90A0068A479 /* MenuControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */; };
 		AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD025FE42120068A479 /* CustomButton.swift */; };
 		AEC84CD925FEAFFB0068A479 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD825FEAFFA0068A479 /* UIViewController.swift */; };
+		AED04D9926315C850098F0D3 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = AED04D9826315C850098F0D3 /* GoogleService-Info-2.plist */; };
 		AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905A261706A200E727FA /* CircleAnimationView.swift */; };
 		AEEE906026170E9D00E727FA /* BluredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905F26170E9D00E727FA /* BluredView.swift */; };
 		AEEE906526170EB500E727FA /* BluredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEE906426170EB500E727FA /* BluredView.xib */; };
@@ -198,6 +199,7 @@
 		AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuControllerDelegate.swift; sourceTree = "<group>"; };
 		AEC84CD025FE42120068A479 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AEC84CD825FEAFFA0068A479 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		AED04D9826315C850098F0D3 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		AEEE905A261706A200E727FA /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		AEEE905F26170E9D00E727FA /* BluredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluredView.swift; sourceTree = "<group>"; };
 		AEEE906426170EB500E727FA /* BluredView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BluredView.xib; sourceTree = "<group>"; };
@@ -381,6 +383,7 @@
 				AE8D22B025EF4D550032D029 /* Aplication */,
 				AE8D22B325EF4E120032D029 /* CoreData */,
 				AE8D227725EF46460032D029 /* Info.plist */,
+				AED04D9826315C850098F0D3 /* GoogleService-Info-2.plist */,
 				AE9963A92614CC0500C2ED0A /* Services */,
 			);
 			path = BachelorProject;
@@ -796,6 +799,7 @@
 				AE72404725FB7661005A39E5 /* NavigationBar.xib in Resources */,
 				AEFC15DA25FB607C00E204B9 /* LogoCollectionViewCell.xib in Resources */,
 				AE8D231325EF990E0032D029 /* UserInfoCollectionViewCell.xib in Resources */,
+				AED04D9926315C850098F0D3 /* GoogleService-Info-2.plist in Resources */,
 				AE8D226E25EF46410032D029 /* Main.storyboard in Resources */,
 				AE2447AA261399600047F935 /* RecordingVoiceViewController.xib in Resources */,
 				AE72402E25FB6EC8005A39E5 /* ResetingPasswordViewController.xib in Resources */,
@@ -1080,7 +1084,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = myApp.BachelorProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.BachelorProject.SecureApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1100,7 +1104,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = myApp.BachelorProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.BachelorProject.SecureApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

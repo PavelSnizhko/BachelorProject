@@ -17,7 +17,10 @@ class MenuCoordinator: BaseCoordinator {
     
     //TODO: maybe make for coordinator factory delegate to folow srp principle
     
-    init(router: Router, screenFactory: ScreenFactory, coordinatorFactory: CoordinatorFactoryImpl, menuScreen: MenuViewController) {
+    init(router: Router,
+         screenFactory: ScreenFactory,
+         coordinatorFactory: CoordinatorFactoryImpl,
+         menuScreen: MenuViewController) {
         
         self.router = router
         self.screenFactory = screenFactory
@@ -30,7 +33,7 @@ class MenuCoordinator: BaseCoordinator {
     
     override func start() {
         print("Start")
-        
+        router.manageBar(true)
         menuScreen?.selectedOption = { [weak self] option in
             
             switch option {
@@ -39,6 +42,7 @@ class MenuCoordinator: BaseCoordinator {
                 print("Home")
             case .setting:
                 print("Setting")
+            
             case .chat:
                 print("Move to chat")
                 self?.showChat()
@@ -70,7 +74,7 @@ class MenuCoordinator: BaseCoordinator {
     }
     
     func runSettingFlow() {
-//        let settingCoordinator = coordinatorFactory.se
+        let settingCoordinator = coordinatorFactory
     }
     
     func showChat() {
@@ -79,6 +83,10 @@ class MenuCoordinator: BaseCoordinator {
         print(router)
 //        router.push(chatScreen, animated: true, hideBottomBar: false, completion: nil)
         router.push(chatScreen)
+    }
+    
+    func showSetting() {
+        //TODO: Implement showSetting ie create probably another coordinator as in the case of the menu but there is a snap table
     }
     
     func showMenu() {

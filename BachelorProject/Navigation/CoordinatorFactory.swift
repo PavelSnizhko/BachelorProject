@@ -21,23 +21,26 @@ protocol CoordinatorFactory {
     func makeMenuCoordinator(with router: Router, and viewController: MenuViewController) -> MenuCoordinator
     
     func makeStartCoordinator(router: Router) -> StartCoordinator
+    
+    func makeSettingCoordinator(router: Router) -> SettingCoordinator
+
 }
 
 
 final class CoordinatorFactoryImpl: CoordinatorFactory {
-    
+  
     private let screenFactory: ScreenFactory
     
     init(screenFactory: ScreenFactory){
         self.screenFactory = screenFactory
     }
-    
+        
     func makeApplicationCoordinator(router: Router) -> ApplicationCoordinator {
-        return ApplicationCoordinator(router: router, coordinatorFactory: self)
+        ApplicationCoordinator(router: router, coordinatorFactory: self)
     }
     
     func makeLoginCoordinator(router: Router) -> LoginCoordinator {
-        return LoginCoordinator(router: router, screenFactory: screenFactory)
+        LoginCoordinator(router: router, screenFactory: screenFactory)
     }
 
     func makeRegisterCoordinator(router: Router) -> RegisterCoordinator {
@@ -52,7 +55,11 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
         MainCoordinator(router: router, screenFactory: screenFactory, coordinatorFactory: self)
     }
     
+    func makeSettingCoordinator(router: Router) -> SettingCoordinator {
+        SettingCoordinator(router: router, screenFactory: screenFactory)
+    }
+    
     func makeStartCoordinator(router: Router) -> StartCoordinator {
-        return StartCoordinator(router: router, screenFactory: screenFactory)
+        StartCoordinator(router: router, screenFactory: screenFactory)
     }
 }

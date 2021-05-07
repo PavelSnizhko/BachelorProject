@@ -53,16 +53,14 @@ class MainCoordinator: BaseCoordinator {
         if !isMenuAdded {
             let coordinator = coordinatorFactory.makeMenuCoordinator(with: router,
                                                                      and: menuVC)
-            
-            
-            
-            
+                
             addDependency(coordinator)
             
             coordinator.start()
 
         } else {
             guard let coordinator = childCoordinators.last else { return }
+            //Как передать в кординатор нужный екран или координатор??
             coordinator.start()
         }
         
@@ -70,11 +68,12 @@ class MainCoordinator: BaseCoordinator {
 
     
     func showContainer() {
-        
+        //TODO: check if it's not awoke every time
+        //make checking maybe bool propery for not repiting creation of screen
         let containerScreen = screenFactory.makeContainerScreen()
         
         menuViewController = screenFactory.makeMenuScreen()
-        
+
         swipingViewController = screenFactory.makeSwipingScreen()
         
         swipingViewController.menuPressed = { [weak self] in
@@ -97,22 +96,9 @@ class MainCoordinator: BaseCoordinator {
 //
 //        }
         
-        router.setRootModule(containerScreen)
+        router.push(containerScreen)
         print(router)
     }
-    
-//    func showMenu() {
-//        let coordinator = coordinatorFactory.makeMenuCoordinator(router: router)
-//        coordinator.finishFlow = { [weak self, weak coordinator] isLogin in
-//            self?.isFirstLaunch = false
-//            self?.isLogin = isLogin
-//            self?.start()
-////            self?.removeDependency(coordinator)
-//        }
-//        self.addDependency(coordinator)
-//        coordinator.start()
-//
-//    }
     
     func showMainPage() {
         

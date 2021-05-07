@@ -68,7 +68,7 @@ class MainPageViewController: UIViewController, NibLoadable {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         // probably I need this for handling when user hide his phone
         
-//        locationManager.requestAlwaysAuthorization()
+//        locationManager.requestAlwaysAuthorization()ddf
         locationManager.startUpdatingLocation()
     }
     

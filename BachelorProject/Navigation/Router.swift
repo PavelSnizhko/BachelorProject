@@ -59,7 +59,7 @@ protocol Router: Presentable {
 
 final class RouterImp: Router {
     
-    private weak var rootController: UINavigationController?
+    weak var rootController: UINavigationController?
     private var completions: [UIViewController : () -> Void]
     
     init(rootController: UINavigationController) {
