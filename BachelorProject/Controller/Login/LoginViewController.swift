@@ -8,7 +8,11 @@
 import UIKit
 
 
-class LoginViewController: UIViewController, NibLoadable, Alerting {
+class LoginViewController: UIViewController, NibLoadable, Alerting {  
+      
+    var onLogin: VoidClosure?
+    var onRegister: VoidClosure?
+   
     @IBOutlet private weak var collectionView: UICollectionView!
     
     private var headersType: [HeaderType] = [.logo, .auth, .button, .linkingLabels]
@@ -78,10 +82,12 @@ extension LoginViewController: UICollectionViewDataSource {
         switch headersType[indexPath.section].cellModel[indexPath.item] {
          
         case .logo:
+            
             guard let logoCell = collectionView.dequeueReusableCell(withReuseIdentifier: LogoCollectionViewCell.name, for: indexPath) as? LogoCollectionViewCell else { fatalError() }
             cell = logoCell
             
         case .auth:
+            
             guard let authCell = collectionView.dequeueReusableCell(withReuseIdentifier: AuthDataCollectionViewCell.name, for: indexPath) as? AuthDataCollectionViewCell else { fatalError() }
             cell = authCell
             
@@ -94,6 +100,7 @@ extension LoginViewController: UICollectionViewDataSource {
             }
             
         case .button:
+            
             guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell else { fatalError() }
             buttonCell.buttonTitle = "Log in"
             // TODO: handle buttonTapped
@@ -129,8 +136,9 @@ extension LoginViewController: UICollectionViewDataSource {
                     
                 }
                 
-                
-                
+                //TODO: do I need this call???
+                self?.onLogin?()
+                                
             }
             cell = buttonCell
         case .linkingLabels:
@@ -148,6 +156,11 @@ extension LoginViewController: UICollectionViewDataSource {
                 self?.navigationController?.pushViewController(registerViewController, animated: true)
             }
 
+            linkingLabelsCell.setButtonLabel(title: "Register")
+            linkingLabelsCell.buttonTapped = { [weak self] in
+                self?.onRegister?()
+            }
+            
             cell = linkingLabelsCell
         }
         return cell

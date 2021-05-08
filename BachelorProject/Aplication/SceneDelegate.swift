@@ -10,36 +10,59 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    
+    private let appFactory: AppFactory = Di()
+    private var appCoordinator: Coordinator?
+
+    private func runUI(with windowScene: UIWindowScene) {
+        let (window, coordinator) = appFactory.makeKeyWindowWithCoordinator(windowScene: windowScene)
+        self.window = window
+        self.appCoordinator = coordinator
+        
+        window.makeKeyAndVisible()
+        coordinator.start()
+    }
+    
+    
+    
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        if !UserDefaults.standard.bool(forKey: "firstLaunch") {
-            guard let windowScene = (scene as? UIWindowScene) else { return }
-            
-            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-            window?.windowScene = windowScene
-            
-            let questionsVC = IntroViewController(
-                nibName: "IntroViewController",
-                bundle: Bundle.main)
-            
-            window?.rootViewController = UINavigationController(rootViewController: questionsVC)
-            window?.makeKeyAndVisible()
-        }
-        else {
-            guard let windowScene = (scene as? UIWindowScene) else { return }
-            
-            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-            window?.windowScene = windowScene
-            
-            let questionsVC = LoginViewController(
-                nibName: "LoginViewController",
-                bundle: Bundle.main)
-            
-            window?.rootViewController = UINavigationController(rootViewController: questionsVC)
-            window?.makeKeyAndVisible()
-        }
+        
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+
+        
+        
+        runUI(with: windowScene)
+        
+//        if !UserDefaults.standard.bool(forKey: "firstLaunch") {
+//            guard let windowScene = (scene as? UIWindowScene) else { return }
+//
+//            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//            window?.windowScene = windowScene
+//
+//            let questionsVC = IntroViewController(
+//                nibName: "IntroViewController",
+//                bundle: Bundle.main)
+//
+//            window?.rootViewController = UINavigationController(rootViewController: questionsVC)
+//            window?.makeKeyAndVisible()
+//        }
+//        else {
+//            guard let windowScene = (scene as? UIWindowScene) else { return }
+//
+//            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//            window?.windowScene = windowScene
+//
+//            let questionsVC = LoginViewController(
+//                nibName: "LoginViewController",
+//                bundle: Bundle.main)
+//
+//            window?.rootViewController = UINavigationController(rootViewController: questionsVC)
+//            window?.makeKeyAndVisible()
+//        }
            
     }
 

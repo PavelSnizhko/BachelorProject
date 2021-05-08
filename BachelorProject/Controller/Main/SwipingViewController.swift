@@ -8,8 +8,6 @@
 import UIKit
 
 class SwipingViewController: UIViewController {
-
-    var finishFlow: VoidClosure?
     private var viewControllers = [MainPageViewController(nibName: MainPageViewController.name,
                                                           bundle: .main),
                                    ChatViewController(nibName: ChatViewController.name,
@@ -17,7 +15,9 @@ class SwipingViewController: UIViewController {
     
     //super violation of SOLID when will be created Coordinator it will be solved....
     //just create for that closure and stram up logout action on the coordinator level
-    private var sessionStorage = SessionStorage()
+    private var sessionStorage = SessionStorage()    
+    var finishFlow: VoidClosure?
+    
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -31,16 +31,17 @@ class SwipingViewController: UIViewController {
 
     weak var menuDelegate: MenuControllerDelegate?
 
+    var menuPressed: VoidClosure?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         configNavigationBar()
         addCollectionView()
         setDelegeting()
         configureCollectionView()
+        
     }
     
     
@@ -63,14 +64,15 @@ class SwipingViewController: UIViewController {
     
     
     @objc func logOuttapped() {
-        sessionStorage.sessionId = nil
         finishFlow?()
-//        super.navigationController?.popToRootViewController(animated: true)
+        print("Log out")
+        
     }
     
     
     @objc func tappedMenu() {
-        menuDelegate?.handleMenuTapped()
+        print("tappedMenu")
+        menuPressed?()
     }
     
     

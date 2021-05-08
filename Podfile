@@ -8,6 +8,7 @@ target 'BachelorProject' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod ''
 
   target 'BachelorProjectTests' do
     inherit! :search_paths

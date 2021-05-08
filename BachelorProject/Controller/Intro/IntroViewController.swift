@@ -7,22 +7,19 @@
 
 import UIKit
 
-class IntroViewController: UIViewController {
+class IntroViewController: UIViewController, NibLoadable {
     @IBOutlet weak var moveToLoginButton: UIButton!
-    
+    var isLogin: ItemClosure<Bool>?
+
     private var authService: AuthorizationService = AuthorizationService(authorizationService: NetworkService())
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //TODO: move to coordinator
-        
         if authService.isLogged {
-            let contrainerController = ContainerViewController()
-            self.navigationController?.isToolbarHidden = true
-            self.navigationController?.pushViewController(contrainerController, animated: true)
+            isLogin?(authService.isLogged)
         }
-        
     }
     
     
@@ -31,6 +28,10 @@ class IntroViewController: UIViewController {
         let loginVC = LoginViewController(nibName: LoginViewController.name, bundle: .main)
         self.navigationController?.isToolbarHidden = true
         self.navigationController?.pushViewController(loginVC, animated: true)
+
+        isLogin?(false)
+
+    
     }
 }
 

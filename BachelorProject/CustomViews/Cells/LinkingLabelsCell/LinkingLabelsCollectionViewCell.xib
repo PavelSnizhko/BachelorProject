@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,17 +26,42 @@
                                 <rect key="frame" x="0.0" y="0.0" width="344" height="160"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGr-gp-qwG">
-                                        <rect key="frame" x="0.0" y="0.0" width="344" height="16.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="344" height="32"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdo-ad-Th7">
-                                        <rect key="frame" x="0.0" y="140" width="344" height="20"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="vLt-4o-BNC">
+                                        <rect key="frame" x="0.0" y="90" width="344" height="70"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gdo-ad-Th7">
+                                                <rect key="frame" x="0.0" y="0.0" width="344" height="28"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSM-fp-awX">
+                                                <rect key="frame" x="0.0" y="28" width="344" height="42"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="redColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="tapppedButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="zKK-X5-XIZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="bH5-nY-yVV"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -43,6 +69,7 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ipl-8z-MZb" secondAttribute="bottom" id="HSh-B5-kS4"/>
                             <constraint firstItem="ipl-8z-MZb" firstAttribute="leading" secondItem="taq-Z9-a6e" secondAttribute="leading" id="MsC-Mp-WsJ"/>
+                            <constraint firstItem="eGr-gp-qwG" firstAttribute="height" secondItem="taq-Z9-a6e" secondAttribute="height" multiplier="0.2" id="aHw-6O-ktU"/>
                             <constraint firstAttribute="trailing" secondItem="ipl-8z-MZb" secondAttribute="trailing" id="hoh-YO-cNB"/>
                             <constraint firstItem="ipl-8z-MZb" firstAttribute="top" secondItem="taq-Z9-a6e" secondAttribute="top" id="i93-u8-W2x"/>
                         </constraints>
@@ -60,11 +87,15 @@
             <connections>
                 <outlet property="aboveLabel" destination="eGr-gp-qwG" id="tCE-b7-hoa"/>
                 <outlet property="belowLabel" destination="Gdo-ad-Th7" id="vZs-Ct-iaM"/>
+                <outlet property="button" destination="lSM-fp-awX" id="NGQ-hu-s81"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="121.20535714285714"/>
         </collectionViewCell>
     </objects>
     <resources>
+        <namedColor name="redColor">
+            <color red="0.9137254901960784" green="0.11372549019607843" blue="0.16078431372549021" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

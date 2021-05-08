@@ -8,8 +8,10 @@
 import UIKit
 
 class LinkingLabelsCollectionViewCell: UICollectionViewCell, NibLoadable {
-    @IBOutlet weak var aboveLabel: UILabel!
-    @IBOutlet weak var belowLabel: UILabel!
+    @IBOutlet private  weak var aboveLabel: UILabel!
+    @IBOutlet private weak var belowLabel: UILabel!
+    @IBOutlet private weak var button: UIButton!
+    var buttonTapped: VoidClosure?
     
     var bellowLabelTapped: VoidClosure?
     
@@ -45,4 +47,12 @@ class LinkingLabelsCollectionViewCell: UICollectionViewCell, NibLoadable {
         bellowLabelTapped?()
     }
 
+    func setButtonLabel(title: String) {
+        self.button.setTitle(title, for: .normal)
+    }
+    
+    //Probably it should gone
+    @IBAction func tapppedButton(_ sender: Any) {
+        buttonTapped?()
+    }
 }

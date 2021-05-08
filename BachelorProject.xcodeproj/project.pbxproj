@@ -13,6 +13,12 @@
 		AE0BA408261980D600C73D55 /* NetworkLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = AE0BA407261980D600C73D55 /* NetworkLibrary */; };
 		AE0BA40D2619846A00C73D55 /* Alerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA40C2619846A00C73D55 /* Alerting.swift */; };
 		AE0BA438261A0DB200C73D55 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA437261A0DB100C73D55 /* LocationService.swift */; };
+		AE0BA3CE261833DB00C73D55 /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3CD261833DB00C73D55 /* StartCoordinator.swift */; };
+		AE0BA3D6261834D800C73D55 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3D5261834D800C73D55 /* ScreenFactory.swift */; };
+		AE0BA3DB26183B7E00C73D55 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3DA26183B7E00C73D55 /* RegisterCoordinator.swift */; };
+		AE0BA3E32618456C00C73D55 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3E22618456C00C73D55 /* MainCoordinator.swift */; };
+		AE0BA3E82618458400C73D55 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3E72618458400C73D55 /* MenuCoordinator.swift */; };
+		AE0BA3ED2618827500C73D55 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3EC2618827500C73D55 /* SettingCoordinator.swift */; };
 		AE2447A2261398B20047F935 /* FackeVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */; };
 		AE2447A3261398B20047F935 /* FackeVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */; };
 		AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */; };
@@ -48,7 +54,6 @@
 		AE8D228125EF46470032D029 /* BachelorProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D228025EF46470032D029 /* BachelorProjectTests.swift */; };
 		AE8D228C25EF46470032D029 /* BachelorProjectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D228B25EF46470032D029 /* BachelorProjectUITests.swift */; };
 		AE8D22B525EF4E670032D029 /* IntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D22B425EF4E670032D029 /* IntroViewController.xib */; };
-		AE8D22BE25EF503A0032D029 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D22BD25EF503A0032D029 /* Router.swift */; };
 		AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D22DB25EF64010032D029 /* LoginViewController.swift */; };
 		AE8D22DE25EF64010032D029 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8D22DC25EF64010032D029 /* LoginViewController.xib */; };
 		AE8D22E425EF64420032D029 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8D22E225EF64420032D029 /* RegisterViewController.swift */; };
@@ -82,6 +87,7 @@
 		AEC84CA425FCA90A0068A479 /* MenuControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */; };
 		AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD025FE42120068A479 /* CustomButton.swift */; };
 		AEC84CD925FEAFFB0068A479 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD825FEAFFA0068A479 /* UIViewController.swift */; };
+		AED04D9926315C850098F0D3 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = AED04D9826315C850098F0D3 /* GoogleService-Info-2.plist */; };
 		AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905A261706A200E727FA /* CircleAnimationView.swift */; };
 		AEEE906026170E9D00E727FA /* BluredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905F26170E9D00E727FA /* BluredView.swift */; };
 		AEEE906526170EB500E727FA /* BluredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEE906426170EB500E727FA /* BluredView.xib */; };
@@ -91,6 +97,12 @@
 		AEEE907926177EC900E727FA /* SessionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE907826177EC900E727FA /* SessionStorage.swift */; };
 		AEEE907F26177FA400E727FA /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = AEEE907E26177FA400E727FA /* SwiftKeychainWrapper */; };
 		AEEE9084261780FD00E727FA /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE9083261780FD00E727FA /* ValidationService.swift */; };
+		AEEE908C2617A9F900E727FA /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE908B2617A9F900E727FA /* Coordinator.swift */; };
+		AEEE90912617AA3F00E727FA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE90902617AA3F00E727FA /* Router.swift */; };
+		AEEE909C2617ADCE00E727FA /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE909B2617ADCE00E727FA /* Factories.swift */; };
+		AEEE90A12617B36A00E727FA /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE90A02617B36A00E727FA /* CoordinatorFactory.swift */; };
+		AEEE90A62617B70500E727FA /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE90A52617B70500E727FA /* ApplicationCoordinator.swift */; };
+		AEEE90AB2617B79F00E727FA /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE90AA2617B79F00E727FA /* LoginCoordinator.swift */; };
 		AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */; };
 		AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */; };
 		AEF1B94E25FF4445006F65C8 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */; };
@@ -124,6 +136,12 @@
 		AE0BA4012619805E00C73D55 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		AE0BA40C2619846A00C73D55 /* Alerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerting.swift; sourceTree = "<group>"; };
 		AE0BA437261A0DB100C73D55 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		AE0BA3CD261833DB00C73D55 /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
+		AE0BA3D5261834D800C73D55 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
+		AE0BA3DA26183B7E00C73D55 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
+		AE0BA3E22618456C00C73D55 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		AE0BA3E72618458400C73D55 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
+		AE0BA3EC2618827500C73D55 /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
 		AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FackeVoiceViewController.swift; sourceTree = "<group>"; };
 		AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FackeVoiceViewController.xib; sourceTree = "<group>"; };
 		AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingVoiceViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +182,6 @@
 		AE8D228B25EF46470032D029 /* BachelorProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BachelorProjectUITests.swift; sourceTree = "<group>"; };
 		AE8D228D25EF46470032D029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AE8D22B425EF4E670032D029 /* IntroViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroViewController.xib; sourceTree = "<group>"; };
-		AE8D22BD25EF503A0032D029 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AE8D22DB25EF64010032D029 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AE8D22DC25EF64010032D029 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		AE8D22E225EF64420032D029 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +215,7 @@
 		AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuControllerDelegate.swift; sourceTree = "<group>"; };
 		AEC84CD025FE42120068A479 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AEC84CD825FEAFFA0068A479 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		AED04D9826315C850098F0D3 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		AEEE905A261706A200E727FA /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		AEEE905F26170E9D00E727FA /* BluredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluredView.swift; sourceTree = "<group>"; };
 		AEEE906426170EB500E727FA /* BluredView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BluredView.xib; sourceTree = "<group>"; };
@@ -206,6 +224,12 @@
 		AEEE907326177CBC00E727FA /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		AEEE907826177EC900E727FA /* SessionStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStorage.swift; sourceTree = "<group>"; };
 		AEEE9083261780FD00E727FA /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		AEEE908B2617A9F900E727FA /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		AEEE90902617AA3F00E727FA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		AEEE909B2617ADCE00E727FA /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
+		AEEE90A02617B36A00E727FA /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
+		AEEE90A52617B70500E727FA /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		AEEE90AA2617B79F00E727FA /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipingViewController.swift; sourceTree = "<group>"; };
 		AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
@@ -244,6 +268,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE0BA3CC261833C500C73D55 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				AEEE90A52617B70500E727FA /* ApplicationCoordinator.swift */,
+				AEEE90AA2617B79F00E727FA /* LoginCoordinator.swift */,
+				AE0BA3CD261833DB00C73D55 /* StartCoordinator.swift */,
+				AE0BA3DA26183B7E00C73D55 /* RegisterCoordinator.swift */,
+				AE0BA3E22618456C00C73D55 /* MainCoordinator.swift */,
+				AE0BA3E72618458400C73D55 /* MenuCoordinator.swift */,
+				AE0BA3EC2618827500C73D55 /* SettingCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		AE2447B52614455F0047F935 /* AudioCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -356,12 +394,13 @@
 				AE8D230225EF7F490032D029 /* Models */,
 				AE8D22EF25EF709A0032D029 /* Protocols */,
 				AE8D22D425EF60660032D029 /* CustomViews */,
-				AE8D22BC25EF50270032D029 /* Helpers */,
+				AE8D22BC25EF50270032D029 /* Navigation */,
 				AE8D22B225EF4DF20032D029 /* Resources */,
 				AE8D22B125EF4D6D0032D029 /* Controller */,
 				AE8D22B025EF4D550032D029 /* Aplication */,
 				AE8D22B325EF4E120032D029 /* CoreData */,
 				AE8D227725EF46460032D029 /* Info.plist */,
+				AED04D9826315C850098F0D3 /* GoogleService-Info-2.plist */,
 				AE9963A92614CC0500C2ED0A /* Services */,
 			);
 			path = BachelorProject;
@@ -428,12 +467,17 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		AE8D22BC25EF50270032D029 /* Helpers */ = {
+		AE8D22BC25EF50270032D029 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				AE8D22BD25EF503A0032D029 /* Router.swift */,
+				AE0BA3CC261833C500C73D55 /* Coordinators */,
+				AEEE908B2617A9F900E727FA /* Coordinator.swift */,
+				AEEE90902617AA3F00E727FA /* Router.swift */,
+				AEEE909B2617ADCE00E727FA /* Factories.swift */,
+				AEEE90A02617B36A00E727FA /* CoordinatorFactory.swift */,
+				AE0BA3D5261834D800C73D55 /* ScreenFactory.swift */,
 			);
-			path = Helpers;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		AE8D22D425EF60660032D029 /* CustomViews */ = {
@@ -784,6 +828,7 @@
 				AE72404725FB7661005A39E5 /* NavigationBar.xib in Resources */,
 				AEFC15DA25FB607C00E204B9 /* LogoCollectionViewCell.xib in Resources */,
 				AE8D231325EF990E0032D029 /* UserInfoCollectionViewCell.xib in Resources */,
+				AED04D9926315C850098F0D3 /* GoogleService-Info-2.plist in Resources */,
 				AE8D226E25EF46410032D029 /* Main.storyboard in Resources */,
 				AE2447AA261399600047F935 /* RecordingVoiceViewController.xib in Resources */,
 				AE72402E25FB6EC8005A39E5 /* ResetingPasswordViewController.xib in Resources */,
@@ -829,9 +874,13 @@
 				AEEE907426177CBC00E727FA /* AuthorizationService.swift in Sources */,
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
 				AE72405025FB7F1E005A39E5 /* ContainerViewController.swift in Sources */,
+				AEEE90A12617B36A00E727FA /* CoordinatorFactory.swift in Sources */,
+				AE0BA3CE261833DB00C73D55 /* StartCoordinator.swift in Sources */,
 				AE9963CA2615EA4600C2ED0A /* VoiceStorage.swift in Sources */,
+				AE0BA3E82618458400C73D55 /* MenuCoordinator.swift in Sources */,
 				AE9963C02615A87D00C2ED0A /* TimePickerManager.swift in Sources */,
 				AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */,
+				AE0BA3ED2618827500C73D55 /* SettingCoordinator.swift in Sources */,
 				AE9963C52615D5FC00C2ED0A /* CustomAlertController.swift in Sources */,
 				AE2447A2261398B20047F935 /* FackeVoiceViewController.swift in Sources */,
 				AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */,
@@ -841,12 +890,14 @@
 				AE9963B326159A1400C2ED0A /* VoiceSetting.swift in Sources */,
 				AE4CF80425FA6887008024C9 /* AuthDataCollectionViewCell.swift in Sources */,
 				AE2447B026143F520047F935 /* AudioCollectionViewCell.swift in Sources */,
+				AEEE908C2617A9F900E727FA /* Coordinator.swift in Sources */,
 				AE9963BB26159DE100C2ED0A /* PickerManager.swift in Sources */,
 				AE2CC6342600C58F003AFE81 /* SettingsTableViewCell.swift in Sources */,
 				AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */,
 				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
 				AE8D238E25F15ECB0032D029 /* AlertProvider.swift in Sources */,
 				AE8D22F125EF70C90032D029 /* NibLoadable.swift in Sources */,
+				AEEE90912617AA3F00E727FA /* Router.swift in Sources */,
 				AEEE907926177EC900E727FA /* SessionStorage.swift in Sources */,
 				AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */,
 				AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */,
@@ -865,16 +916,21 @@
 				AE9963AE2615991000C2ED0A /* UserDefaults.swift in Sources */,
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
 				AEEE9084261780FD00E727FA /* ValidationService.swift in Sources */,
+				AE0BA3E32618456C00C73D55 /* MainCoordinator.swift in Sources */,
 				AEEE906026170E9D00E727FA /* BluredView.swift in Sources */,
+				AE0BA3D6261834D800C73D55 /* ScreenFactory.swift in Sources */,
+				AEEE90AB2617B79F00E727FA /* LoginCoordinator.swift in Sources */,
+				AEEE909C2617ADCE00E727FA /* Factories.swift in Sources */,
 				AE99639926146DDE00C2ED0A /* AudioManager.swift in Sources */,
 				AE0BA3F826197C5400C73D55 /* Date.swift in Sources */,
+				AEEE90A62617B70500E727FA /* ApplicationCoordinator.swift in Sources */,
 				AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */,
 				AE8D236525F149F40032D029 /* RegisterModel.swift in Sources */,
 				AEF1B94325FEC64C006F65C8 /* SwipingViewController.swift in Sources */,
-				AE8D22BE25EF503A0032D029 /* Router.swift in Sources */,
 				AE72405E25FB8480005A39E5 /* MenuViewController.swift in Sources */,
 				AE8D226925EF46410032D029 /* SceneDelegate.swift in Sources */,
 				AE8D238825F150740032D029 /* ButtonCollectionViewCell.swift in Sources */,
+				AE0BA3DB26183B7E00C73D55 /* RegisterCoordinator.swift in Sources */,
 				AEC84C9325FC93780068A479 /* MenuItemTableViewCell.swift in Sources */,
 				AEC84CD925FEAFFB0068A479 /* UIViewController.swift in Sources */,
 				AE8D227125EF46410032D029 /* BachelorProject.xcdatamodeld in Sources */,
@@ -1064,7 +1120,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = myApp.BachelorProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.BachelorProject.SecureApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1084,7 +1140,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = myApp.BachelorProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.BachelorProject.SecureApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

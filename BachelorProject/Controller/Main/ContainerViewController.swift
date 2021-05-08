@@ -13,71 +13,68 @@ class ContainerViewController: UIViewController {
     
     var menuController: MenuViewController!
     var centerViewController: UIViewController!
-//    var navigationCenterController: UINavigationController!
     var isMenuPresenting: Bool = false
+    var showingMenuScreen: VoidClosure?
     
-    
-    // MARK: - Init
+    // MARK: - Override
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureHomeViewController()
 
         // Do any additional setup after loading the view.
+        navigationItem.largeTitleDisplayMode = .never
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hideOportunityMoveBack()
         
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+
     }
     
-    // MARK: - Handlers
+    // override func viewWillAppear(_ animated: Bool) {
+    //     super.viewWillAppear(animated)
+    //     hideOportunityMoveBack()
+        
+    // }
+    
+    // // MARK: - Handlers
 
-    private func hideOportunityMoveBack() {
-        // TODO:  when I change navigation then delete this func
-        self.navigationItem.leftBarButtonItem = nil
-        self.navigationItem.hidesBackButton = true
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
-        self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
-    }
+    // private func hideOportunityMoveBack() {
+    //     // TODO:  when I change navigation then delete this func
+    //     self.navigationItem.leftBarButtonItem = nil
+    //     self.navigationItem.hidesBackButton = true
+    //     navigationController?.setNavigationBarHidden(true, animated: false)
+    //     self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
+    //     self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
+    // }
 
     
-    func configureHomeViewController() {
+    func configureHomeViewController(swipingViewController: SwipingViewController) {
         
-        let swipingViewController = SwipingViewController()
-        
-        swipingViewController.finishFlow = { [weak self] in
-            self?.navigationController?.popToRootViewController(animated: true)
+        if centerViewController == nil {
+            centerViewController = UINavigationController(rootViewController: swipingViewController)
+            
+            addChild(centerViewController)
+            view.addSubview(centerViewController.view)
+            centerViewController.didMove(toParent: self)
         }
-        
-        swipingViewController.menuDelegate = self
-        centerViewController = UINavigationController(rootViewController: swipingViewController)
-        
-        addChild(centerViewController)
-        view.addSubview(centerViewController.view)
-        centerViewController.didMove(toParent: self)
+     
     }
     
-    func configureMenuController() {
-        if menuController == nil {
-            print("New menuController")
-            menuController = MenuViewController(nibName: MenuViewController.name, bundle: .main)
-            menuController.delegate = self
+    func configureMenuController(menuViewController: MenuViewController) {
+        
+            menuController = menuViewController
             view.insertSubview(menuController.view, at: 0)
             menuController.view.frame = view.bounds
             centerViewController.didMove(toParent: self)
-        } else {
-            print("I've already created")
-        }
         
-        isMenuPresenting.toggle()
-        moveCenterViewController(isMenuPresenting)
     }
     
     
-    func moveCenterViewController(_ shouldExpend: Bool ) { //moving home controller
+    func moveCenterViewController(_ shouldExpend: Bool ) {
         if shouldExpend {
             UIView.animate(withDuration: 0.8,
                            delay: 0,
@@ -107,20 +104,6 @@ class ContainerViewController: UIViewController {
 
 }
 
-
-extension ContainerViewController {
-    private func handleMenuOption() {
-        
-    }
-}
-
-
-extension ContainerViewController: MenuControllerDelegate {
-    func handleMenuTapped() {
-        configureMenuController()
-    }
-
-}
 
 extension ContainerViewController: SelectOptionDelegate {
     func choseOption(with item: MenuViewController.MenuItem) {

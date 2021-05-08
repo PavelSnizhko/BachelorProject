@@ -8,6 +8,13 @@
 import UIKit
 
 final class RegisterViewController: UIViewController, NibLoadable, AlertProvider {
+    
+    // TODO: make abstration using protocols, maybe...
+    
+    var finishFlow: VoidClosure?
+    var isError: ItemClosure<Error>?
+    var onLogin: VoidClosure?
+    
     @IBOutlet weak var collectionView: UICollectionView!
 
     private var headersType: [HeaderType] = [.userInfo, .sex, .date, .auth, .button ]
@@ -204,16 +211,11 @@ extension RegisterViewController: UICollectionViewDataSource {
                                   and: error!.localizedDescription)
                     }
                     else {
-                        let main = ContainerViewController()
-                        self.navigationController?.isToolbarHidden = true
-                        self.navigationController?.pushViewController(main, animated: true)
+                        self.finishFlow?()
                     }
 
                 }
-                
-               
-                
-
+                //register is done move to main screen with coordinator
             }
             cell = buttonCollectionViewCell
             
