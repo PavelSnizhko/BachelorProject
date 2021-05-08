@@ -13,17 +13,22 @@ class ContainerViewController: UIViewController {
     
     var menuController: MenuViewController!
     var centerViewController: UIViewController!
-    
-//    var navigationCenterController: UINavigationController!
     var isMenuPresenting: Bool = false
     var showingMenuScreen: VoidClosure?
     
-    // MARK: - Init
+    // MARK: - Override
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Safe Home"
-        // Do any additional setup after loading the view.
+        navigationItem.largeTitleDisplayMode = .never
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+
     }
     
 
@@ -31,36 +36,27 @@ class ContainerViewController: UIViewController {
     
     func configureHomeViewController(swipingViewController: SwipingViewController) {
         
-//        let swipingViewController = SwipingViewController()
-
-//        swipingViewController.menuDelegate = self
-        
-        centerViewController = UINavigationController(rootViewController: swipingViewController)
-        
-        addChild(centerViewController)
-        view.addSubview(centerViewController.view)
-        centerViewController.didMove(toParent: self)
+        if centerViewController == nil {
+            centerViewController = UINavigationController(rootViewController: swipingViewController)
+            
+            addChild(centerViewController)
+            view.addSubview(centerViewController.view)
+            centerViewController.didMove(toParent: self)
+        }
+     
     }
     
     func configureMenuController(menuViewController: MenuViewController) {
-        if menuController == nil {
-            print("New menuController")
+        
             menuController = menuViewController
-//                MenuViewController(nibName: MenuViewController.name, bundle: .main)
-//            menuController.delegate = self
             view.insertSubview(menuController.view, at: 0)
             menuController.view.frame = view.bounds
             centerViewController.didMove(toParent: self)
-        } else {
-            print("I've already created")
-        }
-
-//        isMenuPresenting.toggle()
-//        moveCenterViewController(isMenuPresenting)
+        
     }
     
     
-    func moveCenterViewController(_ shouldExpend: Bool ) { //moving home controller
+    func moveCenterViewController(_ shouldExpend: Bool ) {
         if shouldExpend {
             UIView.animate(withDuration: 0.8,
                            delay: 0,
@@ -90,20 +86,6 @@ class ContainerViewController: UIViewController {
 
 }
 
-
-extension ContainerViewController {
-    private func handleMenuOption() {
-        
-    }
-}
-
-
-extension ContainerViewController: MenuControllerDelegate {
-    func handleMenuTapped() {
-//        configureMenuController(menuViewController: <#MenuViewController#>)
-    }
-
-}
 
 extension ContainerViewController: SelectOptionDelegate {
     func choseOption(with item: MenuViewController.MenuItem) {

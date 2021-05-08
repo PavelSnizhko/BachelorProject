@@ -69,7 +69,6 @@ final class RouterImp: Router {
     
     func manageBar(_ flag: Bool) {
         rootController?.isNavigationBarHidden = flag
-        rootController?.navigationBar.barTintColor = UIColor.green
     }
     
     func toPresent() -> UIViewController? {

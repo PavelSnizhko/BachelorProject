@@ -16,7 +16,7 @@ class MainCoordinator: BaseCoordinator {
     private let screenFactory: ScreenFactory
     private var controllers: [UIViewController] = []
     
-//    private var containerController: ContainerViewController
+    private var containerScreen: ContainerViewController!
     
     private var menuViewController: MenuViewController!
     private var swipingViewController: SwipingViewController!
@@ -25,7 +25,13 @@ class MainCoordinator: BaseCoordinator {
     
     var isMenuPresenting: Bool = false
     var isMenuAdded: Bool = false
-
+    
+    private var firstCall: Bool = false {
+        didSet {
+            router.push(containerScreen)
+            router.manageBar(true)
+        }
+    }
     
     init(router: Router,
          screenFactory: ScreenFactory,
@@ -38,13 +44,16 @@ class MainCoordinator: BaseCoordinator {
     }
     
     override func start() {
+        
         if isMenuPresenting {
             router.manageBar(true)
             runMenuCoordinatorFlow(with: menuViewController, and: router)
         }
         else {
             showContainer()
-            
+            if !firstCall {
+                firstCall.toggle()
+            }
         }
     }
     
@@ -57,10 +66,12 @@ class MainCoordinator: BaseCoordinator {
             addDependency(coordinator)
             
             coordinator.start()
+            
+            isMenuAdded.toggle()
 
         } else {
             guard let coordinator = childCoordinators.last else { return }
-            //Как передать в кординатор нужный екран или координатор??
+
             coordinator.start()
         }
         
@@ -70,18 +81,21 @@ class MainCoordinator: BaseCoordinator {
     func showContainer() {
         //TODO: check if it's not awoke every time
         //make checking maybe bool propery for not repiting creation of screen
-        let containerScreen = screenFactory.makeContainerScreen()
-        
-        menuViewController = screenFactory.makeMenuScreen()
+        if containerScreen == nil {
+            containerScreen = screenFactory.makeContainerScreen()
+            menuViewController = screenFactory.makeMenuScreen()
 
-        swipingViewController = screenFactory.makeSwipingScreen()
+            swipingViewController = screenFactory.makeSwipingScreen()
+        }
+        
+       
         
         swipingViewController.menuPressed = { [weak self] in
             guard let self = self else { return }
 
             self.isMenuPresenting.toggle()
             
-            containerScreen.moveCenterViewController(self.isMenuPresenting)
+            self.containerScreen.moveCenterViewController(self.isMenuPresenting)
             self.start()
         }
         
@@ -96,8 +110,6 @@ class MainCoordinator: BaseCoordinator {
 //
 //        }
         
-        router.push(containerScreen)
-        print(router)
     }
     
     func showMainPage() {

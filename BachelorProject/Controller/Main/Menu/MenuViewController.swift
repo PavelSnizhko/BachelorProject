@@ -21,7 +21,6 @@ class MenuViewController: UIViewController, NibLoadable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        navigationController.setNavigationBarHidden(true, animated: false)
         launchDelegating()
         registerCells()
     }

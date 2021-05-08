@@ -32,8 +32,7 @@ class MenuCoordinator: BaseCoordinator {
     
     
     override func start() {
-        print("Start")
-        router.manageBar(true)
+        print("Start  MENU")
         menuScreen?.selectedOption = { [weak self] option in
             
             switch option {
@@ -45,11 +44,13 @@ class MenuCoordinator: BaseCoordinator {
             
             case .chat:
                 print("Move to chat")
+                self?.router.manageBar(true)
                 self?.showChat()
+
             }
             
-            
         }
+        menuScreen?.navigationController?.setNavigationBarHidden(true, animated: true)
         
 //        if currentPage == nil {
 //            showMenu()
@@ -82,6 +83,7 @@ class MenuCoordinator: BaseCoordinator {
         
         print(router)
 //        router.push(chatScreen, animated: true, hideBottomBar: false, completion: nil)
+        router.manageBar(true)
         router.push(chatScreen)
     }
     
