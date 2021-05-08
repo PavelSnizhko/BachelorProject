@@ -183,6 +183,7 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
         }
         
         let voice = voiceStorage.voice
+        
         guard let time = voice?.timeStamp, let name = voice?.name else {
             return
         }

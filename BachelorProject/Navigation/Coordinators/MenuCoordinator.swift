@@ -9,13 +9,16 @@ import UIKit
 
 class MenuCoordinator: BaseCoordinator {
     
+    //MARK: - Properties
     let router: Router
     let screenFactory: ScreenFactory
-    weak var menuScreen: MenuViewController?
-    var currentPage: MenuViewController.MenuItem?
-    var coordinatorFactory: CoordinatorFactoryImpl
     
-    //TODO: maybe make for coordinator factory delegate to folow srp principle
+    weak var menuScreen: MenuViewController?
+    
+    var currentPage: MenuViewController.MenuItem?
+    private var coordinatorFactory: CoordinatorFactoryImpl
+    var finishFlow: VoidClosure?
+    
     
     init(router: Router,
          screenFactory: ScreenFactory,
@@ -29,19 +32,18 @@ class MenuCoordinator: BaseCoordinator {
         
     }
     
-    
+    //MARK: - override methods
+
     
     override func start() {
-        print("Start  MENU")
+
         menuScreen?.selectedOption = { [weak self] option in
             
             switch option {
-                
             case .home:
                 print("Home")
             case .setting:
-                print("Setting")
-            
+                self?.runSettingFlow()
             case .chat:
                 print("Move to chat")
                 self?.router.manageBar(true)
@@ -50,46 +52,29 @@ class MenuCoordinator: BaseCoordinator {
             }
             
         }
-        menuScreen?.navigationController?.setNavigationBarHidden(true, animated: true)
-        
-//        if currentPage == nil {
-//            showMenu()
-//        } else {
-//            switch currentPage {
-//
-//            case .setting:
-//                runSettingFlow()
-//
-//            case .chat:
-//                print("chat")
-//                showChat()
-//                currentPage = nil
-//            case .home:
-//
-//                print("home")
-//
-//            case .none:
-//                 print("fdfd")
-//            }
-//        }
     }
     
+    //MARK: - methods
+
+    
     func runSettingFlow() {
-        let settingCoordinator = coordinatorFactory
+        let settingCoordinator = coordinatorFactory.makeSettingCoordinator(router: router)
+        
+        settingCoordinator.finishFlow = finishFlow
+        
+        //Or remove before dependency?
+                             
+        self.addDependency(settingCoordinator)
+        settingCoordinator.start()
     }
     
     func showChat() {
         let chatScreen = screenFactory.makeChatScreen()
         
-        print(router)
-//        router.push(chatScreen, animated: true, hideBottomBar: false, completion: nil)
         router.manageBar(true)
         router.push(chatScreen)
     }
     
-    func showSetting() {
-        //TODO: Implement showSetting ie create probably another coordinator as in the case of the menu but there is a snap table
-    }
     
     func showMenu() {
         let menuScreen = screenFactory.makeMenuScreen()
@@ -97,9 +82,8 @@ class MenuCoordinator: BaseCoordinator {
         menuScreen.selectedOption = { [weak self]  option in
             switch option {
             case .home:
-                
-                // TODO: throw above
-                print("home")
+                self?.currentPage = .home
+                self?.start()
             case .setting:
                 self?.currentPage = .setting
                 self?.start()
@@ -110,23 +94,4 @@ class MenuCoordinator: BaseCoordinator {
         }
     }
     
-    enum Pages {
-        case chat
-        case setting
-        case logOut
-        case home
-        
-    }
-    
 }
-
-
-
-
-//class FackeVoiceCoordinator {
-//
-//}
-//
-//class RecordingSettingCoordinator {
-//
-//}

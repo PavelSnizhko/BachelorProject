@@ -7,16 +7,19 @@
 
 import Foundation
 
-//TODO: figure out how does it actually work ?
+//Const( move to enum or struct with static properties)
+let firstLaunchKey = "firstLaunch"
 
 final class ApplicationCoordinator: BaseCoordinator {
     
     private let coordinatorFactory: CoordinatorFactory
     private let router: Router
     
-    private var isFirstLaunch = true
+    private var isFirstLaunch: Bool {
+        !UserDefaults.standard.bool(forKey: firstLaunchKey)
+    }
     private var isLogin = false
-    private var needRegister = false
+    private var isRegister = false
     
     init(router: Router, coordinatorFactory: CoordinatorFactory) {
         self.router = router
@@ -24,15 +27,19 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
     
     override func start() {
+        
         if isFirstLaunch {
+            
             runStartFlow()
-            isFirstLaunch = false
+            
+            UserDefaults.standard.setValue(true, forKey: firstLaunchKey)
+            
             return
         }
         
         if isLogin {
             mainFlow()
-        } else if needRegister {
+        } else if isRegister {
             runRegisterFlow()
         } else {
             runLoginFlow()
@@ -43,7 +50,6 @@ final class ApplicationCoordinator: BaseCoordinator {
         
         let coordinator = coordinatorFactory.makeStartCoordinator(router: router)
         coordinator.finishFlow = { [weak self, weak coordinator] isLogin in
-            self?.isFirstLaunch = false
             self?.isLogin = isLogin
             self?.start()
             self?.removeDependency(coordinator)
@@ -55,6 +61,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     private func runLoginFlow() {
         
         let coordinator = coordinatorFactory.makeLoginCoordinator(router: router)
+        
         coordinator.finishFlow = { [weak self, weak coordinator] in
             self?.isLogin = true
             self?.start()
@@ -63,7 +70,7 @@ final class ApplicationCoordinator: BaseCoordinator {
         
         coordinator.onRegister = { [weak self, weak coordinator] in
             
-            self?.needRegister = true
+            self?.isRegister = true
             self?.start()
             self?.removeDependency(coordinator)
         }
@@ -73,6 +80,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
     
     private func runRegisterFlow() {
+        
         let coordinator = coordinatorFactory.makeRegisterCoordinator(router: router)
         coordinator.finishFlow = { [weak self, weak coordinator] in
                 self?.isLogin = true
@@ -88,7 +96,7 @@ final class ApplicationCoordinator: BaseCoordinator {
         let coordinator = coordinatorFactory.makeMainCoordinator(router: router)
         
         coordinator.finishFlow = { [weak self, weak coordinator] in
-            self?.isLogin = true
+            self?.isLogin = false
             self?.start()
             self?.removeDependency(coordinator)
         }

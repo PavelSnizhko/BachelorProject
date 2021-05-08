@@ -9,8 +9,9 @@ import UIKit
 
 class SettingsViewController: UIViewController, NibLoadable {
     
-    var defaultSettings: [SettingType] = [.account, .voice, .audio, .password, .logout]
-    
+    private let defaultSettings: [SettingType] = [.account, .voice, .audio, .password, .logout]
+    var choosenOption: ItemClosure<SettingType>?
+        
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -67,20 +68,19 @@ extension SettingsViewController: UITableViewDelegate {
         let setting = defaultSettings[indexPath.row]
         switch setting {
         case .account:
+            choosenOption?(.account)
             print("Tapped account")
         case .voice:
-            let fackeVoiceController = FackeVoiceViewController(nibName: FackeVoiceViewController.name, bundle: .main)
-            navigationController?.pushViewController(fackeVoiceController, animated: true)
+            choosenOption?(.voice)
         case .audio:
-            let fackeVoiceController = RecordingVoiceViewController(nibName: RecordingVoiceViewController.name, bundle: .main)
-            fackeVoiceController.sendToServer =  { [weak self]  state in
-                self?.handleSendToServerOption(state: state)
-                self?.handleStoreLocally(state: state)
-            }
-            navigationController?.pushViewController(fackeVoiceController, animated: true)
+            choosenOption?(.audio)
         case .password:
+            choosenOption?(.password)
+
             print("Provide as soon as possible")
         case .logout:
+            choosenOption?(.logout)
+
             navigationController?.popToRootViewController(animated: true)
         }
     }

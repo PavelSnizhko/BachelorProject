@@ -25,6 +25,7 @@ final class StartCoordinator: BaseCoordinator {
     
     private func showSplash() {
         let introScreen = screenFactory.makeIntroScreen()
+        
         introScreen.isLogin = { [weak self] status in
          
             self?.finishFlow?(status)

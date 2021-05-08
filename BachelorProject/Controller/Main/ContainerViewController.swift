@@ -20,7 +20,6 @@ class ContainerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureHomeViewController()
 
         // Do any additional setup after loading the view.
         navigationItem.largeTitleDisplayMode = .never

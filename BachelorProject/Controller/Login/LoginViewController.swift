@@ -117,15 +117,15 @@ extension LoginViewController: UICollectionViewDataSource {
                             
                             guard let self = self else { return }
                             
-//                            print(error.localizedDescription)
                             self.showAlert(from: self,
                                            title: "Oops some troubles with data",
                                            message: error?.localizedDescription ?? "Smth wrong")
                             return
                         }
                         else {
-                            let homeVC = ContainerViewController()
-                            self?.navigationController?.pushViewController(homeVC, animated: true)
+                        
+                            self?.onLogin?()
+
 
                         }
                     }
@@ -134,10 +134,7 @@ extension LoginViewController: UICollectionViewDataSource {
                     print(error.localizedDescription)
                     self.showAlert(from: self, title: "Oops some mistakes", message: error.localizedDescription)
                     
-                }
-                
-                //TODO: do I need this call???
-                self?.onLogin?()
+                }                
                                 
             }
             cell = buttonCell

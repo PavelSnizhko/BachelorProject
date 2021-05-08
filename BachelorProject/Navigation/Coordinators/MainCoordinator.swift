@@ -65,6 +65,8 @@ class MainCoordinator: BaseCoordinator {
                 
             addDependency(coordinator)
             
+            self.finishFlow = coordinator.finishFlow
+            
             coordinator.start()
             
             isMenuAdded.toggle()
