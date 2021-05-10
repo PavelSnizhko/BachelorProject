@@ -33,6 +33,7 @@ class RecordingAudioManager: NSObject, Recording {
     
     var currentTime: String = "00:00" {
         didSet {
+            print(currentTime)
             timeUpdating?(currentTime)
         }
     }
@@ -88,7 +89,6 @@ class RecordingAudioManager: NSObject, Recording {
         
         do {
             
-            
             audioRecorder = try AVAudioRecorder(url: audioFilename, settings: settings)
             audioRecorder?.delegate = self
             audioRecorder?.record()
@@ -111,7 +111,7 @@ class RecordingAudioManager: NSObject, Recording {
     
     @objc fileprivate func timerTick(){
         timeSec += 1
-        
+        print(timeSec, timeMin)
         if timeSec == 60{
             timeSec = 0
             timeMin += 1

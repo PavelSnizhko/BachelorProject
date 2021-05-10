@@ -29,7 +29,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pY-bd-aK5">
-                    <rect key="frame" x="41.5" y="808" width="331" height="54"/>
+                    <rect key="frame" x="41.5" y="792" width="331" height="54"/>
                     <color key="backgroundColor" name="redColor"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="25"/>
                     <state key="normal" title="Get Sarted">
@@ -50,7 +50,7 @@
                 <constraint firstItem="2fm-Ar-OnU" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="V0O-az-zm7"/>
                 <constraint firstItem="2fm-Ar-OnU" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.5" id="WXh-fN-P1q"/>
                 <constraint firstItem="2fm-Ar-OnU" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="0.3" id="aGg-Vc-rUU"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8pY-bd-aK5" secondAttribute="bottom" id="leW-RJ-lNd"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8pY-bd-aK5" secondAttribute="bottom" constant="16" id="leW-RJ-lNd"/>
                 <constraint firstItem="2fm-Ar-OnU" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="oac-hY-ruK"/>
                 <constraint firstItem="8pY-bd-aK5" firstAttribute="trailing" secondItem="2fm-Ar-OnU" secondAttribute="trailing" id="ooc-pv-T1e"/>
             </constraints>

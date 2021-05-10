@@ -26,7 +26,9 @@ final class LoginCoordinator: BaseCoordinator {
     }
     
     private func showLogin() {
+        
         let loginScreen = screenFactory.makeLoginScreen()
+        
         loginScreen.onLogin = { [weak self] in
             
             self?.finishFlow?()

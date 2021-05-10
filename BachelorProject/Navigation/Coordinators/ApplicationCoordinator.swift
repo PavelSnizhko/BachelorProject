@@ -19,7 +19,7 @@ final class ApplicationCoordinator: BaseCoordinator {
         !UserDefaults.standard.bool(forKey: firstLaunchKey)
     }
     private var isLogin = false
-    private var isRegister = false
+    private var isRegister = true
     
     init(router: Router, coordinatorFactory: CoordinatorFactory) {
         self.router = router
@@ -39,7 +39,8 @@ final class ApplicationCoordinator: BaseCoordinator {
         
         if isLogin {
             mainFlow()
-        } else if isRegister {
+        } else if !isRegister {
+            router.manageBar(false)
             runRegisterFlow()
         } else {
             runLoginFlow()
@@ -49,10 +50,13 @@ final class ApplicationCoordinator: BaseCoordinator {
     private func runStartFlow() {
         
         let coordinator = coordinatorFactory.makeStartCoordinator(router: router)
+        
         coordinator.finishFlow = { [weak self, weak coordinator] isLogin in
+            
             self?.isLogin = isLogin
             self?.start()
             self?.removeDependency(coordinator)
+            
         }
         self.addDependency(coordinator)
         coordinator.start()
@@ -63,14 +67,16 @@ final class ApplicationCoordinator: BaseCoordinator {
         let coordinator = coordinatorFactory.makeLoginCoordinator(router: router)
         
         coordinator.finishFlow = { [weak self, weak coordinator] in
+            
             self?.isLogin = true
             self?.start()
             self?.removeDependency(coordinator)
+            
         }
         
         coordinator.onRegister = { [weak self, weak coordinator] in
             
-            self?.isRegister = true
+            self?.isRegister = false
             self?.start()
             self?.removeDependency(coordinator)
         }
@@ -82,23 +88,36 @@ final class ApplicationCoordinator: BaseCoordinator {
     private func runRegisterFlow() {
         
         let coordinator = coordinatorFactory.makeRegisterCoordinator(router: router)
+        
         coordinator.finishFlow = { [weak self, weak coordinator] in
+            
                 self?.isLogin = true
                 self?.start()
                 self?.removeDependency(coordinator)
+            
             }
+        
+        coordinator.onLogin = { [weak self, weak coordinator] in
+            print("kak tak to")
+            self?.isRegister = true
+            self?.start()
+            self?.removeDependency(coordinator)
+        }
 
         self.addDependency(coordinator)
         coordinator.start()
     }
     
     private func mainFlow() {
+        
         let coordinator = coordinatorFactory.makeMainCoordinator(router: router)
         
         coordinator.finishFlow = { [weak self, weak coordinator] in
+            
             self?.isLogin = false
             self?.start()
             self?.removeDependency(coordinator)
+            
         }
         
         self.addDependency(coordinator)

@@ -81,8 +81,7 @@ class MainCoordinator: BaseCoordinator {
 
     
     func showContainer() {
-        //TODO: check if it's not awoke every time
-        //make checking maybe bool propery for not repiting creation of screen
+
         if containerScreen == nil {
             containerScreen = screenFactory.makeContainerScreen()
             menuViewController = screenFactory.makeMenuScreen()
@@ -103,14 +102,6 @@ class MainCoordinator: BaseCoordinator {
         
         containerScreen.configureHomeViewController(swipingViewController: swipingViewController)
         containerScreen.configureMenuController(menuViewController: menuViewController)
-        
-//        let newRoot = UINavigationController(rootViewController: swippingScreen)
-        
-//        containerScreen.showingMenuScreen { [weak self] in
-//
-//            self?.runMenuCoordinatorFlow()
-//
-//        }
         
     }
     

@@ -16,7 +16,6 @@ class IntroViewController: UIViewController, NibLoadable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TODO: move to coordinator
         if authService.isLogged {
             isLogin?(authService.isLogged)
         }
@@ -25,13 +24,7 @@ class IntroViewController: UIViewController, NibLoadable {
     
 
     @IBAction func moveForwardPressed(_ sender: Any) {
-        let loginVC = LoginViewController(nibName: LoginViewController.name, bundle: .main)
-        self.navigationController?.isToolbarHidden = true
-        self.navigationController?.pushViewController(loginVC, animated: true)
-
         isLogin?(false)
-
-    
     }
 }
 

@@ -26,7 +26,7 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
     
     
     @IBOutlet weak var circleAnimationView: CircleAnimationView!
-    // TODO: move to Di
+
     private var voiceStorage = VoiceStorage()
     private var recordingManager: Recording = RecordingAudioManager(audioRecorder: nil, audioPlayer: nil)
     private var audioManager: AudioManager = AudioManager()
@@ -193,6 +193,7 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
         audioManager.playAudioAssets(after: time, and: name)
         
         recordingManager.timeUpdating = { [weak self] time in
+            print(time)
             self?.bluredView.updateTimeOnLabel(time: time)
         }
         
@@ -207,11 +208,13 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
         
         if isPressedSOS {
             
+            //TODO: Implement takePhotoIfNeeded()
+            
             bluredView.stopTapped = { [weak self] in
                 guard let self = self else { return }
-                print("self tapped")
                 
                 self.recordingManager.finishRecording()
+                
                 //TODO: Implement there logic to send on server or store locally data from user
                 
                 self.bluredView.removeFromSuperview()

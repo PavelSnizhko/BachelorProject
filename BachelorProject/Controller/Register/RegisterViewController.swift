@@ -9,63 +9,82 @@ import UIKit
 
 final class RegisterViewController: UIViewController, NibLoadable, AlertProvider {
     
-    // TODO: make abstration using protocols, maybe...
-    
     var finishFlow: VoidClosure?
     var isError: ItemClosure<Error>?
     var onLogin: VoidClosure?
     
     @IBOutlet weak var collectionView: UICollectionView!
 
-    private var headersType: [HeaderType] = [.userInfo, .sex, .date, .auth, .button ]
+    private var headersType: [HeaderType] = [.userInfo, .sex, .date, .auth, .button, .linking]
     private var segmentTypes: [Sex] = [.male, .female]
-    //mb bad decision
     private weak var cellWithTextField: DatePickerCollectionViewCell?
     private var registerModel = RegisterModel()
     private var validationService: ValidationService = DefaultValidationService()
     private var authService = AuthorizationService(authorizationService: NetworkService())
+    
     //INFO: this gonna be replaced due to apple's recomendation
     private let picker: UIDatePicker = {
+        
         let picker = UIDatePicker()
         picker.datePickerMode = .date
         picker.minimumDate = Calendar.current.date(byAdding: .year, value: -100, to: Date())
         picker.maximumDate = Date()
+        
         if #available(iOS 14, *) {
             picker.preferredDatePickerStyle = .wheels
             picker.sizeToFit()
         }
+        
         return picker
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Registration"
         registerCells()
         launchDelegating()
         configDatePicker()
         collectionView.alwaysBounceVertical = true
         collectionView.keyboardDismissMode = .onDrag
-        // Do any additional setup after loading the view.
     }
     
     
-    
     private func registerCells() {
-        collectionView.register(UserInfoCollectionViewCell.nib, forCellWithReuseIdentifier: UserInfoCollectionViewCell.name)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        collectionView.register(SegmenterCollectionViewCell.nib, forCellWithReuseIdentifier: SegmenterCollectionViewCell.name)
-        collectionView.register(AuthDataCollectionViewCell.nib, forCellWithReuseIdentifier: AuthDataCollectionViewCell.name)
+        
+        collectionView.register(UserInfoCollectionViewCell.nib,
+                                forCellWithReuseIdentifier: UserInfoCollectionViewCell.name)
+        
+        collectionView.register(UICollectionViewCell.self,
+                                forCellWithReuseIdentifier: "Cell")
+        
+        collectionView.register(SegmenterCollectionViewCell.nib,
+                                forCellWithReuseIdentifier: SegmenterCollectionViewCell.name)
+        
+        collectionView.register(AuthDataCollectionViewCell.nib,
+                                forCellWithReuseIdentifier: AuthDataCollectionViewCell.name)
+        
         collectionView.register(DatePickerCollectionViewCell.nib,
                                 forCellWithReuseIdentifier: DatePickerCollectionViewCell.name)
-        collectionView.register(ButtonCollectionViewCell.nib, forCellWithReuseIdentifier: ButtonCollectionViewCell.name)
-        // TODO: think is it ok to register another header view
-        collectionView.register(HeaderCollectionReusableView.nib, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.name)
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "EmptyHeader")
+        
+        collectionView.register(ButtonCollectionViewCell.nib,
+                                forCellWithReuseIdentifier: ButtonCollectionViewCell.name)
+        
+        collectionView.register(HeaderCollectionReusableView.nib,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: HeaderCollectionReusableView.name)
+        
+        collectionView.register(UICollectionReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: "EmptyHeader")
+        
+        collectionView.register(LinkingLabelsCollectionViewCell.nib,
+                                forCellWithReuseIdentifier: LinkingLabelsCollectionViewCell.name)
        
     }
     
     private func launchDelegating() {
-        //TODO: move to separete classes for SRP principe
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -73,7 +92,9 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
 
     
     private func configDatePicker() {
-        picker.addTarget(self, action: #selector(pickNewDate(sender:)), for: .valueChanged)
+        picker.addTarget(self,
+                         action: #selector(pickNewDate(sender:)),
+                         for: .valueChanged)
     }
     
     @objc private func pickNewDate(sender: UIDatePicker) {
@@ -88,8 +109,7 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
     }
     
     private func phototViewTapped() {
-        // for triggering taping on view
-        print("phototViewTapped")
+
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.sourceType = .photoLibrary
@@ -98,7 +118,8 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
 }
 
 extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         picker.dismiss(animated: true, completion: nil)
         
@@ -116,10 +137,15 @@ extension RegisterViewController: UIImagePickerControllerDelegate, UINavigationC
 
 // MARK: Cell's Header init
 extension RegisterViewController {
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        
         let headerView: UICollectionReusableView!
+        
         switch headersType[indexPath.section] {
-        case .userInfo, .button, .date, .auth:
+        case .userInfo, .button, .date, .auth, .linking:
             headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                                          withReuseIdentifier: "EmptyHeader",
                                                                          for: indexPath)
@@ -127,11 +153,15 @@ extension RegisterViewController {
             guard let headerCollectionReusableView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderCollectionReusableView.name, for: indexPath) as? HeaderCollectionReusableView else {
                 return UICollectionReusableView()
             }
+            
             headerCollectionReusableView.title = "Please, choose your sex"
+            
             headerView = headerCollectionReusableView
         }
+        
         return headerView
     }
+    
 }
 
 
@@ -171,7 +201,11 @@ extension RegisterViewController: UICollectionViewDataSource {
             cell = userInfoCollectionViewCell
 
         case .sex:
-            guard let segmenterCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: SegmenterCollectionViewCell.name, for: indexPath) as? SegmenterCollectionViewCell else { fatalError() }
+            guard let segmenterCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: SegmenterCollectionViewCell.name, for: indexPath) as? SegmenterCollectionViewCell else {
+                
+                fatalError()
+                
+            }
             
             segmenterCollectionViewCell.setTitles(with: segmentTypes.map{ $0.rawValue.capitalized })
             
@@ -182,29 +216,39 @@ extension RegisterViewController: UICollectionViewDataSource {
             cell = segmenterCollectionViewCell
             
         case .date:
-            guard let datePickerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: DatePickerCollectionViewCell.name,
-                                                                                        for: indexPath) as? DatePickerCollectionViewCell else { fatalError() }
+            guard let datePickerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: DatePickerCollectionViewCell.name, for: indexPath) as? DatePickerCollectionViewCell else {
+                
+                fatalError()
+                
+            }
+            
             datePickerCollectionViewCell.textField.inputView = picker
             
             cellWithTextField = datePickerCollectionViewCell
             cell = datePickerCollectionViewCell
         case .button:
             guard let buttonCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell else { fatalError() }
+            
             buttonCollectionViewCell.buttonTitle = "Create account"
+            
             buttonCollectionViewCell.buttonTapped = { [ weak self] in
                 guard let self = self else { return }
+                
+                //TODO: add alerting for not full filled data
 //                guard self.registerModel.isFilled else { self.showAlert(from: self, with: "Dangerous", and: "Please, fill all forms"); return }
 //                self.showAlert(from: self, with: "\(self.registerModel.firstName)", and: "\(self.registerModel.secondName) \(self.registerModel.sex.rawValue) \n \(self.registerModel.birthday)")
                 do {
                     try self.validationService.validate(for: self.registerModel)
-                } catch let error {
-                    self.showAlert(from: self, with: "Bad data in fields", and: "Please, check your data and refill register info")
+                } catch _ {
+                    self.showAlert(from: self,
+                                   with: "Bad data in fields",
+                                   and: "Please, check your data and refill register info")
                 }
                 
-                print("Я был здесь")
                 self.authService.registrate(registerModel: self.registerModel) { [weak self]  error in
-                    print("И был здесь")
+
                     guard let self = self else { return }
+                    
                     if (error != nil) {
                         self.showAlert(from: self,
                                   with: "It's not allowed",
@@ -215,12 +259,15 @@ extension RegisterViewController: UICollectionViewDataSource {
                     }
 
                 }
-                //register is done move to main screen with coordinator
             }
             cell = buttonCollectionViewCell
             
         case .auth:
-            guard let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: AuthDataCollectionViewCell.name, for: indexPath) as? AuthDataCollectionViewCell  else { fatalError() }
+            guard let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: AuthDataCollectionViewCell.name, for: indexPath) as? AuthDataCollectionViewCell  else {
+                
+                fatalError()
+                
+            }
             
             customCell.emailText = { [weak self] text in
                 self?.registerModel.phoneNumber = text
@@ -231,6 +278,20 @@ extension RegisterViewController: UICollectionViewDataSource {
             }
             
             cell = customCell
+        case .linking:
+            guard let linkingLabelsCell = collectionView.dequeueReusableCell(withReuseIdentifier: LinkingLabelsCollectionViewCell.name, for: indexPath) as? LinkingLabelsCollectionViewCell else {
+                
+                fatalError()
+                
+            }
+            
+            linkingLabelsCell.setAboveLabelTitle(title: "Already have an account")
+            
+            linkingLabelsCell.aboveLabelTapped = { [weak self] in
+                self?.onLogin?()
+            }
+                        
+            cell = linkingLabelsCell
         }
         return cell
     }
@@ -246,12 +307,15 @@ extension RegisterViewController: UICollectionViewDelegate {
 private extension RegisterViewController {
     
     enum HeaderType: HeaderProtocol {
+        
         typealias CellType = ModelsType
+        
         case userInfo
         case sex
         case date
         case auth
         case button
+        case linking
         
         var cellModel: [RegisterViewController.ModelsType] {
             switch self {
@@ -260,6 +324,7 @@ private extension RegisterViewController {
             case .date: return [.date]
             case .button: return [.button]
             case .auth: return [.auth]
+            case .linking: return [.linking]
             }
         }
     }
@@ -268,20 +333,24 @@ private extension RegisterViewController {
         case userInfo
         case sex
         case date
-        case button// student or not for the first time probably it's not needed
+        case button
         case auth
+        case linking
     }
     
 }
 
 //MARK: Layout
+
 extension RegisterViewController: UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
         let screenWidth = collectionView.bounds.width
         let screenHeight = collectionView.bounds.height
 
         switch headersType[section] {
-        case .userInfo, .button, .date, .auth:
+        case .userInfo, .button, .date, .auth, .linking:
             return CGSize(width: 0, height: screenHeight * 0.02)
         case .sex:
             return CGSize(width: screenWidth * 0.9, height: screenHeight * 0.08)
@@ -290,8 +359,10 @@ extension RegisterViewController: UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let width = collectionView.bounds.width * 0.9
-        switch headersType[indexPath.section].cellModel[indexPath.item]{
+        
+        switch headersType[indexPath.section].cellModel[indexPath.item] {
         case .userInfo:
             let height = collectionView.bounds.height * 0.15
             return CGSize(width: width, height: height)
@@ -306,6 +377,9 @@ extension RegisterViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: width, height: height)
         case .auth:
             let height = collectionView.bounds.height * 0.1
+            return CGSize(width: width, height: height)
+        case .linking:
+            let height = collectionView.bounds.height * 0.08
             return CGSize(width: width, height: height)
         }
     }

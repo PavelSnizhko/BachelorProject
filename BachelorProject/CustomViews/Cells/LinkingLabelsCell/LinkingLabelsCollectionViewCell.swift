@@ -10,24 +10,22 @@ import UIKit
 class LinkingLabelsCollectionViewCell: UICollectionViewCell, NibLoadable {
     @IBOutlet private  weak var aboveLabel: UILabel!
     @IBOutlet private weak var belowLabel: UILabel!
-    @IBOutlet private weak var button: UIButton!
-    var buttonTapped: VoidClosure?
+
+    var aboveLabelTapped: VoidClosure?
     
     var bellowLabelTapped: VoidClosure?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.aboveLabel.text = nil
-        self.belowLabel.text = nil
     }
     
     func setAboveLabelTitle(title: String) {
         self.aboveLabel.text = title
+        setAboveGestureRecognizer()
     }
 
     func setBelowLabel(title: String) {
@@ -42,17 +40,21 @@ class LinkingLabelsCollectionViewCell: UICollectionViewCell, NibLoadable {
         belowLabel.addGestureRecognizer(tap)
     }
     
+    func setAboveGestureRecognizer() {
+        aboveLabel.isUserInteractionEnabled = true    
+        let tap = UITapGestureRecognizer(target: self, action: #selector(aboveLabelTapped(_:)))
+        aboveLabel.addGestureRecognizer(tap)
+    }
+    
     @objc func bellowLabelTapped(_ sender: UITapGestureRecognizer) {
         self.belowLabel.textColor = UIColor(named: "redColor")
         bellowLabelTapped?()
     }
-
-    func setButtonLabel(title: String) {
-        self.button.setTitle(title, for: .normal)
+    
+    @objc func aboveLabelTapped(_ sender: UITapGestureRecognizer) {
+        self.aboveLabel.textColor = UIColor(named: "redColor")
+        aboveLabelTapped?()
     }
     
-    //Probably it should gone
-    @IBAction func tapppedButton(_ sender: Any) {
-        buttonTapped?()
-    }
+    
 }

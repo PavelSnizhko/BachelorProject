@@ -22,20 +22,38 @@ class LoginViewController: UIViewController, NibLoadable, Alerting {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         launchDelegating()
         registerCells()
         setCollectionViewScrolling(flag: false)
         hideOportunityMoveBack()
-        
+      
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     
     private func hideOportunityMoveBack() {
-        // TODO:  when I change navigation then delete this func
+        //TODO: change it in the router
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.hidesBackButton = true
         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
         self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
+        
     }
     
     private func launchDelegating() {
@@ -103,7 +121,7 @@ extension LoginViewController: UICollectionViewDataSource {
             
             guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell else { fatalError() }
             buttonCell.buttonTitle = "Log in"
-            // TODO: handle buttonTapped
+
             buttonCell.buttonTapped = { [weak self] in
                 
                 guard let self = self else { return }
@@ -141,23 +159,18 @@ extension LoginViewController: UICollectionViewDataSource {
         case .linkingLabels:
             guard let linkingLabelsCell = collectionView.dequeueReusableCell(withReuseIdentifier: LinkingLabelsCollectionViewCell.name, for: indexPath) as? LinkingLabelsCollectionViewCell else { fatalError() }
             
-            linkingLabelsCell.setAboveLabelTitle(title: "Forgot password")
+//            linkingLabelsCell.setAboveLabelTitle(title: "Forgot password")
             linkingLabelsCell.setBelowLabel(title: "Don't have an account")
             
-            // TODO: move this part to coordinator pattern
             linkingLabelsCell.bellowLabelTapped = { [weak self] in
-                
-                let registerViewController = RegisterViewController(nibName: RegisterViewController.name,
-                                                                    bundle: .main)
-                
-                self?.navigationController?.pushViewController(registerViewController, animated: true)
-            }
-
-            linkingLabelsCell.setButtonLabel(title: "Register")
-            linkingLabelsCell.buttonTapped = { [weak self] in
                 self?.onRegister?()
             }
-            
+
+//
+//            linkingLabelsCell.aboveLabelTapped = {
+//                print("aboveLabelTapped")
+//            }
+
             cell = linkingLabelsCell
         }
         return cell
@@ -194,21 +207,18 @@ private extension LoginViewController {
         }
     }
 
-    //TODO when I got a model type the add associated value for each item if need it
     enum ModelsType {
         case logo
         case auth
         case button
-        case linkingLabels// student or not for the first time probably it's not needed
+        case linkingLabels
     }
     
 }
 
 //MARK: Layout
 extension LoginViewController: UICollectionViewDelegateFlowLayout {
-    
-    //TODO: Clear that
-    
+        
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let screenWidth = collectionView.bounds.width
         let screenHeight = collectionView.bounds.height
@@ -217,7 +227,7 @@ extension LoginViewController: UICollectionViewDelegateFlowLayout {
         case .logo, .auth, .button:
             return CGSize(width: 0, height: screenHeight * 0.02)
         case .linkingLabels:
-            return CGSize(width: screenWidth * 0.9, height: screenHeight * 0.02)
+            return CGSize(width: screenWidth * 0.9, height: 0)
         }
     }
     

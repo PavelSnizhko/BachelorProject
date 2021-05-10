@@ -29,8 +29,15 @@ final class RegisterCoordinator: BaseCoordinator {
         let registerScreen = screenFactory.makeRegisterScreen()
         
         registerScreen.finishFlow = { [weak self] in
-            //TODO: make with bool type
+
             self?.finishFlow?()
+            
+        }
+        
+        registerScreen.onLogin = { [weak self, weak router] in
+            
+            router?.dismissModule(animated: true, completion: nil)
+            self?.onLogin?()
             
         }
         
