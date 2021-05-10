@@ -127,7 +127,7 @@
     </designables>
     <resources>
         <namedColor name="customBrown">
-            <color red="1" green="0.85573171844744267" blue="0.59582108453913007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.85600000619888306" blue="0.59600001573562622" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

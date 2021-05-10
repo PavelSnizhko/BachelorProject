@@ -36,7 +36,7 @@ class BluredView: UIView, NibLoadable {
         //  time unit is  secunds
         
         
-        timeLabel.text = time
+        timeLabel.text = time        
         
     }
 

@@ -24,8 +24,12 @@ struct Preservation {
 
 class MainPageViewController: UIViewController, NibLoadable, Alerting {
     
-    
+    //MARK: - IBOutlet
     @IBOutlet weak var circleAnimationView: CircleAnimationView!
+
+    @IBOutlet weak var mapView: MKMapView!
+
+    //MARK: - IBOutlet
 
     private var voiceStorage = VoiceStorage()
     private var recordingManager: Recording = RecordingAudioManager(audioRecorder: nil, audioPlayer: nil)
@@ -34,6 +38,8 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
     private var currentLocation: CLLocation?
     private var isPressedSOS: Bool = false
     private var locationService: LocationService = LocationService()
+    
+    
     let regionMetters: Double = 1000
     
     weak var timer: Timer?
@@ -44,19 +50,10 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
         return bluredView
         
     }()
-  
-    
-    let preservation = Preservation(id: "0",
-                                    name: "Pasha",
-                                    lon: 30.523333,
-                                    lat: 50.450001)
-    @IBOutlet weak var mapView: MKMapView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "MainPageViewController"
         checkLocationEnabling()
         mapView.showsUserLocation = true
         
@@ -104,18 +101,24 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
 
         switch CLLocationManager.authorizationStatus() {
         case .authorizedAlways:
+            
             mapView.showsUserLocation = true
             centerViewOnUserLocation()
             
         case .notDetermined:
+            
             locationManager.requestWhenInUseAuthorization()
             
         case .restricted:
+            
             break
+            
         case .denied:
             // show alert instruction
             break
+            
         case .authorizedWhenInUse:
+            
             mapView.showsUserLocation = true
             centerViewOnUserLocation()
             // do it
@@ -142,6 +145,8 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
     
     @IBAction func pressedSOS(_ sender: Any) {
         
+        // TODO: send my location???
+        
         // TODO: write calling method from locationService! 
         locationService.getGuardLocation { [weak self] result in
             
@@ -158,7 +163,7 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
                 }
             case .failure(_):
                 print("The token is expired")
-                self.showAlert(from: self,
+                    self.showAlert(from: self,
                                title: "non authorized",
                                message: "Your time in app is over. Please make registration")
             }
@@ -172,7 +177,6 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
             guard let self = self else { return }
 
             switch result {
-            
             case .success():
                 self.manageBluredView()
             case .failure(_):
@@ -182,28 +186,28 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
             }
         }
         
+
+        recordingManager.timeUpdating = { [weak self] time in
+        
+            self?.bluredView.updateTimeOnLabel(time: time)
+        }
+        
+        
+        //playing audio config
         let voice = voiceStorage.voice
         
         guard let time = voice?.timeStamp, let name = voice?.name else {
             return
         }
         
-//        audioManager.playAudioAsset(name)
-        
+        // for playing audio after sos button pressing
+        // audioManager.playAudioAsset(name)
         audioManager.playAudioAssets(after: time, and: name)
-        
-        recordingManager.timeUpdating = { [weak self] time in
-            print(time)
-            self?.bluredView.updateTimeOnLabel(time: time)
-        }
-        
-        
+  
     }
     
     func manageBluredView() {
-        
-        // TODO: do I realy need this ???
-        
+                
         isPressedSOS.toggle()
         
         if isPressedSOS {
@@ -218,6 +222,8 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
                 //TODO: Implement there logic to send on server or store locally data from user
                 
                 self.bluredView.removeFromSuperview()
+                self.isPressedSOS.toggle()
+
             }
             
             self.view.addSubview(bluredView)
@@ -225,6 +231,10 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
         else {
             self.view.willRemoveSubview(bluredView)
         }
+        
+    }
+    
+    func takePhotoIfNeeded() {
         
     }
     
@@ -237,6 +247,7 @@ extension MainPageViewController: CLLocationManagerDelegate {
             
         currentLocation = manager.location
         
+        //TODO: put method here for sending location to server 
 //        let locValue: CLLocationCoordinate2D = manager.location!.coordinate
         print("locations = \(currentLocation?.coordinate.latitude) \(currentLocation?.coordinate.longitude)")
     }

@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE0BA3F826197C5400C73D55 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3F726197C5400C73D55 /* Date.swift */; };
-		AE0BA3FD26197E0C00C73D55 /* DateFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3FC26197E0C00C73D55 /* DateFormater.swift */; };
-		AE0BA4022619805E00C73D55 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA4012619805E00C73D55 /* Networking.swift */; };
-		AE0BA408261980D600C73D55 /* NetworkLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = AE0BA407261980D600C73D55 /* NetworkLibrary */; };
-		AE0BA40D2619846A00C73D55 /* Alerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA40C2619846A00C73D55 /* Alerting.swift */; };
-		AE0BA438261A0DB200C73D55 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA437261A0DB100C73D55 /* LocationService.swift */; };
 		AE0BA3CE261833DB00C73D55 /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3CD261833DB00C73D55 /* StartCoordinator.swift */; };
 		AE0BA3D6261834D800C73D55 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3D5261834D800C73D55 /* ScreenFactory.swift */; };
 		AE0BA3DB26183B7E00C73D55 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3DA26183B7E00C73D55 /* RegisterCoordinator.swift */; };
 		AE0BA3E32618456C00C73D55 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3E22618456C00C73D55 /* MainCoordinator.swift */; };
 		AE0BA3E82618458400C73D55 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3E72618458400C73D55 /* MenuCoordinator.swift */; };
 		AE0BA3ED2618827500C73D55 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3EC2618827500C73D55 /* SettingCoordinator.swift */; };
+		AE0BA3F826197C5400C73D55 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3F726197C5400C73D55 /* Date.swift */; };
+		AE0BA3FD26197E0C00C73D55 /* DateFormater.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3FC26197E0C00C73D55 /* DateFormater.swift */; };
+		AE0BA4022619805E00C73D55 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA4012619805E00C73D55 /* Networking.swift */; };
+		AE0BA408261980D600C73D55 /* NetworkLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = AE0BA407261980D600C73D55 /* NetworkLibrary */; };
+		AE0BA40D2619846A00C73D55 /* Alerting.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA40C2619846A00C73D55 /* Alerting.swift */; };
+		AE0BA438261A0DB200C73D55 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA437261A0DB100C73D55 /* LocationService.swift */; };
 		AE2447A2261398B20047F935 /* FackeVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */; };
 		AE2447A3261398B20047F935 /* FackeVoiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */; };
 		AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */; };
@@ -88,6 +88,7 @@
 		AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD025FE42120068A479 /* CustomButton.swift */; };
 		AEC84CD925FEAFFB0068A479 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD825FEAFFA0068A479 /* UIViewController.swift */; };
 		AED04D9926315C850098F0D3 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = AED04D9826315C850098F0D3 /* GoogleService-Info-2.plist */; };
+		AEE66D5426494972002FC978 /* TakingPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D532649496F002FC978 /* TakingPhotoManager.swift */; };
 		AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905A261706A200E727FA /* CircleAnimationView.swift */; };
 		AEEE906026170E9D00E727FA /* BluredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905F26170E9D00E727FA /* BluredView.swift */; };
 		AEEE906526170EB500E727FA /* BluredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEE906426170EB500E727FA /* BluredView.xib */; };
@@ -131,17 +132,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AE0BA3F726197C5400C73D55 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
-		AE0BA3FC26197E0C00C73D55 /* DateFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormater.swift; sourceTree = "<group>"; };
-		AE0BA4012619805E00C73D55 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
-		AE0BA40C2619846A00C73D55 /* Alerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerting.swift; sourceTree = "<group>"; };
-		AE0BA437261A0DB100C73D55 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		AE0BA3CD261833DB00C73D55 /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
 		AE0BA3D5261834D800C73D55 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		AE0BA3DA26183B7E00C73D55 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
 		AE0BA3E22618456C00C73D55 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		AE0BA3E72618458400C73D55 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
 		AE0BA3EC2618827500C73D55 /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
+		AE0BA3F726197C5400C73D55 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		AE0BA3FC26197E0C00C73D55 /* DateFormater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormater.swift; sourceTree = "<group>"; };
+		AE0BA4012619805E00C73D55 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		AE0BA40C2619846A00C73D55 /* Alerting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerting.swift; sourceTree = "<group>"; };
+		AE0BA437261A0DB100C73D55 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		AE2447A0261398B20047F935 /* FackeVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FackeVoiceViewController.swift; sourceTree = "<group>"; };
 		AE2447A1261398B20047F935 /* FackeVoiceViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FackeVoiceViewController.xib; sourceTree = "<group>"; };
 		AE2447A7261399600047F935 /* RecordingVoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingVoiceViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +217,7 @@
 		AEC84CD025FE42120068A479 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		AEC84CD825FEAFFA0068A479 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		AED04D9826315C850098F0D3 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
+		AEE66D532649496F002FC978 /* TakingPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingPhotoManager.swift; sourceTree = "<group>"; };
 		AEEE905A261706A200E727FA /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		AEEE905F26170E9D00E727FA /* BluredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluredView.swift; sourceTree = "<group>"; };
 		AEEE906426170EB500E727FA /* BluredView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BluredView.xib; sourceTree = "<group>"; };
@@ -643,6 +645,7 @@
 				AE0BA437261A0DB100C73D55 /* LocationService.swift */,
 				AE27959A261B060300F6A0D2 /* SocketIOManager.swift */,
 				AE27959F261B063300F6A0D2 /* SocketIOManagerDefault.swift */,
+				AEE66D532649496F002FC978 /* TakingPhotoManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE0BA4022619805E00C73D55 /* Networking.swift in Sources */,
+				AEE66D5426494972002FC978 /* TakingPhotoManager.swift in Sources */,
 				AEEE906A261729F300E727FA /* RecordingAudioManager.swift in Sources */,
 				AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */,
 				AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */,

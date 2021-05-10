@@ -149,27 +149,31 @@ extension LoginViewController: UICollectionViewDataSource {
                     }
                     
                 } catch let error {
-                    print(error.localizedDescription)
-                    self.showAlert(from: self, title: "Oops some mistakes", message: error.localizedDescription)
                     
-                }                
-                                
+                    guard let validationError = error as? ValidationError else {
+                        return
+                    }
+                    
+                    switch validationError {
+                    case .badPassword(let errorDescription):
+                        self.showAlert(from: self, title: "Oops some mistakes", message: errorDescription)
+                    case .badPhoneNumber(let errorDescription):
+                        self.showAlert(from: self, title: "Oops some mistakes", message: errorDescription)
+                    case .badName(let errorDescription):
+                        self.showAlert(from: self, title: "Oops some mistakes", message: errorDescription)
+                    }
+                }
             }
+            
             cell = buttonCell
         case .linkingLabels:
             guard let linkingLabelsCell = collectionView.dequeueReusableCell(withReuseIdentifier: LinkingLabelsCollectionViewCell.name, for: indexPath) as? LinkingLabelsCollectionViewCell else { fatalError() }
             
-//            linkingLabelsCell.setAboveLabelTitle(title: "Forgot password")
             linkingLabelsCell.setBelowLabel(title: "Don't have an account")
             
             linkingLabelsCell.bellowLabelTapped = { [weak self] in
                 self?.onRegister?()
             }
-
-//
-//            linkingLabelsCell.aboveLabelTapped = {
-//                print("aboveLabelTapped")
-//            }
 
             cell = linkingLabelsCell
         }

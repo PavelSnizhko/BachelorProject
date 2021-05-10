@@ -46,7 +46,10 @@ class FackeVoiceViewController: UIViewController, NibLoadable {
     }()
     
     private lazy var timeAlert: CustomAlertController<Int> = {
-        let alert = CustomAlertController<Int>(title: "", message: nil, preferredStyle: UIAlertController.Style.alert)
+        
+        let alert = CustomAlertController<Int>(title: "",
+                                               message: nil,
+                                               preferredStyle: .alert)
 
         guard let view = alert.view else { fatalError() }
         
@@ -126,7 +129,7 @@ class FackeVoiceViewController: UIViewController, NibLoadable {
 
     
     private func launchDelegating() {
-        //TODO: move to separete classes for SRP principe
+        //TODO: for refactoring move to separete classes for SRP principe
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -185,11 +188,13 @@ extension FackeVoiceViewController {
 
 extension FackeVoiceViewController: UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
         audioURIList.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AudioCollectionViewCell.name, for: indexPath) as? AudioCollectionViewCell else {
             fatalError()
@@ -205,7 +210,9 @@ extension FackeVoiceViewController: UICollectionViewDataSource {
 
 
 extension FackeVoiceViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
+        
         guard let cell = collectionView.cellForItem(at: indexPath) as? AudioCollectionViewCell else {
             return
             

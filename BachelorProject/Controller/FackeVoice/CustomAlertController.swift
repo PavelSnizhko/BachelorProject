@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class CustomAlertController<T>: UIAlertController {
     var dataFromPockerView: ItemClosure<T>?
 }

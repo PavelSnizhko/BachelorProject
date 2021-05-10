@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 final class StartCoordinator: BaseCoordinator {
     var finishFlow: ItemClosure<Bool>?
     

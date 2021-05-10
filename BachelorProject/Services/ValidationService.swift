@@ -64,7 +64,7 @@ import Foundation
          let numberMatch = NSPredicate(format: "SELF MATCHES %@", "(?=.*[0-9]).*?")
 
          guard numberMatch.evaluate(with: password) else {
-             throw  ValidationError.badPassword(ValidationError.Contnet.nonNumber)
+             throw ValidationError.badPassword(ValidationError.Contnet.nonNumber)
          }
 
          let lowerMatch = NSPredicate(format: "SELF MATCHES %@", "(?=.*[a-z]).*?")

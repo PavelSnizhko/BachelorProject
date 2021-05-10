@@ -7,7 +7,6 @@
 
 import Foundation
 
-//Const( move to enum or struct with static properties)
 let firstLaunchKey = "firstLaunch"
 
 final class ApplicationCoordinator: BaseCoordinator {
@@ -98,8 +97,8 @@ final class ApplicationCoordinator: BaseCoordinator {
             }
         
         coordinator.onLogin = { [weak self, weak coordinator] in
-            print("kak tak to")
-            self?.isRegister = true
+            
+            self?.isRegister = false
             self?.start()
             self?.removeDependency(coordinator)
         }

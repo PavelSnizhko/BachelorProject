@@ -74,8 +74,8 @@ extension RecordingVoiceViewController: UITableViewDelegate {
         switchView.setOn(false, animated: true)
         switchView.tag = indexPath.row // for detect which row switch Changed
         switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
-        cell.accessoryView = switchView
         
+        cell.accessoryView = switchView
         cell.backgroundColor = .green
     }
 }

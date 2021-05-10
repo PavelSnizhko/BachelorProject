@@ -65,6 +65,7 @@ class RecordingAudioManager: NSObject, Recording {
                     } else {
                         //TODO: show alert if not and force the user move to setting
                         print("Recording is not allowed")
+                        
                     }
                 }
             }
@@ -132,16 +133,13 @@ class RecordingAudioManager: NSObject, Recording {
     }
     
     @objc fileprivate func stopTimer(){
-
          timer?.invalidate()
+         timer = nil
     }
     
     func finishRecording() {
         
-        print(audioRecorder)
-        print("Finish Recording")
-        
-        audioRecorder?.stop()
+        resetTimerToZero()
         audioRecorder = nil
             
     }

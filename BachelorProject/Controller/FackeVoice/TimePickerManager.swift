@@ -7,14 +7,6 @@
 
 import UIKit
 
-
-// TODO: make abstraction with protocols for both managers
-
-//protocol PickerManagerProtocol: UIPickerViewDelegate, UIPickerViewDataSource {
-//
-//    var selectedItem: ItemClosure
-//}
-
 class TimePickerManager: NSObject, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var selectedTime: Int?

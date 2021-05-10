@@ -81,6 +81,8 @@ class NetworkService {
             completion(.failure(NetworkError.tokenExperation))
         }
         
+        guard let sessionId = sessionStorage.sessionId else { return completion(.failure(NetworkError.tokenExperation)) }
+        
         let requestDataWithBody = RequestMetaData(endpoint: "http://localhost:8000/users/?type=guard&status=free",
                                                   method: .get,
                                                   body: nil,

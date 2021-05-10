@@ -20,8 +20,6 @@ class IntroViewController: UIViewController, NibLoadable {
             isLogin?(authService.isLogged)
         }
     }
-    
-    
 
     @IBAction func moveForwardPressed(_ sender: Any) {
         isLogin?(false)
