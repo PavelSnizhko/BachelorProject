@@ -39,7 +39,6 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
     private var isPressedSOS: Bool = false
     private var locationService: LocationService = LocationService()
     
-    
     let regionMetters: Double = 1000
     
     weak var timer: Timer?
@@ -68,8 +67,9 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         // probably I need this for handling when user hide his phone
+       
         
-//        locationManager.requestAlwaysAuthorization()ddf
+        
         locationManager.startUpdatingLocation()
     }
     
@@ -84,8 +84,8 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
     }
     
     func checkLocationEnabling() {
+        locationManager.requestAlwaysAuthorization()
         if CLLocationManager.locationServicesEnabled() {
-            print("Все ок")
             configLocationManager()
             checkLocationAuthorization()
             centerViewOnUserLocation()

@@ -10,7 +10,7 @@ import UIKit
 class RecordingVoiceViewController: UIViewController, NibLoadable {
     
     @IBOutlet weak var tableView: UITableView!
-    private let numberOfRows = 2
+    private let numberOfRows = 3
     var storeLocally: ItemClosure<Bool>?
     var sendToServer: ItemClosure<Bool>?
     
@@ -50,6 +50,8 @@ extension RecordingVoiceViewController {
             sendToServer?(sender.isOn)
         case 1:
             storeLocally?(sender.isOn)
+        case 2:
+            print("take photo")
         default:
             print("Unknow option")
         }
@@ -65,9 +67,12 @@ extension RecordingVoiceViewController: UITableViewDelegate {
             cell.textLabel?.text = "Sent to the secure"
         case 1:
             cell.textLabel?.text = "Store locally"
+        case 2:
+            cell.textLabel?.text = "Allow to take photo"
         default:
             print("Unknown")
         }
+        
         let switchView = UISwitch(frame: .zero)
         switchView.backgroundColor = .white
         switchView.layer.cornerRadius = 16
@@ -76,7 +81,7 @@ extension RecordingVoiceViewController: UITableViewDelegate {
         switchView.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
         
         cell.accessoryView = switchView
-        cell.backgroundColor = .green
+        cell.backgroundColor = UIColor(named: "greenSheen")
     }
 }
 

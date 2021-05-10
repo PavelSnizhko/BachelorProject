@@ -13,9 +13,6 @@ class SwipingViewController: UIViewController {
                                    ChatViewController(nibName: ChatViewController.name,
                                                       bundle: .main)]
     
-    //super violation of SOLID when will be created Coordinator it will be solved....
-    //just create for that closure and stram up logout action on the coordinator level
-    private var sessionStorage = SessionStorage()    
     var finishFlow: VoidClosure?
     
     
@@ -47,8 +44,6 @@ class SwipingViewController: UIViewController {
     
     func configNavigationBar() {
         
-//        if let navigationController = navigationController {
-
             navigationItem.title = "Home"
         
             let image = UIImage(named: "list-text")
@@ -58,26 +53,29 @@ class SwipingViewController: UIViewController {
                                                                target: self,
                                                                action: #selector(tappedMenu))
 
-            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(logOuttapped))
-//        }
+            navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Log out",
+                                                                style: .plain,
+                                                                target: self,
+                                                                action: #selector(logOuttapped))
     }
     
     
     @objc func logOuttapped() {
         finishFlow?()
-        print("Log out")
         
     }
     
     
     @objc func tappedMenu() {
-        print("tappedMenu")
         menuPressed?()
     }
     
     
     private func configureCollectionView() {
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "UICollectionViewCell")
+        
+        collectionView.register(UICollectionViewCell.self,
+                                forCellWithReuseIdentifier: "UICollectionViewCell")
+        
         collectionView.isPagingEnabled = true
     }
     

@@ -83,6 +83,7 @@ class MainCoordinator: BaseCoordinator {
     func showContainer() {
 
         if containerScreen == nil {
+            
             containerScreen = screenFactory.makeContainerScreen()
             menuViewController = screenFactory.makeMenuScreen()
 
@@ -105,16 +106,9 @@ class MainCoordinator: BaseCoordinator {
         
     }
     
-    func showMainPage() {
-        
-    }
-    
-    
     enum ControllersType: CaseIterable {
         case swipingMain
         case menu
-        
-        
         
         var tag: Int {
             switch self {
