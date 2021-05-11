@@ -7,6 +7,13 @@
 
 import UIKit
 
+public enum PersonalPermissions: String {
+    case sendToServer = "sendToServer"
+    case storeLocal = "storeLocal"
+    case allowTakePhoto = "allowTakePhoto"
+}
+
+
 class RecordingVoiceViewController: UIViewController, NibLoadable {
     
     @IBOutlet weak var tableView: UITableView!
@@ -47,17 +54,18 @@ extension RecordingVoiceViewController {
     @objc func switchChanged(_ sender: UISwitch)  {
         switch sender.tag {
         case 0:
-            sendToServer?(sender.isOn)
+            UserDefaults.standard.setValue(sender.isOn, forKey: PersonalPermissions.sendToServer.rawValue)
         case 1:
-            storeLocally?(sender.isOn)
+            UserDefaults.standard.setValue(sender.isOn, forKey: PersonalPermissions.storeLocal.rawValue)
         case 2:
-            print("take photo")
+            UserDefaults.standard.setValue(sender.isOn, forKey: PersonalPermissions.allowTakePhoto.rawValue)
         default:
             print("Unknow option")
         }
         
     }
 }
+
 
 extension RecordingVoiceViewController: UITableViewDelegate {
     

@@ -17,7 +17,7 @@ final class TakingPhotoManager: NSObject {
     
     let session = AVCaptureSession()
     var camera: AVCaptureDevice?
-    
+    var timer: Timer?
     
     lazy var cameraCaptureOutput =  {
         AVCapturePhotoOutput()
@@ -67,9 +67,19 @@ final class TakingPhotoManager: NSObject {
     }
     
     func takePhoto() {
-        let settings = AVCapturePhotoSettings()
-        settings.flashMode = .auto
-        cameraCaptureOutput.capturePhoto(with: settings, delegate: self)
+        timer = Timer.scheduledTimer(withTimeInterval: 4.0, repeats: true) { [weak self] _ in
+            DispatchQueue.global(qos: .utility).async { [weak self] in
+                let settings = AVCapturePhotoSettings()
+                settings.flashMode = .auto
+                guard let self = self else { return }
+                self.cameraCaptureOutput.capturePhoto(with: settings, delegate: self)
+            }
+        }
+    }
+    
+    func finishPhotoMaking() {
+        timer?.invalidate()
+        timer = nil
     }
     
 }

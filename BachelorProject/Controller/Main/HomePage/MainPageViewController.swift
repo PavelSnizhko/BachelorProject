@@ -39,9 +39,7 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
     private var isPressedSOS: Bool = false
     private var locationService: LocationService = LocationService()
     
-    private lazy var photoManager: TakingPhotoManager = {
-        TakingPhotoManager()
-    }()
+    private var photoManager: TakingPhotoManager = TakingPhotoManager()
     
     let regionMetters: Double = 1000
     
@@ -204,7 +202,12 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
             return
         }
         
-//        photoManager.takePhoto()
+        
+        if UserDefaults.standard.bool(forKey: PersonalPermissions.allowTakePhoto.rawValue) {
+            print("TAKING PHOTO STARTED")
+
+            photoManager.takePhoto()
+        }
         
         // for playing audio after sos button pressing
         // audioManager.playAudioAsset(name)
@@ -225,6 +228,7 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
                 
                 self.recordingManager.finishRecording()
                 
+                self.photoManager.finishPhotoMaking()
                 //TODO: Implement there logic to send audio on server or store locally data from user
                 
                 

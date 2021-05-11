@@ -33,24 +33,6 @@ class ContainerViewController: UIViewController {
 
     }
     
-    // override func viewWillAppear(_ animated: Bool) {
-    //     super.viewWillAppear(animated)
-    //     hideOportunityMoveBack()
-        
-    // }
-    
-    // // MARK: - Handlers
-
-    // private func hideOportunityMoveBack() {
-    //     // TODO:  when I change navigation then delete this func
-    //     self.navigationItem.leftBarButtonItem = nil
-    //     self.navigationItem.hidesBackButton = true
-    //     navigationController?.setNavigationBarHidden(true, animated: false)
-    //     self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
-    //     self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
-    // }
-
-    
     func configureHomeViewController(swipingViewController: SwipingViewController) {
         
         if centerViewController == nil {
