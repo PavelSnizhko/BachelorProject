@@ -89,6 +89,11 @@
 		AEC84CD925FEAFFB0068A479 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CD825FEAFFA0068A479 /* UIViewController.swift */; };
 		AED04D9926315C850098F0D3 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = AED04D9826315C850098F0D3 /* GoogleService-Info-2.plist */; };
 		AEE66D5426494972002FC978 /* TakingPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D532649496F002FC978 /* TakingPhotoManager.swift */; };
+		AEE66D89264ADFA0002FC978 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D88264ADFA0002FC978 /* CoreDataStack.swift */; };
+		AEE66D91264AE01F002FC978 /* ImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D90264AE01F002FC978 /* ImageFactory.swift */; };
+		AEE66D97264AE3F2002FC978 /* ImageEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D95264AE3F1002FC978 /* ImageEntity+CoreDataProperties.swift */; };
+		AEE66D98264AE3F2002FC978 /* ImageEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D96264AE3F1002FC978 /* ImageEntity+CoreDataClass.swift */; };
+		AEE66D9D264AEE89002FC978 /* ImagesFRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D9C264AEE89002FC978 /* ImagesFRC.swift */; };
 		AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905A261706A200E727FA /* CircleAnimationView.swift */; };
 		AEEE906026170E9D00E727FA /* BluredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905F26170E9D00E727FA /* BluredView.swift */; };
 		AEEE906526170EB500E727FA /* BluredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEEE906426170EB500E727FA /* BluredView.xib */; };
@@ -218,6 +223,11 @@
 		AEC84CD825FEAFFA0068A479 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		AED04D9826315C850098F0D3 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 		AEE66D532649496F002FC978 /* TakingPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingPhotoManager.swift; sourceTree = "<group>"; };
+		AEE66D88264ADFA0002FC978 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		AEE66D90264AE01F002FC978 /* ImageFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFactory.swift; sourceTree = "<group>"; };
+		AEE66D95264AE3F1002FC978 /* ImageEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ImageEntity+CoreDataProperties.swift"; path = "/Users/pavelsnizko/University/BachelorProject/BachelorProject/Services/CoreData/ImageEntity+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		AEE66D96264AE3F1002FC978 /* ImageEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ImageEntity+CoreDataClass.swift"; path = "/Users/pavelsnizko/University/BachelorProject/BachelorProject/Services/CoreData/ImageEntity+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		AEE66D9C264AEE89002FC978 /* ImagesFRC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesFRC.swift; sourceTree = "<group>"; };
 		AEEE905A261706A200E727FA /* CircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleAnimationView.swift; sourceTree = "<group>"; };
 		AEEE905F26170E9D00E727FA /* BluredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluredView.swift; sourceTree = "<group>"; };
 		AEEE906426170EB500E727FA /* BluredView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BluredView.xib; sourceTree = "<group>"; };
@@ -637,6 +647,7 @@
 		AE9963A92614CC0500C2ED0A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AEE66D87264ADF89002FC978 /* CoreData */,
 				AEEE907326177CBC00E727FA /* AuthorizationService.swift */,
 				AE99639826146DDE00C2ED0A /* AudioManager.swift */,
 				AEEE9069261729F200E727FA /* RecordingAudioManager.swift */,
@@ -665,6 +676,18 @@
 				AEC84C9825FC93800068A479 /* MenuItemCell */,
 			);
 			path = TableViews;
+			sourceTree = "<group>";
+		};
+		AEE66D87264ADF89002FC978 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				AEE66D96264AE3F1002FC978 /* ImageEntity+CoreDataClass.swift */,
+				AEE66D95264AE3F1002FC978 /* ImageEntity+CoreDataProperties.swift */,
+				AEE66D88264ADFA0002FC978 /* CoreDataStack.swift */,
+				AEE66D90264AE01F002FC978 /* ImageFactory.swift */,
+				AEE66D9C264AEE89002FC978 /* ImagesFRC.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		AEF1B94725FF3F3E006F65C8 /* HomePage */ = {
@@ -869,6 +892,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE0BA4022619805E00C73D55 /* Networking.swift in Sources */,
+				AEE66D98264AE3F2002FC978 /* ImageEntity+CoreDataClass.swift in Sources */,
 				AEE66D5426494972002FC978 /* TakingPhotoManager.swift in Sources */,
 				AEEE906A261729F300E727FA /* RecordingAudioManager.swift in Sources */,
 				AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */,
@@ -878,11 +902,13 @@
 				AEEE907426177CBC00E727FA /* AuthorizationService.swift in Sources */,
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
 				AE72405025FB7F1E005A39E5 /* ContainerViewController.swift in Sources */,
+				AEE66D9D264AEE89002FC978 /* ImagesFRC.swift in Sources */,
 				AEEE90A12617B36A00E727FA /* CoordinatorFactory.swift in Sources */,
 				AE0BA3CE261833DB00C73D55 /* StartCoordinator.swift in Sources */,
 				AE9963CA2615EA4600C2ED0A /* VoiceStorage.swift in Sources */,
 				AE0BA3E82618458400C73D55 /* MenuCoordinator.swift in Sources */,
 				AE9963C02615A87D00C2ED0A /* TimePickerManager.swift in Sources */,
+				AEE66D91264AE01F002FC978 /* ImageFactory.swift in Sources */,
 				AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */,
 				AE0BA3ED2618827500C73D55 /* SettingCoordinator.swift in Sources */,
 				AE9963C52615D5FC00C2ED0A /* CustomAlertController.swift in Sources */,
@@ -921,9 +947,11 @@
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
 				AEEE9084261780FD00E727FA /* ValidationService.swift in Sources */,
 				AE0BA3E32618456C00C73D55 /* MainCoordinator.swift in Sources */,
+				AEE66D89264ADFA0002FC978 /* CoreDataStack.swift in Sources */,
 				AEEE906026170E9D00E727FA /* BluredView.swift in Sources */,
 				AE0BA3D6261834D800C73D55 /* ScreenFactory.swift in Sources */,
 				AEEE90AB2617B79F00E727FA /* LoginCoordinator.swift in Sources */,
+				AEE66D97264AE3F2002FC978 /* ImageEntity+CoreDataProperties.swift in Sources */,
 				AEEE909C2617ADCE00E727FA /* Factories.swift in Sources */,
 				AE99639926146DDE00C2ED0A /* AudioManager.swift in Sources */,
 				AE0BA3F826197C5400C73D55 /* Date.swift in Sources */,
