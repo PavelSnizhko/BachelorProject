@@ -39,6 +39,10 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
     private var isPressedSOS: Bool = false
     private var locationService: LocationService = LocationService()
     
+    private lazy var photoManager: TakingPhotoManager = {
+        TakingPhotoManager()
+    }()
+    
     let regionMetters: Double = 1000
     
     weak var timer: Timer?
@@ -200,6 +204,8 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
             return
         }
         
+//        photoManager.takePhoto()
+        
         // for playing audio after sos button pressing
         // audioManager.playAudioAsset(name)
         audioManager.playAudioAssets(after: time, and: name)
@@ -219,14 +225,19 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
                 
                 self.recordingManager.finishRecording()
                 
-                //TODO: Implement there logic to send on server or store locally data from user
+                //TODO: Implement there logic to send audio on server or store locally data from user
+                
                 
                 self.bluredView.removeFromSuperview()
                 self.isPressedSOS.toggle()
 
             }
             
+
             self.view.addSubview(bluredView)
+            
+            self.bluredView.frame = view.frame
+
         }
         else {
             self.view.willRemoveSubview(bluredView)

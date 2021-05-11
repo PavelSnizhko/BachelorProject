@@ -17,6 +17,6 @@ extension ImageEntity {
     }
 
     @NSManaged public var image: Data?
-    @NSManaged public var data: Date?
+    @NSManaged public var date: Date?
 
 }

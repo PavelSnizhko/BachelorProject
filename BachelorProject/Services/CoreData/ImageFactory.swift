@@ -25,7 +25,7 @@ enum FactoryError: Error {
 
 extension ImageFactory {
     
-    public static func makeImage(from data: Data, name: String, sha: String, completion: ((Result<ImageEntity, FactoryError>) -> Void)?) {
+    public static func makeImage(from data: Data, date: Date, completion: ((Result<ImageEntity, FactoryError>) -> Void)?) {
         
         let context = container.newBackgroundContext()
         context.perform {
@@ -39,8 +39,7 @@ extension ImageFactory {
             }
             
             imageEntity.image = data
-            imageEntity.name = name
-            imageEntity.sha = sha
+            imageEntity.date = date
             
             do {
                 try context.save()

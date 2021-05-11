@@ -13,7 +13,7 @@ protocol PhotoTacking {
 }
 
 
-final class TakingPhotoManager {
+final class TakingPhotoManager: NSObject {
     
     let session = AVCaptureSession()
     var camera: AVCaptureDevice?
@@ -24,7 +24,8 @@ final class TakingPhotoManager {
     }()
     
     
-    init() {
+    override init() {
+        super.init()
         initCaptureSession()
     }
     
@@ -57,8 +58,9 @@ final class TakingPhotoManager {
                         print(error.localizedDescription)
                     }
                 } else {
-                  self.showAlert("No access to camera",
-                                 message: "You need to grant permissions to camera to take a picture.")
+                    print("You need to grant permissions to camera to take a picture.")
+//                  self.showAlert("No access to camera",
+//                                 message: "You need to grant permissions to camera to take a picture.")
                 }
             }
         })
@@ -67,26 +69,44 @@ final class TakingPhotoManager {
     func takePhoto() {
         let settings = AVCapturePhotoSettings()
         settings.flashMode = .auto
-        cameraCaptureOutput?.capturePhoto(with: settings, delegate: self)
+        cameraCaptureOutput.capturePhoto(with: settings, delegate: self)
     }
     
 }
 
 
-extension TakingPhotoManager: VCapturePhotoCaptureDelegate {
+extension TakingPhotoManager : AVCapturePhotoCaptureDelegate {
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
                 if let unwrappedError = error {
                     print(unwrappedError.localizedDescription)
                 } else {
         
-                    guard let dataImage = photo.fileDataRepresentation() else { print("fuck"); return  }
-        
-                        if let finalImage = UIImage(data: dataImage) {
-        
-                            displayCapturedPhoto(capturedPhoto: finalImage)
-                        }
+                    guard let imageData = photo.fileDataRepresentation() else { return  }
+                
+                            storePhoto(imageData)
                 }
     }
     
+    func storePhoto(_ imageData: Data) {
+        
+        storeToCoreData(using: imageData)
+        sendIfNeededToServer(using: imageData)
+        
+    }
+}
+
+
+extension TakingPhotoManager {
+    
+    func storeToCoreData(using imageData: Data) {
+        print("storeToCoreData")
+        print(imageData)
+    }
+    
+    
+    func sendIfNeededToServer(using imageData: Data) {
+        print("Sended to the server")
+        print(imageData)
+    }
 }
