@@ -31,19 +31,58 @@ class ChatViewController: UIViewController, NibLoadable {
     
     @IBOutlet weak var tableView: UITableView!
 
-
+    @IBOutlet weak var chatTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.register(MessageTableViewCell.self, forCellReuseIdentifier: "MessageCell")
-        tableView.delegate = self
-        tableView.dataSource = self
+        
+        setDelegating()
+        configKeyboard()
         
         navigationController?.isNavigationBarHidden = false
         
-        // Do any additional setup after loading the view.
     }
+    
+    private func setDelegating() {
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    private func configKeyboard() {
+        
+        chatTextField.clearButtonMode = .whileEditing
+        self.tableView.keyboardDismissMode = .interactive
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    
+    
     @IBAction func sendMessageTapped(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+        
+        guard let textMessage = chatTextField.text, textMessage != "" else { return }
+        
+        insertNewMessageCell(Message(name: "", time: 10, text: textMessage, type: .sender))
+        
+        chatTextField.text = nil
+        
     }
 }
 
@@ -52,7 +91,6 @@ extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as? MessageTableViewCell else { return .init() }
-//        let cell = MessageTableViewCell(style: .default, reuseIdentifier: "MessageCell")
         cell.selectionStyle = .none
         
         let message = messages[indexPath.row]

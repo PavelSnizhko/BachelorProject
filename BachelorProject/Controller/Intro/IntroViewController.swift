@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class IntroViewController: UIViewController, NibLoadable {
     @IBOutlet weak var moveToLoginButton: UIButton!
@@ -15,6 +16,16 @@ class IntroViewController: UIViewController, NibLoadable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AVCaptureDevice.requestAccess(for: .video, completionHandler: { grantedFlag in
+        if grantedFlag {
+            print("YES, AVCaptureDevice is allowed")
+        }
+      })
+        
+        AVAudioSession.sharedInstance().requestRecordPermission() { [weak self] allowed in
+            print("YES, recordingSession is allowed")
+        }
         
         if authService.isLogged {
             isLogin?(authService.isLogged)

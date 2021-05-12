@@ -39,6 +39,8 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
     private var isPressedSOS: Bool = false
     private var locationService: LocationService = LocationService()
     
+    private var photoManager: TakingPhotoManager = TakingPhotoManager()
+    
     let regionMetters: Double = 1000
     
     weak var timer: Timer?
@@ -154,6 +156,7 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
             
             switch result {
             case .success(let location):
+                
                 if let location = location {
                     self.showGuardLocation(location: location)
                 } else {
@@ -169,8 +172,7 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
             }
         }
         
-        
-        
+
         // TODO: logic when user choose proper setting for that
         
         recordingManager.startRecording { [weak self] result in
@@ -200,6 +202,13 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
             return
         }
         
+        
+        if UserDefaults.standard.bool(forKey: PersonalPermissions.allowTakePhoto.rawValue) {
+            print("TAKING PHOTO STARTED")
+
+            photoManager.takePhoto()
+        }
+        
         // for playing audio after sos button pressing
         // audioManager.playAudioAsset(name)
         audioManager.playAudioAssets(after: time, and: name)
@@ -219,14 +228,20 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
                 
                 self.recordingManager.finishRecording()
                 
-                //TODO: Implement there logic to send on server or store locally data from user
+                self.photoManager.finishPhotoMaking()
+                //TODO: Implement there logic to send audio on server or store locally data from user
+                
                 
                 self.bluredView.removeFromSuperview()
                 self.isPressedSOS.toggle()
 
             }
             
+
             self.view.addSubview(bluredView)
+            
+            self.bluredView.frame = view.frame
+
         }
         else {
             self.view.willRemoveSubview(bluredView)

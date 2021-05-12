@@ -55,7 +55,7 @@ class NetworkService {
         
         let jsonData = try? jsonEncoder.encode(location)
         
-        let requestDataWithBody = RequestMetaData(endpoint: "http://localhost:8000/user/location",
+        let requestDataWithBody = RequestMetaData(endpoint: "http://192.168.1.105:8000/user/location",
                                                   method: .post,
                                                   body: jsonData,
                                                   headers: ["Authorization": "Bearer " + sessionStorage.sessionId!])
@@ -83,7 +83,7 @@ class NetworkService {
         
         guard let sessionId = sessionStorage.sessionId else { return completion(.failure(NetworkError.tokenExperation)) }
         
-        let requestDataWithBody = RequestMetaData(endpoint: "http://localhost:8000/users/?type=guard&status=free",
+        let requestDataWithBody = RequestMetaData(endpoint: "http://192.168.1.105:8000/users/?type=guard&status=free",
                                                   method: .get,
                                                   body: nil,
                                                   headers: ["Authorization": "Bearer " + sessionStorage.sessionId!])
@@ -117,7 +117,7 @@ extension NetworkService: LogInService, RegistrationService {
         
                 let jsonData = try? jsonEncoder.encode(authModel)
 
-                let requestDataWithBody = RequestMetaData(endpoint: "http://localhost:8000/auth/login",
+                let requestDataWithBody = RequestMetaData(endpoint: "http://192.168.1.105:8000/auth/login",
                                                           method: .post,
                                                           body: jsonData,
                                                           headers: nil)
@@ -144,7 +144,7 @@ extension NetworkService: LogInService, RegistrationService {
     func registrate(registerModel: RegisterModel, completion: @escaping (Error?) -> Void) {
         let jsonData = try? jsonEncoder.encode(registerModel)
 
-        let requestDataWithBody = RequestMetaData(endpoint: "http://localhost:8000/auth/register",
+        let requestDataWithBody = RequestMetaData(endpoint: "http://192.168.1.105:8000/auth/register",
                                                   method: .post,
                                                   body: jsonData,
                                                   headers: nil)

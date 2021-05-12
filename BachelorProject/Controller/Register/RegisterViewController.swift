@@ -234,9 +234,6 @@ extension RegisterViewController: UICollectionViewDataSource {
             buttonCollectionViewCell.buttonTapped = { [ weak self] in
                 guard let self = self else { return }
                 
-                //TODO: add alerting for not full filled data
-//                guard self.registerModel.isFilled else { self.showAlert(from: self, with: "Dangerous", and: "Please, fill all forms"); return }
-//                self.showAlert(from: self, with: "\(self.registerModel.firstName)", and: "\(self.registerModel.secondName) \(self.registerModel.sex.rawValue) \n \(self.registerModel.birthday)")
                 do {
                     try self.validationService.validate(for: self.registerModel)
                 } catch _ {

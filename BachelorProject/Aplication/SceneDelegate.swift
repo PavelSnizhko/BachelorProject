@@ -11,7 +11,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    
     private let appFactory: AppFactory = Di()
     private var appCoordinator: Coordinator?
 
@@ -24,45 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         coordinator.start()
     }
     
-    
-    
-
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        
         guard let windowScene = (scene as? UIWindowScene) else { return }
-
-        
-        
+ 
         runUI(with: windowScene)
-        
-//        if !UserDefaults.standard.bool(forKey: "firstLaunch") {
-//            guard let windowScene = (scene as? UIWindowScene) else { return }
-//
-//            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-//            window?.windowScene = windowScene
-//
-//            let questionsVC = IntroViewController(
-//                nibName: "IntroViewController",
-//                bundle: Bundle.main)
-//
-//            window?.rootViewController = UINavigationController(rootViewController: questionsVC)
-//            window?.makeKeyAndVisible()
-//        }
-//        else {
-//            guard let windowScene = (scene as? UIWindowScene) else { return }
-//
-//            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-//            window?.windowScene = windowScene
-//
-//            let questionsVC = LoginViewController(
-//                nibName: "LoginViewController",
-//                bundle: Bundle.main)
-//
-//            window?.rootViewController = UINavigationController(rootViewController: questionsVC)
-//            window?.makeKeyAndVisible()
-//        }
            
     }
 
@@ -94,7 +59,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
-        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+        //INFO: To not lose data when app is over
+        CoreDataStack.shared.save()
     }
 
 

@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChatViewController" customModule="BachelorProject" customModuleProvider="target">
             <connections>
+                <outlet property="chatTextField" destination="65w-Zh-kYa" id="Cu2-Y6-rbc"/>
                 <outlet property="tableView" destination="pzp-KO-kbn" id="Hmq-0q-0aW"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,16 +23,19 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Y7x-sH-iIj">
-                    <rect key="frame" x="16" y="799.5" width="382" height="62.5"/>
+                    <rect key="frame" x="16" y="792" width="382" height="60"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="65w-Zh-kYa">
-                            <rect key="frame" x="0.0" y="0.0" width="305.5" height="62.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="275" height="60"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1eI-C1-4wK" customClass="CustomButton" customModule="BachelorProject" customModuleProvider="target">
-                            <rect key="frame" x="312.5" y="0.0" width="69.5" height="62.5"/>
+                            <rect key="frame" x="282" y="0.0" width="100" height="60"/>
                             <color key="backgroundColor" name="AccentColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="ppc-Is-ApA"/>
+                            </constraints>
                             <state key="normal" title="Sent">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
@@ -46,11 +50,11 @@
                         </button>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="65w-Zh-kYa" firstAttribute="width" secondItem="Y7x-sH-iIj" secondAttribute="width" multiplier="0.8" id="eTo-Uy-R4e"/>
+                        <constraint firstAttribute="height" constant="60" id="6cJ-Kz-LaP"/>
                     </constraints>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pzp-KO-kbn">
-                    <rect key="frame" x="0.0" y="44" width="414" height="755.5"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="748"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -58,11 +62,10 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="pzp-KO-kbn" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4WC-HV-bnq"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Y7x-sH-iIj" secondAttribute="bottom" id="FdG-id-4EJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Y7x-sH-iIj" secondAttribute="bottom" constant="10" id="FdG-id-4EJ"/>
                 <constraint firstItem="pzp-KO-kbn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="UDH-Xh-cWC"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Y7x-sH-iIj" secondAttribute="trailing" constant="16" id="W5s-8h-GBt"/>
                 <constraint firstItem="65w-Zh-kYa" firstAttribute="top" secondItem="pzp-KO-kbn" secondAttribute="bottom" id="YFE-n8-Knz"/>
-                <constraint firstItem="Y7x-sH-iIj" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.07" id="ZX7-o8-tyk"/>
                 <constraint firstItem="Y7x-sH-iIj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="afP-xt-T8g"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pzp-KO-kbn" secondAttribute="trailing" id="hp0-zi-NVv"/>
             </constraints>
