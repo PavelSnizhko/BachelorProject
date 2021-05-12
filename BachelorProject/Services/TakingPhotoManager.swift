@@ -7,6 +7,7 @@
 
 import Foundation
 import AVFoundation
+import CoreData
 
 protocol PhotoTacking {
     func makePhoto()
@@ -15,9 +16,11 @@ protocol PhotoTacking {
 
 final class TakingPhotoManager: NSObject {
     
-    let session = AVCaptureSession()
-    var camera: AVCaptureDevice?
-    var timer: Timer?
+    private let session = AVCaptureSession()
+    private var camera: AVCaptureDevice?
+    private var timer: Timer?
+    private let container: NSPersistentContainer = CoreDataStack.shared.container
+
     
     lazy var cameraCaptureOutput =  {
         AVCapturePhotoOutput()
@@ -111,7 +114,15 @@ extension TakingPhotoManager {
     
     func storeToCoreData(using imageData: Data) {
         print("storeToCoreData")
-        print(imageData)
+        ImageFactory.makeImage(from: imageData, date: Date()) { result in
+            switch result {
+            case .success(let entity):
+                print("Entity was added")
+                print(entity)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        };
     }
     
     

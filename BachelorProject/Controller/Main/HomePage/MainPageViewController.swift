@@ -156,6 +156,7 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
             
             switch result {
             case .success(let location):
+                
                 if let location = location {
                     self.showGuardLocation(location: location)
                 } else {
@@ -171,8 +172,7 @@ class MainPageViewController: UIViewController, NibLoadable, Alerting {
             }
         }
         
-        
-        
+
         // TODO: logic when user choose proper setting for that
         
         recordingManager.startRecording { [weak self] result in
