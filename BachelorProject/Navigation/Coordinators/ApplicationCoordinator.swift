@@ -28,11 +28,8 @@ final class ApplicationCoordinator: BaseCoordinator {
     override func start() {
         
         if isFirstLaunch {
-            
             runStartFlow()
-            
             UserDefaults.standard.setValue(true, forKey: firstLaunchKey)
-            
             return
         }
         
