@@ -20,6 +20,7 @@ class BachelorProjectTests: XCTestCase {
 
     func testExample() throws {
         XCTAssertEqual(2+2, 4)
+        XCTAssertNotEqual(2+4, 4)
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
