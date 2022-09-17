@@ -2,7 +2,7 @@
 # https://github.com/fastlane/scan#scanfile
 
 workspace "BachelorProject.xcodeproj/BachelorProject.xcworkspace"
-scheme "AnyApp"
+scheme "BachelorProject"
 sdk "iphonesimulator"
 device "iPhone 11"
 code_coverage true
