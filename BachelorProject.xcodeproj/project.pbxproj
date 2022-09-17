@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E33617528CDE1F40016BA60 /* ImageEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33617328CDE1F40016BA60 /* ImageEntity+CoreDataClass.swift */; };
+		3E33617628CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33617428CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift */; };
 		AE0BA3CE261833DB00C73D55 /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3CD261833DB00C73D55 /* StartCoordinator.swift */; };
 		AE0BA3D6261834D800C73D55 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3D5261834D800C73D55 /* ScreenFactory.swift */; };
 		AE0BA3DB26183B7E00C73D55 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3DA26183B7E00C73D55 /* RegisterCoordinator.swift */; };
@@ -91,8 +93,6 @@
 		AEE66D5426494972002FC978 /* TakingPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D532649496F002FC978 /* TakingPhotoManager.swift */; };
 		AEE66D89264ADFA0002FC978 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D88264ADFA0002FC978 /* CoreDataStack.swift */; };
 		AEE66D91264AE01F002FC978 /* ImageFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D90264AE01F002FC978 /* ImageFactory.swift */; };
-		AEE66D97264AE3F2002FC978 /* ImageEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D95264AE3F1002FC978 /* ImageEntity+CoreDataProperties.swift */; };
-		AEE66D98264AE3F2002FC978 /* ImageEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D96264AE3F1002FC978 /* ImageEntity+CoreDataClass.swift */; };
 		AEE66D9D264AEE89002FC978 /* ImagesFRC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEE66D9C264AEE89002FC978 /* ImagesFRC.swift */; };
 		AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905A261706A200E727FA /* CircleAnimationView.swift */; };
 		AEEE906026170E9D00E727FA /* BluredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEE905F26170E9D00E727FA /* BluredView.swift */; };
@@ -137,6 +137,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E33617328CDE1F40016BA60 /* ImageEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3E33617428CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AE0BA3CD261833DB00C73D55 /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
 		AE0BA3D5261834D800C73D55 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		AE0BA3DA26183B7E00C73D55 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
@@ -382,6 +384,8 @@
 		AE8D225A25EF46410032D029 = {
 			isa = PBXGroup;
 			children = (
+				3E33617328CDE1F40016BA60 /* ImageEntity+CoreDataClass.swift */,
+				3E33617428CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift */,
 				AE8D226525EF46410032D029 /* BachelorProject */,
 				AE8D227F25EF46470032D029 /* BachelorProjectTests */,
 				AE8D228A25EF46470032D029 /* BachelorProjectUITests */,
@@ -892,7 +896,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE0BA4022619805E00C73D55 /* Networking.swift in Sources */,
-				AEE66D98264AE3F2002FC978 /* ImageEntity+CoreDataClass.swift in Sources */,
 				AEE66D5426494972002FC978 /* TakingPhotoManager.swift in Sources */,
 				AEEE906A261729F300E727FA /* RecordingAudioManager.swift in Sources */,
 				AE8D234B25F1067B0032D029 /* SegmenterCollectionViewCell.swift in Sources */,
@@ -923,6 +926,7 @@
 				AEEE908C2617A9F900E727FA /* Coordinator.swift in Sources */,
 				AE9963BB26159DE100C2ED0A /* PickerManager.swift in Sources */,
 				AE2CC6342600C58F003AFE81 /* SettingsTableViewCell.swift in Sources */,
+				3E33617528CDE1F40016BA60 /* ImageEntity+CoreDataClass.swift in Sources */,
 				AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */,
 				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
 				AE8D238E25F15ECB0032D029 /* AlertProvider.swift in Sources */,
@@ -932,6 +936,7 @@
 				AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */,
 				AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */,
 				AE8D22F925EF74280032D029 /* PhotoView.swift in Sources */,
+				3E33617628CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift in Sources */,
 				AEEE906F26177B4400E727FA /* AuthModel.swift in Sources */,
 				AEFC15E725FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift in Sources */,
 				AEF1B971260091F6006F65C8 /* MessageTableViewCell.swift in Sources */,
@@ -951,7 +956,6 @@
 				AEEE906026170E9D00E727FA /* BluredView.swift in Sources */,
 				AE0BA3D6261834D800C73D55 /* ScreenFactory.swift in Sources */,
 				AEEE90AB2617B79F00E727FA /* LoginCoordinator.swift in Sources */,
-				AEE66D97264AE3F2002FC978 /* ImageEntity+CoreDataProperties.swift in Sources */,
 				AEEE909C2617ADCE00E727FA /* Factories.swift in Sources */,
 				AE99639926146DDE00C2ED0A /* AudioManager.swift in Sources */,
 				AE0BA3F826197C5400C73D55 /* Date.swift in Sources */,
