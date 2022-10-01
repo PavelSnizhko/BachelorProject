@@ -6,10 +6,10 @@
 //
 
 import UIKit
-
+import FirebaseDatabase
 
 class LoginViewController: UIViewController, NibLoadable, Alerting {  
-      
+    
     var onLogin: VoidClosure?
     var onRegister: VoidClosure?
    
@@ -20,9 +20,17 @@ class LoginViewController: UIViewController, NibLoadable, Alerting {
     private var validationService: ValidationService = DefaultValidationService()
     private var authService = AuthorizationService(authorizationService: NetworkService())
     
+//    private let dataBase = Database.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        let object: [String: String] = [
+//            "name": "Paulo",
+//            "role": "student"
+//        ]
+//        dataBase.child("user").setValue(object)
+//        dataBase.child("user").child("fears").setValue("Spider")
+
         launchDelegating()
         registerCells()
         setCollectionViewScrolling(flag: false)
@@ -129,24 +137,23 @@ extension LoginViewController: UICollectionViewDataSource {
                 do {
                     try self.validationService.validate(for: self.authModel)
                     
-                    self.authService.logIn(authModel: self.authModel) { [weak self] error in
-
-                        if error != nil {
-                            
-                            guard let self = self else { return }
-                            
-                            self.showAlert(from: self,
-                                           title: "Oops some troubles with data",
-                                           message: error?.localizedDescription ?? "Smth wrong")
-                            return
-                        }
-                        else {
-                        
-                            self?.onLogin?()
-
-
-                        }
-                    }
+//                    self.authService.logIn(authModel: self.authModel) { [weak self] error in
+//                        if error != nil {
+//
+//                            guard let self = self else { return }
+//
+//                            self.showAlert(from: self,
+//                                           title: "Oops some troubles with data",
+//                                           message: error?.localizedDescription ?? "Smth wrong")
+//                            return
+//                        }
+//                        else {
+//
+//                            self?.onLogin?()
+//
+//
+//                        }
+//                    }
                     
                 } catch let error {
                     
@@ -155,11 +162,11 @@ extension LoginViewController: UICollectionViewDataSource {
                     }
                     
                     switch validationError {
-                    case .badPassword(let errorDescription):
+                    case let .badPassword(errorDescription):
                         self.showAlert(from: self, title: "Oops some mistakes", message: errorDescription)
-                    case .badPhoneNumber(let errorDescription):
+                    case let .wrongEmailFormat(errorDescription):
                         self.showAlert(from: self, title: "Oops some mistakes", message: errorDescription)
-                    case .badName(let errorDescription):
+                    case let .badName(errorDescription):
                         self.showAlert(from: self, title: "Oops some mistakes", message: errorDescription)
                     }
                 }

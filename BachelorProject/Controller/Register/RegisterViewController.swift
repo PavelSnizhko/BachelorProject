@@ -8,7 +8,6 @@
 import UIKit
 
 final class RegisterViewController: UIViewController, NibLoadable, AlertProvider {
-    
     var finishFlow: VoidClosure?
     var isError: ItemClosure<Error>?
     var onLogin: VoidClosure?
@@ -20,7 +19,9 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
     private weak var cellWithTextField: DatePickerCollectionViewCell?
     private var registerModel = RegisterModel()
     private var validationService: ValidationService = DefaultValidationService()
-    private var authService = AuthorizationService(authorizationService: NetworkService())
+    
+    //TODO: add an initalizator
+    private var authService: Authorization
     
     //INFO: this gonna be replaced due to apple's recomendation
     private let picker: UIDatePicker = {
@@ -37,6 +38,15 @@ final class RegisterViewController: UIViewController, NibLoadable, AlertProvider
         
         return picker
     }()
+    
+    init(authService: Authorization, nibName: String?, bundle: Bundle?) {
+        self.authService = authService
+        super.init(nibName: nibName, bundle: bundle)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -186,15 +196,14 @@ extension RegisterViewController: UICollectionViewDataSource {
             // todo move to another func logi creating this cell
             guard let userInfoCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: UserInfoCollectionViewCell.name, for: indexPath) as? UserInfoCollectionViewCell else { fatalError() }
             
-            userInfoCollectionViewCell.nameIsChanged  = { [weak self]  text in
+            userInfoCollectionViewCell.nameIsChanged  = { [weak self] text in
                 self?.registerModel.firstName = text
             }
                
-            userInfoCollectionViewCell.surnameIsChanged  = { [weak self]  text in
+            userInfoCollectionViewCell.surnameIsChanged  = { [weak self] text in
                 self?.registerModel.secondName = text
             }
            
-
             userInfoCollectionViewCell.photoViewTapped = phototViewTapped
             userInfoCollectionViewCell.setAvatarImage(image: registerModel.image)
             
@@ -246,12 +255,11 @@ extension RegisterViewController: UICollectionViewDataSource {
 
                     guard let self = self else { return }
                     
-                    if (error != nil) {
+                    if let error {
                         self.showAlert(from: self,
                                   with: "It's not allowed",
-                                  and: error!.localizedDescription)
-                    }
-                    else {
+                                  and: error.localizedDescription)
+                    } else {
                         self.finishFlow?()
                     }
 
@@ -263,11 +271,10 @@ extension RegisterViewController: UICollectionViewDataSource {
             guard let customCell = collectionView.dequeueReusableCell(withReuseIdentifier: AuthDataCollectionViewCell.name, for: indexPath) as? AuthDataCollectionViewCell  else {
                 
                 fatalError()
-                
             }
             
             customCell.emailText = { [weak self] text in
-                self?.registerModel.phoneNumber = text
+                self?.registerModel.email = text
             }
             
             customCell.passwordText = { [weak self] text in
@@ -279,7 +286,6 @@ extension RegisterViewController: UICollectionViewDataSource {
             guard let linkingLabelsCell = collectionView.dequeueReusableCell(withReuseIdentifier: LinkingLabelsCollectionViewCell.name, for: indexPath) as? LinkingLabelsCollectionViewCell else {
                 
                 fatalError()
-                
             }
             
             linkingLabelsCell.setAboveLabelTitle(title: "Already have an account")
@@ -294,11 +300,7 @@ extension RegisterViewController: UICollectionViewDataSource {
     }
 }
 
-extension RegisterViewController: UICollectionViewDelegate {
-    
-}
-
-
+extension RegisterViewController: UICollectionViewDelegate {}
 
 // MARK: HeaderType && ModelsType
 private extension RegisterViewController {

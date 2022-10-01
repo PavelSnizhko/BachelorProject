@@ -19,7 +19,6 @@ struct GuardResponse: Codable {
 
 }
 
-
 struct GuardList: Codable {
     let users: [GuardResponse]
 }
@@ -38,7 +37,6 @@ class NetworkService {
     private var network = NetworkFacade(httpHeaderManager: HTTPHeaderManager(headers: ["Content-type": "application/json; charset=UTF-8"]))
     private var jsonEncoder = JSONEncoder()
     private var sessionStorage = SessionStorage()
-    
     
     func checkTokenExperation() -> Bool {
         guard sessionStorage.sessionId != nil else  {
@@ -81,7 +79,7 @@ class NetworkService {
             completion(.failure(NetworkError.tokenExperation))
         }
         
-        guard let sessionId = sessionStorage.sessionId else { return completion(.failure(NetworkError.tokenExperation)) }
+        guard sessionStorage.sessionId != nil else { return completion(.failure(NetworkError.tokenExperation)) }
         
         let requestDataWithBody = RequestMetaData(endpoint: "http://192.168.1.105:8000/users/?type=guard&status=free",
                                                   method: .get,

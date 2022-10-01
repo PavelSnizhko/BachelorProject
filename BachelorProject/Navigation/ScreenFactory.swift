@@ -8,8 +8,7 @@
 import Foundation
 
 
-protocol ScreenFactory {
-    
+protocol ScreenFactory: AnyObject {
     func makeSwipingScreen() -> SwipingViewController
     func makeContainerScreen() -> ContainerViewController
     func makeIntroScreen() -> IntroViewController
@@ -20,15 +19,14 @@ protocol ScreenFactory {
     func makeSettingScreen() -> SettingsViewController
     func makeFackeVoiceScreen() -> FackeVoiceViewController
     func makeRecordingSetting() -> RecordingVoiceViewController
-    func makeMenuScreen() -> MenuViewController 
-
-    
+    func makeMenuScreen() -> MenuViewController
 }
 
 final class ScreenFactoryImpl: ScreenFactory {
-    
+    private weak var di: DependencyContainer!
+        
     func makeSwipingScreen() -> SwipingViewController {
-        SwipingViewController()
+        SwipingViewController(authService: di.authService)
     }
     
     func makeContainerScreen() -> ContainerViewController {
@@ -44,12 +42,11 @@ final class ScreenFactoryImpl: ScreenFactory {
     }
     
     func makeRegisterScreen() -> RegisterViewController {
-        RegisterViewController(nibName: RegisterViewController.name, bundle: .main)
+        RegisterViewController(authService: di.authService, nibName: RegisterViewController.name, bundle: .main)
     }
     
     func makeHomeScreen() -> ContainerViewController {
         ContainerViewController()
-
     }
     
     func makeMenuScreen() -> MenuViewController {
@@ -58,26 +55,21 @@ final class ScreenFactoryImpl: ScreenFactory {
     
     func makeChatScreen() -> ChatViewController {
         ChatViewController(nibName: ChatViewController.name, bundle: .main)
-
     }
     
     func makeSettingScreen() -> SettingsViewController {
         SettingsViewController(nibName: SettingsViewController.name, bundle: .main)
-
     }
     
     func makeFackeVoiceScreen() -> FackeVoiceViewController {
         FackeVoiceViewController(nibName: FackeVoiceViewController.name, bundle: .main)
-
     }
     
     func makeRecordingSetting() -> RecordingVoiceViewController {
         RecordingVoiceViewController(nibName: RecordingVoiceViewController.name, bundle: .main)
-
     }
-    
-    fileprivate weak var di: Di!
-    init(){}
-    
-    
+        
+    init(di: DependencyContainer){
+        self.di = di
+    }
 }

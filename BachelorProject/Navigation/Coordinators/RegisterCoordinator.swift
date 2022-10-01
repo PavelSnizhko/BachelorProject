@@ -36,7 +36,7 @@ final class RegisterCoordinator: BaseCoordinator {
         
         registerScreen.onLogin = { [weak self, weak router] in
             
-            router?.dismissModule(animated: true, completion: nil)
+            router?.popModule()
             self?.onLogin?()
             
         }

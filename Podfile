@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '14.0'
 
 target 'BachelorProject' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -8,7 +8,7 @@ target 'BachelorProject' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-  pod ''
+  pod 'Firebase/Auth'
 
   target 'BachelorProjectTests' do
     inherit! :search_paths

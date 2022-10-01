@@ -7,10 +7,10 @@
 
 import Foundation
 
-let firstLaunchKey = "firstLaunch"
-
+/// The coordinator is responsible only for navigation and don't have nested buisness logic
 final class ApplicationCoordinator: BaseCoordinator {
-    
+    private let firstLaunchKey = "firstLaunch"
+
     private let coordinatorFactory: CoordinatorFactory
     private let router: Router
     
@@ -59,7 +59,6 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
     
     private func runLoginFlow() {
-        
         let coordinator = coordinatorFactory.makeLoginCoordinator(router: router)
         
         coordinator.finishFlow = { [weak self, weak coordinator] in
@@ -105,7 +104,8 @@ final class ApplicationCoordinator: BaseCoordinator {
     }
     
     private func mainFlow() {
-        
+
+        //TODO: add tab bar with nested routers        
         let coordinator = coordinatorFactory.makeMainCoordinator(router: router)
         
         coordinator.finishFlow = { [weak self, weak coordinator] in
