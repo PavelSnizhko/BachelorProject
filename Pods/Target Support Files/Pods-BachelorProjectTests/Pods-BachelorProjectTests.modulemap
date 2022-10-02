@@ -1,0 +1,6 @@
+framework module Pods_BachelorProjectTests {
+  umbrella header "Pods-BachelorProjectTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,7 +8,6 @@
 import Foundation
 import NetworkLibrary
 
-
 struct GuardResponse: Codable {
     let id: String
     let firstName: String
@@ -16,9 +15,7 @@ struct GuardResponse: Codable {
     let phoneNumber: String
     let messageId: String
     let location: Location
-
 }
-
 
 struct GuardList: Codable {
     let users: [GuardResponse]
@@ -38,7 +35,6 @@ class NetworkService {
     private var network = NetworkFacade(httpHeaderManager: HTTPHeaderManager(headers: ["Content-type": "application/json; charset=UTF-8"]))
     private var jsonEncoder = JSONEncoder()
     private var sessionStorage = SessionStorage()
-    
     
     func checkTokenExperation() -> Bool {
         guard sessionStorage.sessionId != nil else  {
@@ -81,7 +77,7 @@ class NetworkService {
             completion(.failure(NetworkError.tokenExperation))
         }
         
-        guard let sessionId = sessionStorage.sessionId else { return completion(.failure(NetworkError.tokenExperation)) }
+        guard sessionStorage.sessionId != nil else { return completion(.failure(NetworkError.tokenExperation)) }
         
         let requestDataWithBody = RequestMetaData(endpoint: "http://192.168.1.105:8000/users/?type=guard&status=free",
                                                   method: .get,
@@ -113,9 +109,9 @@ class NetworkService {
 //MARK: - LogInService, RegistrationService
 
 extension NetworkService: LogInService, RegistrationService {
-    func logIn(authModel: AuthModel, completion: @escaping (Error?) -> Void) {
+    func logIn(with credentials: Credentials, completion: @escaping (Error?) -> Void) {
         
-                let jsonData = try? jsonEncoder.encode(authModel)
+                let jsonData = try? jsonEncoder.encode(credentials)
 
                 let requestDataWithBody = RequestMetaData(endpoint: "http://192.168.1.105:8000/auth/login",
                                                           method: .post,
