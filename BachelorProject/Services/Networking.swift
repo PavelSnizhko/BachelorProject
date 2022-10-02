@@ -8,7 +8,6 @@
 import Foundation
 import NetworkLibrary
 
-
 struct GuardResponse: Codable {
     let id: String
     let firstName: String
@@ -16,7 +15,6 @@ struct GuardResponse: Codable {
     let phoneNumber: String
     let messageId: String
     let location: Location
-
 }
 
 struct GuardList: Codable {

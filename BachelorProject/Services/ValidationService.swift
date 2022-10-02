@@ -18,7 +18,6 @@ import Foundation
      func validate(for credentials: Credentials) throws
  }
 
-
  enum ValidationError: Error {
      case badPassword(String)
      case wrongEmailFormat(String)
@@ -53,27 +52,22 @@ struct DefaultValidationService: ValidationService {
          }
          
          let upperMatch = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z]).*?")
-
          guard upperMatch.evaluate(with: password) else {
              throw ValidationError.badPassword(ValidationError.Content.nonUpperChar)
          }
 
-
          let numberMatch = NSPredicate(format: "SELF MATCHES %@", "(?=.*[0-9]).*?")
-
          guard numberMatch.evaluate(with: password) else {
              throw ValidationError.badPassword(ValidationError.Content.nonNumber)
          }
 
          let lowerMatch = NSPredicate(format: "SELF MATCHES %@", "(?=.*[a-z]).*?")
-
          guard lowerMatch.evaluate(with: password) else {
              throw ValidationError.badPassword(ValidationError.Content.nonlowerChar)
          }
      }
 
      func validate(email: String?) throws {
-
          guard let email = email  else {
              throw ValidationError.wrongEmailFormat(ValidationError.Content.invalidEmail)
          }
@@ -101,7 +95,5 @@ struct DefaultValidationService: ValidationService {
          try self.validate(name: registerModel.firstName)
         
          try self.validate(name: registerModel.secondName)
-        
-
      }
  }
