@@ -16,20 +16,21 @@ class LoginViewController: UIViewController, NibLoadable, Alerting {
     @IBOutlet private weak var collectionView: UICollectionView!
     
     private var headersType: [HeaderType] = [.logo, .auth, .button, .linkingLabels]
-    private var authModel = AuthModel()
+    private var credentials = Credentials()
     private var validationService: ValidationService = DefaultValidationService()
-    private var authService = AuthorizationService(authorizationService: NetworkService())
+    private var authService: Authorization
+        
+    init(authService: Authorization, nibName: String?, bundle: Bundle?) {
+        self.authService = authService
+        super.init(nibName: nibName, bundle: bundle)
+    }
     
-//    private let dataBase = Database.database().reference()
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let object: [String: String] = [
-//            "name": "Paulo",
-//            "role": "student"
-//        ]
-//        dataBase.child("user").setValue(object)
-//        dataBase.child("user").child("fears").setValue("Spider")
 
         launchDelegating()
         registerCells()
@@ -83,10 +84,6 @@ class LoginViewController: UIViewController, NibLoadable, Alerting {
         collectionView.register(LinkingLabelsCollectionViewCell.nib, forCellWithReuseIdentifier: LinkingLabelsCollectionViewCell.name)
 //        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
     }
-    
-    
-    
-
 }
 
 // MARK: DataSource
@@ -118,42 +115,38 @@ extension LoginViewController: UICollectionViewDataSource {
             cell = authCell
             
             authCell.emailText = { [weak self] text in
-                self?.authModel.phoneNumber = text
+                self?.credentials.email = text
             }
             
             authCell.passwordText = { [weak self] text in
-                self?.authModel.password = text
+                self?.credentials.password = text
             }
             
         case .button:
+            guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell
+            else {
+                fatalError()
+            }
             
-            guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell else { fatalError() }
             buttonCell.buttonTitle = "Log in"
-
             buttonCell.buttonTapped = { [weak self] in
                 
                 guard let self = self else { return }
                 
                 do {
-                    try self.validationService.validate(for: self.authModel)
+                    try self.validationService.validate(for: self.credentials)
                     
-//                    self.authService.logIn(authModel: self.authModel) { [weak self] error in
-//                        if error != nil {
-//
-//                            guard let self = self else { return }
-//
-//                            self.showAlert(from: self,
-//                                           title: "Oops some troubles with data",
-//                                           message: error?.localizedDescription ?? "Smth wrong")
-//                            return
-//                        }
-//                        else {
-//
-//                            self?.onLogin?()
-//
-//
-//                        }
-//                    }
+                    self.authService.logIn(with: self.credentials) { error in
+                        if let error {
+                            self.showAlert(from: self,
+                                           title: "Oops some troubles with data",
+                                           message: error.localizedDescription)
+                            return
+                        }
+                        else {
+                            self.onLogin?()
+                        }
+                    }
                     
                 } catch let error {
                     

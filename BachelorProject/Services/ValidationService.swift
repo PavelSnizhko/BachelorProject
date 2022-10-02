@@ -15,7 +15,7 @@ import Foundation
      func validate(email: String?) throws
      func validate(name: String?) throws
      func validate(for registerModel: RegisterModel) throws
-     func validate(for authModel: AuthModel) throws
+     func validate(for credentials: Credentials) throws
  }
 
 
@@ -37,18 +37,15 @@ import Foundation
          static let badNameFormat = "Not allowed symbols in the name"
          static let badNameLenght = "Now allowed lenght of your name"
          static let unknown = "A wrong password or login"
-
      }
  }
 
-
- struct DefaultValidationService: ValidationService {
+struct DefaultValidationService: ValidationService {
     
-     func validate(for authModel: AuthModel) throws {
-         try validate(password: authModel.password)
-         try validate(email: authModel.phoneNumber)
-     }
-
+    func validate(for credentials: Credentials) throws {
+        try validate(password: credentials.password)
+        try validate(email: credentials.email)
+    }
 
      func validate(password: String?) throws {
          guard let password = password, password.count >= 8, password.count <= 64  else {
@@ -57,7 +54,9 @@ import Foundation
          
          let upperMatch = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z]).*?")
 
-         guard upperMatch.evaluate(with: password) else { throw ValidationError.badPassword(ValidationError.Content.nonUpperChar) }
+         guard upperMatch.evaluate(with: password) else {
+             throw ValidationError.badPassword(ValidationError.Content.nonUpperChar)
+         }
 
 
          let numberMatch = NSPredicate(format: "SELF MATCHES %@", "(?=.*[0-9]).*?")
@@ -95,9 +94,9 @@ import Foundation
      }
 
      func validate(for registerModel: RegisterModel) throws {
-         try self.validate(password: registerModel.password)
+         try self.validate(password: registerModel.credentials.password)
 
-         try self.validate(email: registerModel.email)
+         try self.validate(email: registerModel.credentials.email)
 
          try self.validate(name: registerModel.firstName)
         

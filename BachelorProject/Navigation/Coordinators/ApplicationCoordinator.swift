@@ -94,7 +94,7 @@ final class ApplicationCoordinator: BaseCoordinator {
         
         coordinator.onLogin = { [weak self, weak coordinator] in
             
-            self?.isRegister = false
+            self?.isRegister = true
             self?.start()
             self?.removeDependency(coordinator)
         }

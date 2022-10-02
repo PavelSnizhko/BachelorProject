@@ -34,7 +34,7 @@ final class ScreenFactoryImpl: ScreenFactory {
     }
     
     func makeLoginScreen() -> LoginViewController {
-        LoginViewController(nibName: LoginViewController.name, bundle: .main)
+        LoginViewController(authService: di.authService, nibName: LoginViewController.name, bundle: .main)
     }
     
     func makeIntroScreen() -> IntroViewController {

@@ -111,9 +111,9 @@ class NetworkService {
 //MARK: - LogInService, RegistrationService
 
 extension NetworkService: LogInService, RegistrationService {
-    func logIn(authModel: AuthModel, completion: @escaping (Error?) -> Void) {
+    func logIn(with credentials: Credentials, completion: @escaping (Error?) -> Void) {
         
-                let jsonData = try? jsonEncoder.encode(authModel)
+                let jsonData = try? jsonEncoder.encode(credentials)
 
                 let requestDataWithBody = RequestMetaData(endpoint: "http://192.168.1.105:8000/auth/login",
                                                           method: .post,

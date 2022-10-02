@@ -21,7 +21,8 @@ struct FirebaseAuthService: RegistrationService, LogInService {
     
     func registrate(registerModel: RegisterModel, completion: @escaping (Error?) -> Void) {
         //TODO: avoid unwraping optionality here
-        guard let email = registerModel.email, let password = registerModel.password else {
+        guard let email = registerModel.credentials.email,
+              let password = registerModel.credentials.password else {
             return completion(ValidationError.wrongEmailFormat(ValidationError.Content.invalidEmail))
         }
         
@@ -35,12 +36,23 @@ struct FirebaseAuthService: RegistrationService, LogInService {
                 let uid = authResult.user.uid
                 sessionStorage.sessionId = uid
                 save(model: registerModel, for: uid)
+                completion(nil)
             }
         }
     }
     
-    func logIn(authModel: AuthModel, completion: @escaping (Error?) -> Void) {
-        return
+    func logIn(with credentials: Credentials, completion: @escaping (Error?) -> Void) {
+        guard let email = credentials.email, let password = credentials.password else {
+            return
+        }
+        
+        authService.signIn(withEmail: email, password: password) { authResult, error in
+            if error != nil {
+                return completion(error)
+            }
+            
+            completion(nil)
+        }
     }
     
     private func retriveSessionToken() {

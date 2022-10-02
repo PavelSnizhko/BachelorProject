@@ -174,10 +174,6 @@ extension RegisterViewController {
     
 }
 
-
-
-
-
 // MARK: Collection View DataSource
 extension RegisterViewController: UICollectionViewDataSource {
      func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -226,9 +222,7 @@ extension RegisterViewController: UICollectionViewDataSource {
             
         case .date:
             guard let datePickerCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: DatePickerCollectionViewCell.name, for: indexPath) as? DatePickerCollectionViewCell else {
-                
                 fatalError()
-                
             }
             
             datePickerCollectionViewCell.textField.inputView = picker
@@ -249,16 +243,14 @@ extension RegisterViewController: UICollectionViewDataSource {
                     self.showAlert(from: self,
                                    with: "Bad data in fields",
                                    and: "Please, check your data and refill register info")
+                    return
                 }
                 
                 self.authService.registrate(registerModel: self.registerModel) { [weak self]  error in
-
                     guard let self = self else { return }
                     
                     if let error {
-                        self.showAlert(from: self,
-                                  with: "It's not allowed",
-                                  and: error.localizedDescription)
+                        self.showAlert(from: self, with: "It's not allowed", and: error.localizedDescription)
                     } else {
                         self.finishFlow?()
                     }
@@ -274,11 +266,11 @@ extension RegisterViewController: UICollectionViewDataSource {
             }
             
             customCell.emailText = { [weak self] text in
-                self?.registerModel.email = text
+                self?.registerModel.credentials.email = text
             }
             
             customCell.passwordText = { [weak self] text in
-                self?.registerModel.password = text
+                self?.registerModel.credentials.password = text
             }
             
             cell = customCell

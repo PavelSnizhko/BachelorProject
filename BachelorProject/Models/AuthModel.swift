@@ -8,15 +8,15 @@
 import Foundation
 
 struct AuthModel: Codable {
-    var phoneNumber: String?
+    var email: String?
     var password: String?
     
     var isFilled: Bool {
-        !(phoneNumber ?? "").isEmpty && !(password ?? "").isEmpty
+        !(email ?? "").isEmpty && !(password ?? "").isEmpty
     }
     
     private enum CodingKeys : String, CodingKey {
-        case phoneNumber = "number"
+        case email
         case password
     }
 }
