@@ -7,10 +7,9 @@
 
 import Foundation
 
-protocol Coordinator: class {
+protocol Coordinator: AnyObject {
   func start()
 }
-
 
 class BaseCoordinator: Coordinator {
   
@@ -24,10 +23,10 @@ class BaseCoordinator: Coordinator {
   }
   
   func removeDependency(_ coordinator: Coordinator?) {
-    guard
-      childCoordinators.isEmpty == false,
-      let coordinator = coordinator
-      else { return }
+    guard childCoordinators.isEmpty == false,
+          let coordinator = coordinator else {
+        return
+    }
     
     if let coordinator = coordinator as? BaseCoordinator, !coordinator.childCoordinators.isEmpty {
         coordinator.childCoordinators

@@ -6,23 +6,32 @@
 //
 
 import UIKit
-
+import FirebaseDatabase
 
 class LoginViewController: UIViewController, NibLoadable, Alerting {  
-      
+    
     var onLogin: VoidClosure?
     var onRegister: VoidClosure?
    
     @IBOutlet private weak var collectionView: UICollectionView!
     
     private var headersType: [HeaderType] = [.logo, .auth, .button, .linkingLabels]
-    private var authModel = AuthModel()
+    private var credentials = Credentials()
     private var validationService: ValidationService = DefaultValidationService()
-    private var authService = AuthorizationService(authorizationService: NetworkService())
+    private var authService: Authorization
+        
+    init(authService: Authorization, nibName: String?, bundle: Bundle?) {
+        self.authService = authService
+        super.init(nibName: nibName, bundle: bundle)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         launchDelegating()
         registerCells()
         setCollectionViewScrolling(flag: false)
@@ -75,10 +84,6 @@ class LoginViewController: UIViewController, NibLoadable, Alerting {
         collectionView.register(LinkingLabelsCollectionViewCell.nib, forCellWithReuseIdentifier: LinkingLabelsCollectionViewCell.name)
 //        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
     }
-    
-    
-    
-
 }
 
 // MARK: DataSource
@@ -110,41 +115,36 @@ extension LoginViewController: UICollectionViewDataSource {
             cell = authCell
             
             authCell.emailText = { [weak self] text in
-                self?.authModel.phoneNumber = text
+                self?.credentials.email = text
             }
             
             authCell.passwordText = { [weak self] text in
-                self?.authModel.password = text
+                self?.credentials.password = text
             }
             
         case .button:
+            guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell
+            else {
+                fatalError()
+            }
             
-            guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell else { fatalError() }
             buttonCell.buttonTitle = "Log in"
-
             buttonCell.buttonTapped = { [weak self] in
                 
                 guard let self = self else { return }
                 
                 do {
-                    try self.validationService.validate(for: self.authModel)
+                    try self.validationService.validate(for: self.credentials)
                     
-                    self.authService.logIn(authModel: self.authModel) { [weak self] error in
-
-                        if error != nil {
-                            
-                            guard let self = self else { return }
-                            
+                    self.authService.logIn(with: self.credentials) { error in
+                        if let error {
                             self.showAlert(from: self,
                                            title: "Oops some troubles with data",
-                                           message: error?.localizedDescription ?? "Smth wrong")
+                                           message: error.localizedDescription)
                             return
                         }
                         else {
-                        
-                            self?.onLogin?()
-
-
+                            self.onLogin?()
                         }
                     }
                     
@@ -155,11 +155,11 @@ extension LoginViewController: UICollectionViewDataSource {
                     }
                     
                     switch validationError {
-                    case .badPassword(let errorDescription):
+                    case let .badPassword(errorDescription):
                         self.showAlert(from: self, title: "Oops some mistakes", message: errorDescription)
-                    case .badPhoneNumber(let errorDescription):
+                    case let .wrongEmailFormat(errorDescription):
                         self.showAlert(from: self, title: "Oops some mistakes", message: errorDescription)
-                    case .badName(let errorDescription):
+                    case let .badName(errorDescription):
                         self.showAlert(from: self, title: "Oops some mistakes", message: errorDescription)
                     }
                 }

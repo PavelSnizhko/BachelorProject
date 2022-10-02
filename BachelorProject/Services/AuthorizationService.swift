@@ -7,20 +7,17 @@
 
 import Foundation
 
+typealias Authorization = LogInService & RegistrationService & LogOut
+
 protocol LogInService {
-
-    func logIn(authModel: AuthModel, completion: @escaping (Error?) -> Void)
-
+    func logIn(with credentials: Credentials, completion: @escaping (Error?) -> Void)
 }
 
 protocol RegistrationService {
-
     func registrate(registerModel: RegisterModel, completion: @escaping (Error?) -> Void)
-
 }
 
-
-struct AuthorizationService: LogInService, RegistrationService {
+struct AuthorizationService: Authorization {
 
     private let service: LogInService & RegistrationService
     private var sessionStorage = SessionStorage()
@@ -33,8 +30,8 @@ struct AuthorizationService: LogInService, RegistrationService {
         service = authorizationService
     }
 
-    func logIn(authModel: AuthModel, completion: @escaping (Error?) -> Void) {
-        service.logIn(authModel: authModel) {error in
+    func logIn(with credentials: Credentials, completion: @escaping (Error?) -> Void) {
+        service.logIn(with: credentials) {error in
             DispatchQueue.main.async {
                 completion(error)
             }
@@ -47,6 +44,10 @@ struct AuthorizationService: LogInService, RegistrationService {
                 completion(error)
             }
         }
+    }
+    
+    func logOut(completion: (Error?) -> Void) {
+        
     }
 
 }

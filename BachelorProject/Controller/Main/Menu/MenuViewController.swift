@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 protocol SelectOptionDelegate: class {
     func choseOption(with item: MenuViewController.MenuItem)
 }

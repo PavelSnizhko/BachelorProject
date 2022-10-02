@@ -81,16 +81,14 @@ class MainCoordinator: BaseCoordinator {
 
     
     func showContainer() {
-
         if containerScreen == nil {
             
             containerScreen = screenFactory.makeContainerScreen()
             menuViewController = screenFactory.makeMenuScreen()
 
             swipingViewController = screenFactory.makeSwipingScreen()
+            swipingViewController.finishFlow = self.finishFlow
         }
-        
-       
         
         swipingViewController.menuPressed = { [weak self] in
             guard let self = self else { return }

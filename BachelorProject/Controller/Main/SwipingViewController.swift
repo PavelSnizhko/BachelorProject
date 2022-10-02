@@ -7,14 +7,14 @@
 
 import UIKit
 
-class SwipingViewController: UIViewController {
+class SwipingViewController: UIViewController, Alerting {
     private var viewControllers = [MainPageViewController(nibName: MainPageViewController.name,
                                                           bundle: .main),
                                    ChatViewController(nibName: ChatViewController.name,
                                                       bundle: .main)]
     
     var finishFlow: VoidClosure?
-    
+    private let authService: LogOut
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -30,6 +30,15 @@ class SwipingViewController: UIViewController {
 
     var menuPressed: VoidClosure?
 
+    
+    init(authService: LogOut) {
+        self.authService = authService
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Usage is not allowed")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,8 +70,13 @@ class SwipingViewController: UIViewController {
     
     
     @objc func logOuttapped() {
-        finishFlow?()
-        
+        authService.logOut { error in
+            if let error {
+                showAlert(from: self, title: "Sign out", message: error.localizedDescription)
+            }
+            
+            finishFlow?()
+        }
     }
     
     
