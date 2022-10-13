@@ -102,8 +102,31 @@ class NetworkService {
     
 }
 
-
-
+extension NetworkService {
+    var airAlarmHost: String {
+        "127.0.0.1:10101"
+    }
+    
+    func getAllStates(completion: @escaping ItemClosure<Result<[State], Error>>) {
+        let endpoint = "http://\(airAlarmHost)/api/states"
+        let requestData = RequestMetaData(endpoint: endpoint,
+                                          method: .get,
+                                          body: nil,
+                                          headers: ["X-API-Key": "foo"])
+        
+        let resource = Resource(requestMetaData: requestData, decodingType: StateList.self)
+        
+        network.execute(resource: resource) { result in
+            switch result {
+            case let .success(stateList):
+                completion(.success(stateList.states ?? []))
+            case let .failure(error):
+                print(error)
+                completion(.failure(error))
+            }
+        }
+    }
+}
 
 
 //MARK: - LogInService, RegistrationService
@@ -111,30 +134,31 @@ class NetworkService {
 extension NetworkService: LogInService, RegistrationService {
     func logIn(with credentials: Credentials, completion: @escaping (Error?) -> Void) {
         
-                let jsonData = try? jsonEncoder.encode(credentials)
-
-                let requestDataWithBody = RequestMetaData(endpoint: "http://192.168.1.105:8000/auth/login",
-                                                          method: .post,
-                                                          body: jsonData,
-                                                          headers: nil)
-
-                let resourceWithBody = Resource(requestMetaData: requestDataWithBody,
-                                                               decodingType: ResponseModel.self)
-
-                network.execute(resource: resourceWithBody) { [weak self] result in
+        let jsonData = try? jsonEncoder.encode(credentials)
+        
+        let requestDataWithBody = RequestMetaData(endpoint: "http://192.168.1.105:8000/auth/login",
+                                                  method: .post,
+                                                  body: jsonData,
+                                                  headers: nil)
+        
+        let resourceWithBody = Resource(requestMetaData: requestDataWithBody,
+                                        decodingType: ResponseModel.self)
+        
+        network.execute(resource: resourceWithBody) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    //Stored to sessionStorage
+                    self?.sessionStorage.sessionId = response.token
                     
-                    switch result {
-                    case .success(let response):
-                        //Stored to sessionStorage
-                        self?.sessionStorage.sessionId = response.token
-                        
-                        completion(nil)
-                        
-                    case .failure(let error):
-                        print(error)
-                        completion(error)
-                    }
+                    completion(nil)
+                    
+                case .failure(let error):
+                    print(error)
+                    completion(error)
                 }
+            }
+        }
     }
     
     func registrate(registerModel: RegisterModel, completion: @escaping (Error?) -> Void) {

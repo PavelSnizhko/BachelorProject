@@ -137,7 +137,7 @@ extension LoginViewController: UICollectionViewDataSource {
                     try self.validationService.validate(for: self.credentials)
                     
                     self.authService.logIn(with: self.credentials) { error in
-                        if let error {
+                        if let error = error {
                             self.showAlert(from: self,
                                            title: "Oops some troubles with data",
                                            message: error.localizedDescription)

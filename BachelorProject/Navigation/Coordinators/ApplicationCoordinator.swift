@@ -17,7 +17,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     private var isFirstLaunch: Bool {
         !UserDefaults.standard.bool(forKey: firstLaunchKey)
     }
-    private var isLogin = false
+    private var isLogin = true
     private var isRegister = true
     
     init(router: Router, coordinatorFactory: CoordinatorFactory) {

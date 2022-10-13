@@ -31,7 +31,7 @@ struct FirebaseAuthService: RegistrationService, LogInService {
                 return completion(error)
             }
             
-            if let authResult {
+            if let authResult = authResult {
                 //TODO: now we store just UID, however there should be a token from firebase,
                 let uid = authResult.user.uid
                 sessionStorage.sessionId = uid

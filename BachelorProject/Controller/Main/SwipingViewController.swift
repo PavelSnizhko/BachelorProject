@@ -8,10 +8,37 @@
 import UIKit
 
 class SwipingViewController: UIViewController, Alerting {
-    private var viewControllers = [MainPageViewController(nibName: MainPageViewController.name,
-                                                          bundle: .main),
-                                   ChatViewController(nibName: ChatViewController.name,
-                                                      bundle: .main)]
+    
+    let tabBarViewController = UITabBarController()
+    
+    private lazy var mainPageViewController: MainPageViewController = {
+        let viewController = MainPageViewController(nibName: MainPageViewController.name,
+                                                    bundle: .main)
+        
+        viewController.tabBarItem = UITabBarItem(title: "Main", image: .checkmark, tag: 0)
+        
+        return viewController
+
+    }()
+    
+    private lazy var airAlarmViewController: AirAlarmViewController = {
+        let viewController = AirAlarmViewController(collectionViewLayout: .init())
+        
+        viewController.tabBarItem = UITabBarItem(title: "Air Alarm", image: .checkmark, tag: 1)
+        return viewController
+    }()
+    
+    private lazy var  chatViewController: ChatViewController = {
+        let viewController = ChatViewController(nibName: ChatViewController.name,
+                                                bundle: .main)
+        
+//        viewController.tabBarItem = UITabBarItem(title: "Chat", image: .checkmark, tag: 1)
+        
+        return viewController
+    }()
+    
+    
+    private lazy var viewControllers = [tabBarViewController, chatViewController]
     
     var finishFlow: VoidClosure?
     private let authService: LogOut
@@ -43,6 +70,7 @@ class SwipingViewController: UIViewController, Alerting {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tabBarViewController.setViewControllers([mainPageViewController, airAlarmViewController], animated: false)
         configNavigationBar()
         addCollectionView()
         setDelegeting()
@@ -71,7 +99,7 @@ class SwipingViewController: UIViewController, Alerting {
     
     @objc func logOuttapped() {
         authService.logOut { error in
-            if let error {
+            if let error = error {
                 showAlert(from: self, title: "Sign out", message: error.localizedDescription)
             }
             

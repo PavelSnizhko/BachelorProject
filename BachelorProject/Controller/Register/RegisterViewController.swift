@@ -249,7 +249,7 @@ extension RegisterViewController: UICollectionViewDataSource {
                 self.authService.registrate(registerModel: self.registerModel) { [weak self]  error in
                     guard let self = self else { return }
                     
-                    if let error {
+                    if let error = error {
                         self.showAlert(from: self, with: "It's not allowed", and: error.localizedDescription)
                     } else {
                         self.finishFlow?()

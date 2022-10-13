@@ -44,6 +44,11 @@
 		AE2CC6352600C58F003AFE81 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE2CC6332600C58F003AFE81 /* SettingsTableViewCell.xib */; };
 		AE4CF80425FA6887008024C9 /* AuthDataCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4CF80225FA6887008024C9 /* AuthDataCollectionViewCell.swift */; };
 		AE4CF80525FA6887008024C9 /* AuthDataCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE4CF80325FA6887008024C9 /* AuthDataCollectionViewCell.xib */; };
+		AE59E04C28EF5B90007908CA /* AirAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE59E04B28EF5B90007908CA /* AirAlarmViewController.swift */; };
+		AE59E05228F17938007908CA /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = AE59E05128F17938007908CA /* BottomSheet */; };
+		AE59E07528F17EEC007908CA /* SelectedStateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE59E07428F17EEC007908CA /* SelectedStateCell.swift */; };
+		AE71892228F1AA42001D85DD /* StateDescriptionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71892128F1AA42001D85DD /* StateDescriptionConfiguration.swift */; };
+		AE71892728F1AC25001D85DD /* AirAlarmDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71892628F1AC25001D85DD /* AirAlarmDataSource.swift */; };
 		AE72402D25FB6EC8005A39E5 /* ResetingPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72402B25FB6EC8005A39E5 /* ResetingPasswordViewController.swift */; };
 		AE72402E25FB6EC8005A39E5 /* ResetingPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE72402C25FB6EC8005A39E5 /* ResetingPasswordViewController.xib */; };
 		AE72403825FB719A005A39E5 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72403625FB719A005A39E5 /* MainPageViewController.swift */; };
@@ -91,6 +96,7 @@
 		AE9963C02615A87D00C2ED0A /* TimePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9963BF2615A87D00C2ED0A /* TimePickerManager.swift */; };
 		AE9963C52615D5FC00C2ED0A /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9963C42615D5FC00C2ED0A /* CustomAlertController.swift */; };
 		AE9963CA2615EA4600C2ED0A /* VoiceStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9963C92615EA4600C2ED0A /* VoiceStorage.swift */; };
+		AE9A8D7928F2EF570025CAA7 /* HeaderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9A8D7828F2EF570025CAA7 /* HeaderTextView.swift */; };
 		AEC84C9325FC93780068A479 /* MenuItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84C9125FC93770068A479 /* MenuItemTableViewCell.swift */; };
 		AEC84C9425FC93780068A479 /* MenuItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEC84C9225FC93770068A479 /* MenuItemTableViewCell.xib */; };
 		AEC84CA425FCA90A0068A479 /* MenuControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */; };
@@ -119,6 +125,13 @@
 		AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */; };
 		AEF1B94E25FF4445006F65C8 /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */; };
 		AEF1B971260091F6006F65C8 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF1B970260091F5006F65C8 /* MessageTableViewCell.swift */; };
+		AEF49F7A28F7F60000753319 /* Array+toDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49F7928F7F60000753319 /* Array+toDictionary.swift */; };
+		AEF49F7F28F7F7D000753319 /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49F7E28F7F7D000753319 /* States.swift */; };
+		AEF49F8428F7F89200753319 /* UserDefatuls+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49F8328F7F89200753319 /* UserDefatuls+Codable.swift */; };
+		AEF49F8928F7FAA000753319 /* CurrentStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49F8828F7FAA000753319 /* CurrentStateManager.swift */; };
+		AEF49F8F28F81CB100753319 /* remote_config_defaults.json in Resources */ = {isa = PBXBuildFile; fileRef = AEF49F8E28F81CB100753319 /* remote_config_defaults.json */; };
+		AEF49F9428F8258C00753319 /* AtomicWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49F9328F8258C00753319 /* AtomicWrapper.swift */; };
+		AEF49F9928F8352A00753319 /* SelectStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49F9828F8352A00753319 /* SelectStateViewController.swift */; };
 		AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC15D725FB607C00E204B9 /* LogoCollectionViewCell.swift */; };
 		AEFC15DA25FB607C00E204B9 /* LogoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEFC15D825FB607C00E204B9 /* LogoCollectionViewCell.xib */; };
 		AEFC15E725FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC15E525FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift */; };
@@ -183,6 +196,11 @@
 		AE2CC6332600C58F003AFE81 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		AE4CF80225FA6887008024C9 /* AuthDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE4CF80325FA6887008024C9 /* AuthDataCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthDataCollectionViewCell.xib; sourceTree = "<group>"; };
+		AE59E04B28EF5B90007908CA /* AirAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAlarmViewController.swift; sourceTree = "<group>"; };
+		AE59E07028F17C48007908CA /* BottomSheet */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BottomSheet; path = ../BottomSheet; sourceTree = "<group>"; };
+		AE59E07428F17EEC007908CA /* SelectedStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStateCell.swift; sourceTree = "<group>"; };
+		AE71892128F1AA42001D85DD /* StateDescriptionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDescriptionConfiguration.swift; sourceTree = "<group>"; };
+		AE71892628F1AC25001D85DD /* AirAlarmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAlarmDataSource.swift; sourceTree = "<group>"; };
 		AE72402B25FB6EC8005A39E5 /* ResetingPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetingPasswordViewController.swift; sourceTree = "<group>"; };
 		AE72402C25FB6EC8005A39E5 /* ResetingPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetingPasswordViewController.xib; sourceTree = "<group>"; };
 		AE72403625FB719A005A39E5 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +254,8 @@
 		AE9963BF2615A87D00C2ED0A /* TimePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerManager.swift; sourceTree = "<group>"; };
 		AE9963C42615D5FC00C2ED0A /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
 		AE9963C92615EA4600C2ED0A /* VoiceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceStorage.swift; sourceTree = "<group>"; };
+		AE9A8D7828F2EF570025CAA7 /* HeaderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTextView.swift; sourceTree = "<group>"; };
+		AE9A8D7D28F2FDD90025CAA7 /* NetworkLibrary */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NetworkLibrary; path = ../NetworkLibrary; sourceTree = "<group>"; };
 		AEC84C9125FC93770068A479 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		AEC84C9225FC93770068A479 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 		AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuControllerDelegate.swift; sourceTree = "<group>"; };
@@ -265,6 +285,13 @@
 		AEF1B94B25FF4445006F65C8 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		AEF1B94C25FF4445006F65C8 /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
 		AEF1B970260091F5006F65C8 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		AEF49F7928F7F60000753319 /* Array+toDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+toDictionary.swift"; sourceTree = "<group>"; };
+		AEF49F7E28F7F7D000753319 /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
+		AEF49F8328F7F89200753319 /* UserDefatuls+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefatuls+Codable.swift"; sourceTree = "<group>"; };
+		AEF49F8828F7FAA000753319 /* CurrentStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentStateManager.swift; sourceTree = "<group>"; };
+		AEF49F8E28F81CB100753319 /* remote_config_defaults.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = remote_config_defaults.json; sourceTree = "<group>"; };
+		AEF49F9328F8258C00753319 /* AtomicWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicWrapper.swift; sourceTree = "<group>"; };
+		AEF49F9828F8352A00753319 /* SelectStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStateViewController.swift; sourceTree = "<group>"; };
 		AEFC15D725FB607C00E204B9 /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AEFC15D825FB607C00E204B9 /* LogoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoCollectionViewCell.xib; sourceTree = "<group>"; };
 		AEFC15E525FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingLabelsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -279,6 +306,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE59E05228F17938007908CA /* BottomSheet in Frameworks */,
 				AEEE907F26177FA400E727FA /* SwiftKeychainWrapper in Frameworks */,
 				AE0BA408261980D600C73D55 /* NetworkLibrary in Frameworks */,
 				AE2795A6261B06EC00F6A0D2 /* SocketIO in Frameworks */,
@@ -355,6 +383,21 @@
 			path = AuthDataCell;
 			sourceTree = "<group>";
 		};
+		AE71892B28F1AEB6001D85DD /* AirAlarm */ = {
+			isa = PBXGroup;
+			children = (
+				AE59E04B28EF5B90007908CA /* AirAlarmViewController.swift */,
+				AE59E07428F17EEC007908CA /* SelectedStateCell.swift */,
+				AE71892128F1AA42001D85DD /* StateDescriptionConfiguration.swift */,
+				AE71892628F1AC25001D85DD /* AirAlarmDataSource.swift */,
+				AE9A8D7828F2EF570025CAA7 /* HeaderTextView.swift */,
+				AEF49F8828F7FAA000753319 /* CurrentStateManager.swift */,
+				AEF49F9328F8258C00753319 /* AtomicWrapper.swift */,
+				AEF49F9828F8352A00753319 /* SelectStateViewController.swift */,
+			);
+			path = AirAlarm;
+			sourceTree = "<group>";
+		};
 		AE72402525FB6E3D005A39E5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -400,6 +443,7 @@
 				AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */,
 				AEF1B94225FEC64C006F65C8 /* SwipingViewController.swift */,
 				AEF1B95225FF444D006F65C8 /* Chat */,
+				AE71892B28F1AEB6001D85DD /* AirAlarm */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -425,6 +469,8 @@
 		AE8D225A25EF46410032D029 = {
 			isa = PBXGroup;
 			children = (
+				AE9A8D7D28F2FDD90025CAA7 /* NetworkLibrary */,
+				AE59E07028F17C48007908CA /* BottomSheet */,
 				3E33617328CDE1F40016BA60 /* ImageEntity+CoreDataClass.swift */,
 				3E33617428CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift */,
 				AE8D226525EF46410032D029 /* BachelorProject */,
@@ -449,6 +495,7 @@
 		AE8D226525EF46410032D029 /* BachelorProject */ = {
 			isa = PBXGroup;
 			children = (
+				AEF49F8D28F81A2100753319 /* Defaults */,
 				AE8D230625EF8C970032D029 /* Extensions */,
 				AE8D230225EF7F490032D029 /* Models */,
 				AE8D22EF25EF709A0032D029 /* Protocols */,
@@ -574,6 +621,7 @@
 				AEEE906E26177B4300E727FA /* AuthModel.swift */,
 				AEEE907826177EC900E727FA /* SessionStorage.swift */,
 				3E57D2A328EA00EB00D28345 /* Credentials.swift */,
+				AEF49F7E28F7F7D000753319 /* States.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -588,6 +636,8 @@
 				AE0BA3FC26197E0C00C73D55 /* DateFormater.swift */,
 				AE0BA40C2619846A00C73D55 /* Alerting.swift */,
 				3EBED42F28E8814200BA220C /* Optional+isEmpty.swift */,
+				AEF49F7928F7F60000753319 /* Array+toDictionary.swift */,
+				AEF49F8328F7F89200753319 /* UserDefatuls+Codable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -760,6 +810,14 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		AEF49F8D28F81A2100753319 /* Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				AEF49F8E28F81CB100753319 /* remote_config_defaults.json */,
+			);
+			path = Defaults;
+			sourceTree = "<group>";
+		};
 		AEFC15DE25FB608100E204B9 /* LogoCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -813,6 +871,7 @@
 				AEEE907E26177FA400E727FA /* SwiftKeychainWrapper */,
 				AE0BA407261980D600C73D55 /* NetworkLibrary */,
 				AE2795A5261B06EC00F6A0D2 /* SocketIO */,
+				AE59E05128F17938007908CA /* BottomSheet */,
 			);
 			productName = BachelorProject;
 			productReference = AE8D226325EF46410032D029 /* BachelorProject.app */;
@@ -892,6 +951,7 @@
 				AEEE907D26177FA400E727FA /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				AE0BA406261980D600C73D55 /* XCRemoteSwiftPackageReference "NetworkLibrary" */,
 				AE2795A4261B06EC00F6A0D2 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */,
+				AE59E05028F17938007908CA /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = AE8D226425EF46410032D029 /* Products */;
 			projectDirPath = "";
@@ -920,6 +980,7 @@
 				AE2CC6352600C58F003AFE81 /* SettingsTableViewCell.xib in Resources */,
 				AE8D22B525EF4E670032D029 /* IntroViewController.xib in Resources */,
 				AE8D234C25F1067B0032D029 /* SegmenterCollectionViewCell.xib in Resources */,
+				AEF49F8F28F81CB100753319 /* remote_config_defaults.json in Resources */,
 				3EBED42B28E857F300BA220C /* GoogleService-Info.plist in Resources */,
 				AE72404725FB7661005A39E5 /* NavigationBar.xib in Resources */,
 				AEFC15DA25FB607C00E204B9 /* LogoCollectionViewCell.xib in Resources */,
@@ -1083,13 +1144,16 @@
 				AEE66D91264AE01F002FC978 /* ImageFactory.swift in Sources */,
 				AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */,
 				AE0BA3ED2618827500C73D55 /* SettingCoordinator.swift in Sources */,
+				AE59E07528F17EEC007908CA /* SelectedStateCell.swift in Sources */,
 				AE9963C52615D5FC00C2ED0A /* CustomAlertController.swift in Sources */,
 				AE2447A2261398B20047F935 /* FackeVoiceViewController.swift in Sources */,
 				AE8D22DD25EF64010032D029 /* LoginViewController.swift in Sources */,
 				AE8D232925F0E6980032D029 /* HeaderProtocol.swift in Sources */,
 				AE72404225FB764D005A39E5 /* NavigationBar.swift in Sources */,
 				AE27959B261B060300F6A0D2 /* SocketIOManager.swift in Sources */,
+				AE59E04C28EF5B90007908CA /* AirAlarmViewController.swift in Sources */,
 				AE9963B326159A1400C2ED0A /* VoiceSetting.swift in Sources */,
+				AE71892728F1AC25001D85DD /* AirAlarmDataSource.swift in Sources */,
 				AE4CF80425FA6887008024C9 /* AuthDataCollectionViewCell.swift in Sources */,
 				AE2447B026143F520047F935 /* AudioCollectionViewCell.swift in Sources */,
 				AEEE908C2617A9F900E727FA /* Coordinator.swift in Sources */,
@@ -1098,9 +1162,11 @@
 				3E33617528CDE1F40016BA60 /* ImageEntity+CoreDataClass.swift in Sources */,
 				AE8D235125F109BA0032D029 /* TypeAliasses.swift in Sources */,
 				AE8D231225EF990E0032D029 /* UserInfoCollectionViewCell.swift in Sources */,
+				AEF49F8928F7FAA000753319 /* CurrentStateManager.swift in Sources */,
 				AE8D238E25F15ECB0032D029 /* AlertProvider.swift in Sources */,
 				AE8D22F125EF70C90032D029 /* NibLoadable.swift in Sources */,
 				AEEE90912617AA3F00E727FA /* Router.swift in Sources */,
+				AEF49F8428F7F89200753319 /* UserDefatuls+Codable.swift in Sources */,
 				AEEE907926177EC900E727FA /* SessionStorage.swift in Sources */,
 				AE8D226B25EF46410032D029 /* IntroViewController.swift in Sources */,
 				AEF1B94D25FF4445006F65C8 /* ChatViewController.swift in Sources */,
@@ -1110,6 +1176,7 @@
 				AEEE906F26177B4400E727FA /* AuthModel.swift in Sources */,
 				AEFC15E725FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift in Sources */,
 				AEF1B971260091F6006F65C8 /* MessageTableViewCell.swift in Sources */,
+				AE9A8D7928F2EF570025CAA7 /* HeaderTextView.swift in Sources */,
 				AE2CC6172600989B003AFE81 /* ChatViewController+Delegates.swift in Sources */,
 				AEC84CD125FE42120068A479 /* CustomButton.swift in Sources */,
 				AE8D22E425EF64420032D029 /* RegisterViewController.swift in Sources */,
@@ -1118,6 +1185,7 @@
 				AE8D230825EF8CBD0032D029 /* UIView.swift in Sources */,
 				AE0BA40D2619846A00C73D55 /* Alerting.swift in Sources */,
 				AE72403825FB719A005A39E5 /* MainPageViewController.swift in Sources */,
+				AEF49F7F28F7F7D000753319 /* States.swift in Sources */,
 				AE9963AE2615991000C2ED0A /* UserDefaults.swift in Sources */,
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
 				AEEE9084261780FD00E727FA /* ValidationService.swift in Sources */,
@@ -1129,6 +1197,7 @@
 				AEEE90AB2617B79F00E727FA /* LoginCoordinator.swift in Sources */,
 				AEEE909C2617ADCE00E727FA /* Factories.swift in Sources */,
 				AE99639926146DDE00C2ED0A /* AudioManager.swift in Sources */,
+				AEF49F9928F8352A00753319 /* SelectStateViewController.swift in Sources */,
 				AE0BA3F826197C5400C73D55 /* Date.swift in Sources */,
 				AEEE90A62617B70500E727FA /* ApplicationCoordinator.swift in Sources */,
 				AE2447A9261399600047F935 /* RecordingVoiceViewController.swift in Sources */,
@@ -1140,10 +1209,13 @@
 				AE8D238825F150740032D029 /* ButtonCollectionViewCell.swift in Sources */,
 				AE0BA3DB26183B7E00C73D55 /* RegisterCoordinator.swift in Sources */,
 				AEC84C9325FC93780068A479 /* MenuItemTableViewCell.swift in Sources */,
+				AEF49F9428F8258C00753319 /* AtomicWrapper.swift in Sources */,
+				AE71892228F1AA42001D85DD /* StateDescriptionConfiguration.swift in Sources */,
 				AEC84CD925FEAFFB0068A479 /* UIViewController.swift in Sources */,
 				AE8D227125EF46410032D029 /* BachelorProject.xcdatamodeld in Sources */,
 				AEC84CA425FCA90A0068A479 /* MenuControllerDelegate.swift in Sources */,
 				AE72402D25FB6EC8005A39E5 /* ResetingPasswordViewController.swift in Sources */,
+				AEF49F7A28F7F60000753319 /* Array+toDictionary.swift in Sources */,
 				AE2CC62D2600C2A4003AFE81 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1254,6 +1326,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1308,6 +1381,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				"OTHER_CODE_SIGN_FLAGS[sdk=*]" = "--generate-entitlement-der";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1503,6 +1577,14 @@
 				minimumVersion = 16.0.1;
 			};
 		};
+		AE59E05028F17938007908CA /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joomcode/BottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
 		AEEE907D26177FA400E727FA /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
@@ -1523,6 +1605,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AE2795A4261B06EC00F6A0D2 /* XCRemoteSwiftPackageReference "socket.io-client-swift" */;
 			productName = SocketIO;
+		};
+		AE59E05128F17938007908CA /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AE59E05028F17938007908CA /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
 		};
 		AEEE907E26177FA400E727FA /* SwiftKeychainWrapper */ = {
 			isa = XCSwiftPackageProductDependency;
