@@ -198,7 +198,6 @@
 		AE4CF80225FA6887008024C9 /* AuthDataCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataCollectionViewCell.swift; sourceTree = "<group>"; };
 		AE4CF80325FA6887008024C9 /* AuthDataCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthDataCollectionViewCell.xib; sourceTree = "<group>"; };
 		AE59E04B28EF5B90007908CA /* AirAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAlarmViewController.swift; sourceTree = "<group>"; };
-		AE59E07028F17C48007908CA /* BottomSheet */ = {isa = PBXFileReference; lastKnownFileType = folder; name = BottomSheet; path = ../BottomSheet; sourceTree = "<group>"; };
 		AE59E07428F17EEC007908CA /* SelectedStateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStateCell.swift; sourceTree = "<group>"; };
 		AE71892128F1AA42001D85DD /* StateDescriptionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDescriptionConfiguration.swift; sourceTree = "<group>"; };
 		AE71892628F1AC25001D85DD /* AirAlarmDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAlarmDataSource.swift; sourceTree = "<group>"; };
@@ -256,7 +255,6 @@
 		AE9963C42615D5FC00C2ED0A /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
 		AE9963C92615EA4600C2ED0A /* VoiceStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceStorage.swift; sourceTree = "<group>"; };
 		AE9A8D7828F2EF570025CAA7 /* HeaderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTextView.swift; sourceTree = "<group>"; };
-		AE9A8D7D28F2FDD90025CAA7 /* NetworkLibrary */ = {isa = PBXFileReference; lastKnownFileType = folder; name = NetworkLibrary; path = ../NetworkLibrary; sourceTree = "<group>"; };
 		AEC84C9125FC93770068A479 /* MenuItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemTableViewCell.swift; sourceTree = "<group>"; };
 		AEC84C9225FC93770068A479 /* MenuItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuItemTableViewCell.xib; sourceTree = "<group>"; };
 		AEC84CA325FCA90A0068A479 /* MenuControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuControllerDelegate.swift; sourceTree = "<group>"; };
@@ -472,8 +470,6 @@
 		AE8D225A25EF46410032D029 = {
 			isa = PBXGroup;
 			children = (
-				AE9A8D7D28F2FDD90025CAA7 /* NetworkLibrary */,
-				AE59E07028F17C48007908CA /* BottomSheet */,
 				3E33617328CDE1F40016BA60 /* ImageEntity+CoreDataClass.swift */,
 				3E33617428CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift */,
 				AE8D226525EF46410032D029 /* BachelorProject */,

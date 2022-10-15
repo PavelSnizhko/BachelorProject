@@ -10,7 +10,7 @@ import BottomSheet
 
 class SelectStateViewController: UICollectionViewController  {
     typealias DataSource = UICollectionViewDiffableDataSource<Section, State>
-
+    
     private let airAlarmDataSource: AirAlarmDataSource
     
     enum Section: Int, CaseIterable, Hashable {
@@ -21,7 +21,7 @@ class SelectStateViewController: UICollectionViewController  {
     
     func makeDataSource() -> DataSource {
         let dataSource = DataSource(collectionView: collectionView) { collectionView, indexPath, item -> UICollectionViewCell? in
-            return collectionView.dequeueConfiguredReusableCell(using: self.stateDescriptionCell(), for: indexPath, item: item)
+            return collectionView.dequeueConfiguredReusableCell(using: self.stateDescriptionCell, for: indexPath, item: item)
         }
         
         return dataSource
@@ -49,7 +49,7 @@ class SelectStateViewController: UICollectionViewController  {
         var snapshot = NSDiffableDataSourceSnapshot<Section, State>()
         snapshot.appendSections(Section.allCases)
         dataSource.apply(snapshot, animatingDifferences: false)
-
+        
         var statesSnapshot = NSDiffableDataSourceSectionSnapshot<State>()
         statesSnapshot.append(airAlarmDataSource.defaultStates)
         
@@ -64,18 +64,13 @@ class SelectStateViewController: UICollectionViewController  {
         }
         collectionView.collectionViewLayout = UICollectionViewCompositionalLayout(sectionProvider: provider)
     }
-}
-
-extension SelectStateViewController {
-    func stateDescriptionCell() -> UICollectionView.CellRegistration<UICollectionViewListCell, State> {
-        return .init { cell, _, state in
-            var configuration = cell.defaultContentConfiguration()
-            configuration.text = state.name
-            cell.contentConfiguration = configuration
-        }
+    
+    let stateDescriptionCell = UICollectionView.CellRegistration<UICollectionViewListCell, State> { cell, _, state in
+        var configuration = cell.defaultContentConfiguration()
+        configuration.text = state.name
+        cell.contentConfiguration = configuration
     }
 }
-
 
 extension SelectStateViewController: ScrollableBottomSheetPresentedController {
     var scrollView: UIScrollView? {

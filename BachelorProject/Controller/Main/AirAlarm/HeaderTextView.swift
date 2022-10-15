@@ -11,6 +11,10 @@ extension UICollectionReusableView {
     static var reuseIdentifier: String {
         return String(describing: Self.self)
     }
+    
+    static var elementKind: String {
+        String(describing: Self.self) + "Kind"
+    }
 }
 
 class HeaderTextView: UICollectionReusableView {

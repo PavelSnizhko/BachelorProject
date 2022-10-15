@@ -23,7 +23,7 @@ class AirAlarmViewController: UICollectionViewController, Alerting {
     var timer: Timer?
     
     func supplementary(collectionView: UICollectionView, kind: String, indexPath: IndexPath) -> UICollectionReusableView? {
-        let headerTextView = collectionView.dequeueReusableSupplementaryView(ofKind: HeaderTextView.reuseIdentifier, withReuseIdentifier: HeaderTextView.reuseIdentifier, for: indexPath) as! HeaderTextView
+        let headerTextView = collectionView.dequeueReusableSupplementaryView(ofKind: HeaderTextView.elementKind, withReuseIdentifier: HeaderTextView.reuseIdentifier, for: indexPath) as! HeaderTextView
         headerTextView.set(text: "Choose your current oblast")
         return headerTextView
     }
@@ -34,10 +34,10 @@ class AirAlarmViewController: UICollectionViewController, Alerting {
             switch Section(rawValue: indexPath.section) {
             case .selectedState:
                 return collectionView.dequeueConfiguredReusableCell(
-                    using: self.selectedStateCell(), for: indexPath, item: item
+                    using: self.selectedStateCell, for: indexPath, item: item
                 )
             case .allStates:
-                return collectionView.dequeueConfiguredReusableCell(using: self.stateDescriptionCell(), for: indexPath, item: item)
+                return collectionView.dequeueConfiguredReusableCell(using: self.stateDescriptionCell, for: indexPath, item: item)
             case .none:
                 return nil
             }
@@ -45,7 +45,9 @@ class AirAlarmViewController: UICollectionViewController, Alerting {
         }
         
         dataSource.supplementaryViewProvider = { [unowned self] collectionView, kind, indexPath in
-            return self.supplementary(collectionView: collectionView, kind: kind, indexPath: indexPath)
+            let headerTextView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderTextView.reuseIdentifier, for: indexPath) as! HeaderTextView
+            headerTextView.set(text: "Choose your current oblast")
+            return headerTextView
         }
         
         return dataSource
@@ -55,8 +57,7 @@ class AirAlarmViewController: UICollectionViewController, Alerting {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.register(HeaderTextView.self, forSupplementaryViewOfKind: HeaderTextView.reuseIdentifier, withReuseIdentifier: HeaderTextView.reuseIdentifier)
-        
+        collectionView.register(HeaderTextView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HeaderTextView.reuseIdentifier)
         airAlarmDataSource.collectionViewDelegate = self
         airAlarmDataSource.subscibeOnCurrentLocation()
         configureLayout()
@@ -125,6 +126,43 @@ class AirAlarmViewController: UICollectionViewController, Alerting {
         
         dataSource.apply(selectedStatesSnapshot, to: .selectedState, animatingDifferences: true)
     }
+    
+    let selectedStateCell = UICollectionView.CellRegistration<UICollectionViewListCell, State> { cell, _, state in
+        var configuration = cell.defaultContentConfiguration()
+        configuration.text = state.name
+        configuration.secondaryText = state.alert ? "Тривога" : "Відсутня тривога"
+        cell.accessories = [UICellAccessory.disclosureIndicator()]
+        
+        var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
+        backgroundConfig.backgroundColor = .systemBlue
+        backgroundConfig.cornerRadius = 5
+        backgroundConfig.backgroundInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        cell.backgroundConfiguration = backgroundConfig
+        
+        cell.contentConfiguration = configuration
+        cell.accessories = [UICellAccessory.disclosureIndicator()]
+    }
+    
+    let infoCell = UICollectionView.CellRegistration<UICollectionViewListCell, State> { cell, _, _ in
+        var configuration = cell.defaultContentConfiguration()
+        configuration.text = "You can select preffered state"
+        cell.contentConfiguration = configuration
+
+    }
+    
+    let stateDescriptionCell = UICollectionView.CellRegistration<UICollectionViewListCell, State> { cell, _, state in
+        var configuration = cell.defaultContentConfiguration()
+        if state.alert {
+            var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
+            backgroundConfig.backgroundColor = .systemBlue
+            backgroundConfig.backgroundColor = .red
+            cell.backgroundConfiguration = backgroundConfig
+        }
+        
+        configuration.text = state.name
+        configuration.secondaryText = state.alert ? "Тривога" : "Відсутня тривога"
+        cell.contentConfiguration = configuration
+    }
 }
 
 extension AirAlarmViewController: CollectionViewReloadable {
@@ -185,56 +223,4 @@ extension AirAlarmViewController {
         }
     }
 }
-
-// cells configuration
-
-extension AirAlarmViewController {
-    func infoCell() -> UICollectionView.CellRegistration<UICollectionViewListCell, State> {
-        return .init { cell, _, _ in
-            var configuration = cell.defaultContentConfiguration()
-            configuration.text = "You can select preffered state"
-            cell.contentConfiguration = configuration
-
-        }
-    }
-    
-    func selectedStateCell() -> UICollectionView.CellRegistration<UICollectionViewListCell, State> {
-        return .init { cell, _, state in
-            var configuration = cell.defaultContentConfiguration()
-            configuration.text = state.name
-            configuration.secondaryText = state.alert ? "Тривога" : "Відсутня тривога"
-            cell.accessories = [UICellAccessory.disclosureIndicator()]
-            
-            var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
-            backgroundConfig.backgroundColor = .systemBlue
-            backgroundConfig.cornerRadius = 5
-            backgroundConfig.backgroundInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
-            cell.backgroundConfiguration = backgroundConfig
-            
-            cell.contentConfiguration = configuration
-            cell.accessories = [UICellAccessory.disclosureIndicator()]
-        }
-    }
-    
-    func stateDescriptionCell() -> UICollectionView.CellRegistration<UICollectionViewListCell, State> {
-        return .init { cell, _, state in
-            var configuration = cell.defaultContentConfiguration()
-            if state.alert {
-                var backgroundConfig = UIBackgroundConfiguration.listPlainCell()
-                backgroundConfig.backgroundColor = .systemBlue
-                backgroundConfig.backgroundColor = .red
-                cell.backgroundConfiguration = backgroundConfig
-            }
-            
-            configuration.text = state.name
-            configuration.secondaryText = state.alert ? "Тривога" : "Відсутня тривога"
-            cell.contentConfiguration = configuration
-        }
-    }
-    
-    
-    
-}
-
-
 
