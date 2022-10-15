@@ -32,3 +32,15 @@ struct State: Codable, Hashable {
         case alert, changed
     }
 }
+
+
+// MARK: - Welcome
+struct StateContainer: Codable {
+    let state: State
+    let notificationID: String
+
+    enum CodingKeys: String, CodingKey {
+        case state
+        case notificationID = "notification_id"
+    }
+}

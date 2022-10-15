@@ -11,6 +11,7 @@ import NetworkLibrary
 protocol CollectionViewReloadable: AnyObject {
     func reload(with states: [State])
     func updateSelectedState(with state: State)
+    func updateStateStatus(with state: State )
 }
 
 class AirAlarmDataSource {
@@ -21,11 +22,23 @@ class AirAlarmDataSource {
         return dateFormatter
     }()
     
+    private var savedSelectedUserState: State? {
+        UserDefaults.standard.getModel(for: "selectedState", with: State.self)
+    }
+    
     private let defaultStatesGroup = DispatchGroup()
     
-    var eventSource: EventSource?
+    private lazy var airAlarmNetworkManager = AirAlarmNetworkManager(host: "http://127.0.0.1:10101", headers: ["X-API-Key": "foo"])
+        
+    private var currentLocationState = State(id: 1, name: "Вінницька область", nameEn: "Vinnytsia oblast", alert: false, changed: nil)
     
-    private var currentLocationState: State = State(id: 1, name: "Вінницька область", nameEn: "Vinnytsia oblast", alert: false, changed: nil)
+    private var statesDicrionary: [Int: State] = [:]
+    
+    private let locationManager = LocationManager()
+    
+    let networkService = NetworkService()
+    
+    weak var collectionViewDelegate: CollectionViewReloadable?
     
     var selectedState: State {
         get {
@@ -42,13 +55,29 @@ class AirAlarmDataSource {
         }
     }
     
-    weak var collectionViewDelegate: CollectionViewReloadable?
-    
-    private var statesDicrionary: [Int: State] = [:]
-    
-    
-    private let locationManager = LocationManager()
-    
+    func changeSelectedState(_ state: State) {
+        guard let newState = allStates.first(where: { $0.id == state.id }) else {
+            return
+        }
+        
+        self.selectedState = newState
+        airAlarmNetworkManager.reconfigure(with: "/api/states/live")
+        airAlarmNetworkManager.recieveMessage(with: StateContainer.self) { [weak self] result in
+            switch result {
+            case let .success(model):
+                self?.collectionViewDelegate?.updateStateStatus(with: model.state)
+                
+                if self?.selectedState.id == model.state.id {
+                    self?.collectionViewDelegate?.updateSelectedState(with: model.state)
+                }
+                
+                print("We recieve states from SSE \(model.state)")
+            case let .failure(error):
+                print("Something wrong with SSE \(error)")
+            }
+        }
+    }
+        
     init() {
         readDefaultStateValues()
     }
@@ -64,9 +93,7 @@ class AirAlarmDataSource {
             collectionViewDelegate?.reload(with: allStates)
         }
     }
-    
-    let networkService = NetworkService()
-    
+        
     func fetchAllStates() {
         networkService.getAllStates { [weak self] result in
             switch result {
@@ -92,60 +119,11 @@ class AirAlarmDataSource {
                 state.nameEn.lowercased() == stateName
             }.first
             
-            if let state = currentLocationState {
-                self?.selectedState = state
+            if let state = currentLocationState, self?.savedSelectedUserState == nil {
+                self?.changeSelectedState(state)
             }
         }
     }
-    
-    func subscribeToEvents(for stateId: Int) {
-        //        // TODO: reorginize code
-        //        let serverURL = URL(string: "\(networkService.airAlarmHost)/live/\(stateId)")!
-        //        eventSource = EventSource(url: serverURL, headers: ["X-API-Key": "foo"])
-        //
-        //        eventSource?.onOpen { [weak self] in
-        //            print("The app starts listening to SSE host")
-        //        }
-        //
-        //        eventSource?.onComplete { [weak self] statusCode, reconnect, error in
-        //            print("The app complete listening to SSE host")
-        //
-        //
-        //            let retryTime = self?.eventSource?.retryTime ?? 3000
-        //            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(retryTime)) { [weak self] in
-        //                self?.eventSource?.connect()
-        //            }
-        //        }
-        //
-        //        eventSource?.onMessage { [weak self] id, event, data in
-        //            guard let data = data, let jsonDict = self?.convertStringToJSON(string: data) else {
-        //                return
-        //            }
-        //
-        //
-        //        }
-        //
-        //        eventSource?.addEventListener("update") { [weak self] id, event, data in
-        //            print("we have an update!!!!!!!!!!!!!!!!!!!")
-        //            //              self?.updateLabels(id, event: event, data: data)
-        //        }
-    }
-    
-    private func convertStringToJSON(string: String) -> [String: Any]? {
-        if let data = string.data(using: String.Encoding.utf8) {
-            
-            do {
-                let dictonary = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
-                
-                return dictonary
-            } catch let error {
-                print(error)
-            }
-        }
-        
-        return nil
-    }
-    
     
     func readDefaultStateValues() {
         //TODO: move to another general manager to fetch remote configs and settings defaults config
@@ -176,7 +154,6 @@ class AirAlarmDataSource {
             }
         }
     }
-    
 }
 
 

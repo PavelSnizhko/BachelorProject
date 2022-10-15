@@ -9,7 +9,7 @@ import UIKit
 import UserNotifications
 import BottomSheet
 
-class AirAlarmViewController: UICollectionViewController {
+class AirAlarmViewController: UICollectionViewController, Alerting {
     
     // MARK: - Types
     enum Section: Int, CaseIterable, Hashable {
@@ -58,21 +58,17 @@ class AirAlarmViewController: UICollectionViewController {
         collectionView.register(HeaderTextView.self, forSupplementaryViewOfKind: HeaderTextView.reuseIdentifier, withReuseIdentifier: HeaderTextView.reuseIdentifier)
         
         airAlarmDataSource.collectionViewDelegate = self
-        airAlarmDataSource.subscribeToEvents(for: 1)
         airAlarmDataSource.subscibeOnCurrentLocation()
         configureLayout()
         applyInitialSnapshots()
         requestPushNotificationPermission()
         setPush()
-        setTimerRequests()
+        self.airAlarmDataSource.fetchAllStates()
         
     }
     
     func setTimerRequests() {
         self.airAlarmDataSource.fetchAllStates()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 100, repeats: true, block: { [weak self] _ in
-            self?.airAlarmDataSource.fetchAllStates()
-        })
     }
     
     func requestPushNotificationPermission() {
@@ -134,6 +130,8 @@ class AirAlarmViewController: UICollectionViewController {
 extension AirAlarmViewController: CollectionViewReloadable {
     func reload(with states: [State]) {
         var snapshot = dataSource.snapshot()
+        let items = snapshot.itemIdentifiers(inSection: .allStates)
+        snapshot.deleteItems(items)
         snapshot.appendItems(states, toSection: .allStates)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
@@ -142,18 +140,39 @@ extension AirAlarmViewController: CollectionViewReloadable {
         let selectedStateSnapshot = dataSource.snapshot(for: .selectedState)
         let items = selectedStateSnapshot.items
         
+        if let item = items.first, item.id == state.id {
+            showAlert(from: self, title: "Увага", message: state.alert ? "Повітряна тривога, пройдіть до найближчого бомбосховища" : "Відбій повітряної тривоги")
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+        }
+        
         var snapshot = dataSource.snapshot()
 
         snapshot.deleteItems(items)
         snapshot.appendItems([state], toSection: .selectedState)
         dataSource.apply(snapshot, animatingDifferences: true)
     }
+    
+    func updateStateStatus(with state: State) {
+        let selectedStateSnapshot = dataSource.snapshot(for: .allStates)
+        let items = selectedStateSnapshot.items
+
+        guard let datasourceItem = items.first(where: { item -> Bool in
+            return item.id == state.id
+        }) else {
+            return
+        }
+        
+        var snapshot = dataSource.snapshot()
+
+        snapshot.deleteItems([datasourceItem])
+        snapshot.appendItems([state], toSection: .allStates)
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
 }
 
 extension AirAlarmViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        super.collectionView(collectionView, didSelectItemAt: indexPath)
-        
         switch Section(rawValue: indexPath.section) {
         case .selectedState:
             let vc = SelectStateViewController(airAlarmDataSource: airAlarmDataSource)

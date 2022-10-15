@@ -11,21 +11,35 @@ class SwipingViewController: UIViewController, Alerting {
     
     let tabBarViewController = UITabBarController()
     
-    private lazy var mainPageViewController: MainPageViewController = {
+    private lazy var mainPageViewController: UINavigationController = {
         let viewController = MainPageViewController(nibName: MainPageViewController.name,
                                                     bundle: .main)
+        let navViewController = UINavigationController(rootViewController: viewController)
+
+        let image = UIImage(named: "sos")
+
+        viewController.tabBarItem = UITabBarItem(title: "Main", image: image, tag: 0)
         
-        viewController.tabBarItem = UITabBarItem(title: "Main", image: .checkmark, tag: 0)
-        
-        return viewController
+        return navViewController
 
     }()
     
-    private lazy var airAlarmViewController: AirAlarmViewController = {
+    private lazy var airAlarmViewController: UINavigationController = {
         let viewController = AirAlarmViewController(collectionViewLayout: .init())
-        
-        viewController.tabBarItem = UITabBarItem(title: "Air Alarm", image: .checkmark, tag: 1)
-        return viewController
+        let navViewController = UINavigationController(rootViewController: viewController)
+
+        let image = UIImage(named: "alarm")
+
+        viewController.tabBarItem = UITabBarItem(title: "Air Alarm", image: image, tag: 1)
+        return navViewController
+    }()
+    
+    private lazy var settingsViewController: UINavigationController = {
+        let viewController = SettingsViewController(nibName: SettingsViewController.name, bundle: .main)
+        let navViewController = UINavigationController(rootViewController: viewController)
+        let image = UIImage(named: "settings")
+        viewController.tabBarItem = UITabBarItem(title: "Settings", image: image, tag: 2)
+        return navViewController
     }()
     
     private lazy var  chatViewController: ChatViewController = {
@@ -70,7 +84,7 @@ class SwipingViewController: UIViewController, Alerting {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBarViewController.setViewControllers([mainPageViewController, airAlarmViewController], animated: false)
+        tabBarViewController.setViewControllers([mainPageViewController, airAlarmViewController, settingsViewController], animated: false)
         configNavigationBar()
         addCollectionView()
         setDelegeting()
@@ -187,8 +201,6 @@ extension SwipingViewController: UICollectionViewDelegate {
             cell.layoutIfNeeded()
             
         }
-    
-    
 }
 
 

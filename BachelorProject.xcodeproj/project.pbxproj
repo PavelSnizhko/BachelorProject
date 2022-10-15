@@ -132,6 +132,7 @@
 		AEF49F8F28F81CB100753319 /* remote_config_defaults.json in Resources */ = {isa = PBXBuildFile; fileRef = AEF49F8E28F81CB100753319 /* remote_config_defaults.json */; };
 		AEF49F9428F8258C00753319 /* AtomicWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49F9328F8258C00753319 /* AtomicWrapper.swift */; };
 		AEF49F9928F8352A00753319 /* SelectStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49F9828F8352A00753319 /* SelectStateViewController.swift */; };
+		AEF49F9E28F967DD00753319 /* AirAlarmNetwrokManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF49F9D28F967DC00753319 /* AirAlarmNetwrokManager.swift */; };
 		AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC15D725FB607C00E204B9 /* LogoCollectionViewCell.swift */; };
 		AEFC15DA25FB607C00E204B9 /* LogoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEFC15D825FB607C00E204B9 /* LogoCollectionViewCell.xib */; };
 		AEFC15E725FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFC15E525FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift */; };
@@ -292,6 +293,7 @@
 		AEF49F8E28F81CB100753319 /* remote_config_defaults.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = remote_config_defaults.json; sourceTree = "<group>"; };
 		AEF49F9328F8258C00753319 /* AtomicWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicWrapper.swift; sourceTree = "<group>"; };
 		AEF49F9828F8352A00753319 /* SelectStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStateViewController.swift; sourceTree = "<group>"; };
+		AEF49F9D28F967DC00753319 /* AirAlarmNetwrokManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAlarmNetwrokManager.swift; sourceTree = "<group>"; };
 		AEFC15D725FB607C00E204B9 /* LogoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoCollectionViewCell.swift; sourceTree = "<group>"; };
 		AEFC15D825FB607C00E204B9 /* LogoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LogoCollectionViewCell.xib; sourceTree = "<group>"; };
 		AEFC15E525FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkingLabelsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				AEF49F8828F7FAA000753319 /* CurrentStateManager.swift */,
 				AEF49F9328F8258C00753319 /* AtomicWrapper.swift */,
 				AEF49F9828F8352A00753319 /* SelectStateViewController.swift */,
+				AEF49F9D28F967DC00753319 /* AirAlarmNetwrokManager.swift */,
 			);
 			path = AirAlarm;
 			sourceTree = "<group>";
@@ -1173,6 +1176,7 @@
 				3EBED42E28E87ABE00BA220C /* FirebaseAuthService.swift in Sources */,
 				AE8D22F925EF74280032D029 /* PhotoView.swift in Sources */,
 				3E33617628CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift in Sources */,
+				AEF49F9E28F967DD00753319 /* AirAlarmNetwrokManager.swift in Sources */,
 				AEEE906F26177B4400E727FA /* AuthModel.swift in Sources */,
 				AEFC15E725FB619900E204B9 /* LinkingLabelsCollectionViewCell.swift in Sources */,
 				AEF1B971260091F6006F65C8 /* MessageTableViewCell.swift in Sources */,

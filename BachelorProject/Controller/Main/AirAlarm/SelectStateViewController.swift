@@ -85,9 +85,8 @@ extension SelectStateViewController: ScrollableBottomSheetPresentedController {
 
 extension SelectStateViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         if let state = dataSource.itemIdentifier(for: indexPath) {
-            airAlarmDataSource.selectedState = state
+            airAlarmDataSource.changeSelectedState(state)
             UserDefaults.standard.save(model: state, for: "selectedState")
         }
         
