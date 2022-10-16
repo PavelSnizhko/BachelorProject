@@ -6,13 +6,14 @@
 //
 
 import Foundation
-
+import UIKit
 
 class SettingCoordinator: BaseCoordinator {
     
     private let screenFactory: ScreenFactory
     private let router: Router
     var finishFlow: VoidClosure?
+    var settingViewController: UIViewController!
     
     init(router: Router, screenFactory: ScreenFactory) {
         self.screenFactory = screenFactory
@@ -36,12 +37,15 @@ class SettingCoordinator: BaseCoordinator {
             case .password:
                 print("password")
             case .logout:
-                self.finishFlow?()
+                settingScreen.authService?.logOut(completion: { [weak self] error in
+                    if error == nil {
+                        self?.finishFlow?()
+                    }
+                })
             }
             
         }
-        router.push(settingScreen, animated: true)
-        
+        self.settingViewController = settingScreen        
     }
     
 }

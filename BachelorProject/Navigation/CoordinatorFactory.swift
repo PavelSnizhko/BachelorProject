@@ -14,7 +14,7 @@ protocol CoordinatorFactory {
     
     func makeLoginCoordinator(router: Router) -> LoginCoordinator
     
-    func makeMainCoordinator(router: Router) -> MainCoordinator
+    func makeTabBarCoordinator(router: Router) -> TabBarCoordinator
     
     func makeRegisterCoordinator(router: Router) -> RegisterCoordinator
     
@@ -23,6 +23,10 @@ protocol CoordinatorFactory {
     func makeStartCoordinator(router: Router) -> StartCoordinator
     
     func makeSettingCoordinator(router: Router) -> SettingCoordinator
+    
+    func makeAirAlarmCoordinator(router: Router) -> AirAlarmCoordinator
+    
+    func makeSosCoordinator(router: Router) -> SOSCoordinator
 
 }
 
@@ -51,8 +55,8 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
         MenuCoordinator(router: router, screenFactory: screenFactory, coordinatorFactory: self, menuScreen: viewController)
     }
     
-    func makeMainCoordinator(router: Router) -> MainCoordinator {
-        MainCoordinator(router: router, screenFactory: screenFactory, coordinatorFactory: self)
+    func makeTabBarCoordinator(router: Router) -> TabBarCoordinator {
+        TabBarCoordinator(router: router, screenFactory: screenFactory, coordinatorFactory: self)
     }
     
     func makeSettingCoordinator(router: Router) -> SettingCoordinator {
@@ -61,5 +65,13 @@ final class CoordinatorFactoryImpl: CoordinatorFactory {
     
     func makeStartCoordinator(router: Router) -> StartCoordinator {
         StartCoordinator(router: router, screenFactory: screenFactory)
+    }
+    
+    func makeAirAlarmCoordinator(router: Router) -> AirAlarmCoordinator {
+        AirAlarmCoordinator(router: router, screenFactory: screenFactory)
+    }
+    
+    func makeSosCoordinator(router: Router) -> SOSCoordinator {
+        SOSCoordinator(router: router, screenFactory: screenFactory)
     }
 }

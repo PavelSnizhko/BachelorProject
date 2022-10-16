@@ -11,6 +11,8 @@
 		3E33617628CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E33617428CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift */; };
 		3E4CB1E528E782500074B596 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E4CB1E428E782500074B596 /* DI.swift */; };
 		3E57D2A428EA00EB00D28345 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E57D2A328EA00EB00D28345 /* Credentials.swift */; };
+		3E83483428FBE04600A9EE04 /* AirAlarmCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83483328FBE04600A9EE04 /* AirAlarmCoordinator.swift */; };
+		3E83483628FBE25C00A9EE04 /* SOSCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E83483528FBE25C00A9EE04 /* SOSCoordinator.swift */; };
 		3EBED42B28E857F300BA220C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EBED42A28E857F300BA220C /* GoogleService-Info.plist */; };
 		3EBED42E28E87ABE00BA220C /* FirebaseAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBED42D28E87ABE00BA220C /* FirebaseAuthService.swift */; };
 		3EBED43028E8814200BA220C /* Optional+isEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBED42F28E8814200BA220C /* Optional+isEmpty.swift */; };
@@ -19,7 +21,7 @@
 		AE0BA3CE261833DB00C73D55 /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3CD261833DB00C73D55 /* StartCoordinator.swift */; };
 		AE0BA3D6261834D800C73D55 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3D5261834D800C73D55 /* ScreenFactory.swift */; };
 		AE0BA3DB26183B7E00C73D55 /* RegisterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3DA26183B7E00C73D55 /* RegisterCoordinator.swift */; };
-		AE0BA3E32618456C00C73D55 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3E22618456C00C73D55 /* MainCoordinator.swift */; };
+		AE0BA3E32618456C00C73D55 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3E22618456C00C73D55 /* TabBarCoordinator.swift */; };
 		AE0BA3E82618458400C73D55 /* MenuCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3E72618458400C73D55 /* MenuCoordinator.swift */; };
 		AE0BA3ED2618827500C73D55 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3EC2618827500C73D55 /* SettingCoordinator.swift */; };
 		AE0BA3F826197C5400C73D55 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0BA3F726197C5400C73D55 /* Date.swift */; };
@@ -163,6 +165,8 @@
 		3E33617428CDE1F40016BA60 /* ImageEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3E4CB1E428E782500074B596 /* DI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
 		3E57D2A328EA00EB00D28345 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		3E83483328FBE04600A9EE04 /* AirAlarmCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAlarmCoordinator.swift; sourceTree = "<group>"; };
+		3E83483528FBE25C00A9EE04 /* SOSCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOSCoordinator.swift; sourceTree = "<group>"; };
 		3EBED42A28E857F300BA220C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3EBED42D28E87ABE00BA220C /* FirebaseAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseAuthService.swift; sourceTree = "<group>"; };
 		3EBED42F28E8814200BA220C /* Optional+isEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+isEmpty.swift"; sourceTree = "<group>"; };
@@ -174,7 +178,7 @@
 		AE0BA3CD261833DB00C73D55 /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
 		AE0BA3D5261834D800C73D55 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		AE0BA3DA26183B7E00C73D55 /* RegisterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterCoordinator.swift; sourceTree = "<group>"; };
-		AE0BA3E22618456C00C73D55 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		AE0BA3E22618456C00C73D55 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		AE0BA3E72618458400C73D55 /* MenuCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCoordinator.swift; sourceTree = "<group>"; };
 		AE0BA3EC2618827500C73D55 /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
 		AE0BA3F726197C5400C73D55 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -358,9 +362,11 @@
 				AEEE90AA2617B79F00E727FA /* LoginCoordinator.swift */,
 				AE0BA3CD261833DB00C73D55 /* StartCoordinator.swift */,
 				AE0BA3DA26183B7E00C73D55 /* RegisterCoordinator.swift */,
-				AE0BA3E22618456C00C73D55 /* MainCoordinator.swift */,
+				AE0BA3E22618456C00C73D55 /* TabBarCoordinator.swift */,
 				AE0BA3E72618458400C73D55 /* MenuCoordinator.swift */,
 				AE0BA3EC2618827500C73D55 /* SettingCoordinator.swift */,
+				3E83483328FBE04600A9EE04 /* AirAlarmCoordinator.swift */,
+				3E83483528FBE25C00A9EE04 /* SOSCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -1131,6 +1137,7 @@
 				AEEE905B261706A200E727FA /* CircleAnimationView.swift in Sources */,
 				AE2795A0261B063300F6A0D2 /* SocketIOManagerDefault.swift in Sources */,
 				AE0BA3FD26197E0C00C73D55 /* DateFormater.swift in Sources */,
+				3E83483628FBE25C00A9EE04 /* SOSCoordinator.swift in Sources */,
 				AEEE907426177CBC00E727FA /* AuthorizationService.swift in Sources */,
 				AE8D232F25F0EC470032D029 /* HeaderCollectionReusableView.swift in Sources */,
 				AE72405025FB7F1E005A39E5 /* ContainerViewController.swift in Sources */,
@@ -1142,6 +1149,7 @@
 				AE9963C02615A87D00C2ED0A /* TimePickerManager.swift in Sources */,
 				AEE66D91264AE01F002FC978 /* ImageFactory.swift in Sources */,
 				AEFC15D925FB607C00E204B9 /* LogoCollectionViewCell.swift in Sources */,
+				3E83483428FBE04600A9EE04 /* AirAlarmCoordinator.swift in Sources */,
 				AE0BA3ED2618827500C73D55 /* SettingCoordinator.swift in Sources */,
 				AE59E07528F17EEC007908CA /* SelectedStateCell.swift in Sources */,
 				AE9963C52615D5FC00C2ED0A /* CustomAlertController.swift in Sources */,
@@ -1189,7 +1197,7 @@
 				AE9963AE2615991000C2ED0A /* UserDefaults.swift in Sources */,
 				AE8D233C25F1056F0032D029 /* DatePickerCollectionViewCell.swift in Sources */,
 				AEEE9084261780FD00E727FA /* ValidationService.swift in Sources */,
-				AE0BA3E32618456C00C73D55 /* MainCoordinator.swift in Sources */,
+				AE0BA3E32618456C00C73D55 /* TabBarCoordinator.swift in Sources */,
 				AEE66D89264ADFA0002FC978 /* CoreDataStack.swift in Sources */,
 				AEEE906026170E9D00E727FA /* BluredView.swift in Sources */,
 				3EBED43028E8814200BA220C /* Optional+isEmpty.swift in Sources */,

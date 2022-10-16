@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 protocol ScreenFactory: AnyObject {
@@ -20,9 +21,30 @@ protocol ScreenFactory: AnyObject {
     func makeFackeVoiceScreen() -> FackeVoiceViewController
     func makeRecordingSetting() -> RecordingVoiceViewController
     func makeMenuScreen() -> MenuViewController
+    func makeSOSPageScreen() -> MainPageViewController
+    func makeAirAlarmScreen() -> AirAlarmViewController
+    func makeChatViewController() -> ChatViewController
 }
 
 final class ScreenFactoryImpl: ScreenFactory {
+    func makeSOSPageScreen() -> MainPageViewController {
+        let viewController = MainPageViewController(nibName: MainPageViewController.name,
+                                                    bundle: .main)
+        let image = UIImage(named: "sos")
+
+        viewController.tabBarItem = UITabBarItem(title: "Main", image: image, tag: 0)
+        
+        return viewController
+    }
+    
+    func makeAirAlarmScreen() -> AirAlarmViewController {
+        let viewController = AirAlarmViewController(collectionViewLayout: .init())
+        let image = UIImage(named: "alarm")
+
+        viewController.tabBarItem = UITabBarItem(title: "Air Alarm", image: image, tag: 1)
+        return viewController
+    }
+    
     private weak var di: DependencyContainer!
         
     func makeSwipingScreen() -> SwipingViewController {
@@ -58,7 +80,11 @@ final class ScreenFactoryImpl: ScreenFactory {
     }
     
     func makeSettingScreen() -> SettingsViewController {
-        SettingsViewController(nibName: SettingsViewController.name, bundle: .main)
+        let viewController = SettingsViewController(nibName: SettingsViewController.name, bundle: .main)
+        let image = UIImage(named: "settings")
+        viewController.tabBarItem = UITabBarItem(title: "Settings", image: image, tag: 2)
+        viewController.authService = di.authService
+        return viewController
     }
     
     func makeFackeVoiceScreen() -> FackeVoiceViewController {
@@ -67,6 +93,15 @@ final class ScreenFactoryImpl: ScreenFactory {
     
     func makeRecordingSetting() -> RecordingVoiceViewController {
         RecordingVoiceViewController(nibName: RecordingVoiceViewController.name, bundle: .main)
+    }
+    
+    func makeChatViewController() -> ChatViewController {
+        let viewController = ChatViewController(nibName: ChatViewController.name,
+                                                bundle: .main)
+        
+//        viewController.tabBarItem = UITabBarItem(title: "Chat", image: .checkmark, tag: 1)
+        
+        return viewController
     }
         
     init(di: DependencyContainer){

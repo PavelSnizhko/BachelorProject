@@ -11,7 +11,7 @@ protocol Coordinator: AnyObject {
   func start()
 }
 
-class BaseCoordinator: Coordinator {
+class BaseCoordinator: NSObject, Coordinator {
   
   var childCoordinators: [Coordinator] = []
   

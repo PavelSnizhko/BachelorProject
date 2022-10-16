@@ -11,12 +11,12 @@ class SettingsViewController: UIViewController, NibLoadable {
     
     private let defaultSettings: [SettingType] = [.account, .voice, .audio, .password, .logout]
     var choosenOption: ItemClosure<SettingType>?
-        
+    var authService: LogOut?
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = false
         configTableView()
     }
     
@@ -80,8 +80,6 @@ extension SettingsViewController: UITableViewDelegate {
             print("Provide as soon as possible")
         case .logout:
             choosenOption?(.logout)
-
-            navigationController?.popToRootViewController(animated: true)
         }
     }
 }

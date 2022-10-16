@@ -106,7 +106,7 @@ final class ApplicationCoordinator: BaseCoordinator {
     private func mainFlow() {
 
         //TODO: add tab bar with nested routers        
-        let coordinator = coordinatorFactory.makeMainCoordinator(router: router)
+        let coordinator = coordinatorFactory.makeTabBarCoordinator(router: router)
         
         coordinator.finishFlow = { [weak self, weak coordinator] in
             
