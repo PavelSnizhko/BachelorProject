@@ -16,27 +16,38 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.610297576581-foorpkelr700tqinf4fngl24r2a32tcl</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-    <key>NSAppTransportSecurity</key>
-      <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/>
-      </dict>
-    <key>NSMicrophoneUsageDescription</key>
-    <string>Need microphone access for uploading videos</string>
-    <key>NSCameraUsageDescription</key>
-    <string>Need camera access for uploading images</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>Need photo library access for uploading images</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Need camera access for uploading images</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Description</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Desctiption</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow to use your location</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Need microphone access for uploading videos</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need photo library access for uploading images</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -69,15 +80,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

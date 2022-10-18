@@ -866,6 +866,7 @@
 				AE8D226025EF46410032D029 /* Frameworks */,
 				AE8D226125EF46410032D029 /* Resources */,
 				721D4539E465DB44A3CB9D07 /* [CP] Embed Pods Frameworks */,
+				F964D1C54907BC8696B73431 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -910,6 +911,7 @@
 				AE8D228425EF46470032D029 /* Frameworks */,
 				AE8D228525EF46470032D029 /* Resources */,
 				AB36E1ADBA03B019BC885944 /* [CP] Embed Pods Frameworks */,
+				ACC27A79F26081E8D8E329BC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1120,6 +1122,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BachelorProject-BachelorProjectUITests/Pods-BachelorProject-BachelorProjectUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACC27A79F26081E8D8E329BC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BachelorProject-BachelorProjectUITests/Pods-BachelorProject-BachelorProjectUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BachelorProject-BachelorProjectUITests/Pods-BachelorProject-BachelorProjectUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BachelorProject-BachelorProjectUITests/Pods-BachelorProject-BachelorProjectUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F964D1C54907BC8696B73431 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BachelorProject/Pods-BachelorProject-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BachelorProject/Pods-BachelorProject-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BachelorProject/Pods-BachelorProject-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1404,14 +1440,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UPWXFVVHLN;
+				DEVELOPMENT_TEAM = 6WFMDY756C;
 				INFOPLIST_FILE = BachelorProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.BachelorProject.SecureApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.BachelorProject.SecureAppp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1425,14 +1461,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UPWXFVVHLN;
+				DEVELOPMENT_TEAM = 6WFMDY756C;
 				INFOPLIST_FILE = BachelorProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.BachelorProject.SecureApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.myApp.BachelorProject.SecureAppp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

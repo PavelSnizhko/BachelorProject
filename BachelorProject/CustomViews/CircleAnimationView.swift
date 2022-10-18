@@ -28,7 +28,6 @@ class CircleAnimationView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-
     }
    
     
@@ -101,7 +100,8 @@ private extension CircleAnimationView {
         for _ in 1...count {
             let circle: CAShapeLayer = .init()
             circle.path = circlePath
-            circle.fillColor = UIColor(named: "customBlue")?.cgColor
+            circle.fillColor = UIColor.red.cgColor
+//            UIColor(named: "customBlue")?.cgColor
             circle.opacity = 0
             self.shapeLayers.append(circle)
             layer.addSublayer(circle)

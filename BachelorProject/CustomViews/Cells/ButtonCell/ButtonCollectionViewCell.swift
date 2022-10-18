@@ -33,6 +33,10 @@ class ButtonCollectionViewCell: UICollectionViewCell, NibLoadable {
         self.button.backgroundColor = state ? UIColor(named: "redColor") :  UIColor.gray
     }
     
+    func setButtonCollor(color: UIColor? = UIColor(named: "redColor")) {
+        self.button.backgroundColor = color
+    }
+    
     @IBAction func didTapButton(sender: UIButton) {
         buttonTapped?()
     }

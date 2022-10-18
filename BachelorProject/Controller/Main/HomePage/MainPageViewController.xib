@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainPageViewController" customModule="BachelorProject" customModuleProvider="target">
             <connections>
+                <outlet property="animationView" destination="olO-Qq-vk7" id="yeT-EM-iHt"/>
+                <outlet property="circleButton" destination="ng6-er-OM1" id="V63-Jr-guQ"/>
                 <outlet property="mapView" destination="hFu-7t-jeI" id="5su-Tv-sA0"/>
+                <outlet property="stopButton" destination="tBD-0t-WgD" id="Ezn-Sy-Hwh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -40,14 +43,42 @@
                         <action selector="pressedSOS:" destination="-1" eventType="touchUpInside" id="pvN-St-ajh"/>
                     </connections>
                 </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBD-0t-WgD" customClass="CustomButton" customModule="BachelorProject" customModuleProvider="target">
+                    <rect key="frame" x="137.5" y="566" width="100" height="100"/>
+                    <color key="backgroundColor" red="1" green="0.29994087209999998" blue="0.19234915899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="tBD-0t-WgD" secondAttribute="height" multiplier="1:1" id="EtH-JQ-5CC"/>
+                        <constraint firstAttribute="width" constant="100" id="znR-ZD-08Z"/>
+                    </constraints>
+                    <state key="normal" title="STOP"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="50"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="pressedStop:" destination="-1" eventType="touchUpInside" id="zKt-87-7Fl"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olO-Qq-vk7" customClass="CircleAnimationView" customModule="BachelorProject" customModuleProvider="target">
+                    <rect key="frame" x="112.5" y="541" width="150" height="150"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="olO-Qq-vk7" firstAttribute="centerX" secondItem="tBD-0t-WgD" secondAttribute="centerX" id="2pI-IO-eYE"/>
+                <constraint firstItem="olO-Qq-vk7" firstAttribute="width" secondItem="tBD-0t-WgD" secondAttribute="width" multiplier="1.5" id="48J-V7-Nlw"/>
+                <constraint firstItem="tBD-0t-WgD" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="BnN-ej-hbj"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ng6-er-OM1" secondAttribute="bottom" id="COS-ie-ke2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hFu-7t-jeI" secondAttribute="bottom" constant="20" id="F3C-et-5h9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="tBD-0t-WgD" secondAttribute="bottom" constant="1" id="SSg-8g-4vA"/>
+                <constraint firstItem="olO-Qq-vk7" firstAttribute="centerY" secondItem="tBD-0t-WgD" secondAttribute="centerY" id="bCd-78-gzM"/>
                 <constraint firstItem="hFu-7t-jeI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="coi-p2-WXL"/>
+                <constraint firstItem="tBD-0t-WgD" firstAttribute="width" secondItem="tBD-0t-WgD" secondAttribute="height" multiplier="1:1" id="fyM-aV-7tp"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hFu-7t-jeI" secondAttribute="trailing" constant="16" id="g5d-1E-cj5"/>
+                <constraint firstItem="olO-Qq-vk7" firstAttribute="height" secondItem="tBD-0t-WgD" secondAttribute="height" multiplier="1.5" id="iWO-KV-vC5"/>
                 <constraint firstItem="hFu-7t-jeI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="qor-o1-WCB"/>
                 <constraint firstItem="ng6-er-OM1" firstAttribute="centerX" secondItem="hFu-7t-jeI" secondAttribute="centerX" id="zyr-Fn-IPv"/>
             </constraints>
@@ -57,6 +88,9 @@
     <designables>
         <designable name="ng6-er-OM1">
             <size key="intrinsicContentSize" width="36" height="34"/>
+        </designable>
+        <designable name="tBD-0t-WgD">
+            <size key="intrinsicContentSize" width="46" height="34"/>
         </designable>
     </designables>
     <resources>

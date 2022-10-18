@@ -7,6 +7,8 @@
 
 import UIKit
 import FirebaseDatabase
+import GoogleSignIn
+import GoogleAPIClientForREST
 
 class LoginViewController: UIViewController, NibLoadable, Alerting {  
     
@@ -15,7 +17,7 @@ class LoginViewController: UIViewController, NibLoadable, Alerting {
    
     @IBOutlet private weak var collectionView: UICollectionView!
     
-    private var headersType: [HeaderType] = [.logo, .auth, .button, .linkingLabels]
+    private var headersType: [HeaderType] = [.logo, .auth, .button, .googleLoginButton, .linkingLabels]
     private var credentials = Credentials()
     private var validationService: ValidationService = DefaultValidationService()
     private var authService: Authorization
@@ -31,11 +33,12 @@ class LoginViewController: UIViewController, NibLoadable, Alerting {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupGoogleSignIn()
         launchDelegating()
         registerCells()
         setCollectionViewScrolling(flag: false)
         hideOportunityMoveBack()
+
       
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -61,7 +64,7 @@ class LoginViewController: UIViewController, NibLoadable, Alerting {
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.hidesBackButton = true
         self.navigationController?.navigationItem.backBarButtonItem?.isEnabled = false
-        self.navigationController!.interactivePopGestureRecognizer!.isEnabled = false
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
     }
     
@@ -82,7 +85,6 @@ class LoginViewController: UIViewController, NibLoadable, Alerting {
         collectionView.register(AuthDataCollectionViewCell.nib, forCellWithReuseIdentifier: AuthDataCollectionViewCell.name)
         collectionView.register(ButtonCollectionViewCell.nib, forCellWithReuseIdentifier: ButtonCollectionViewCell.name)
         collectionView.register(LinkingLabelsCollectionViewCell.nib, forCellWithReuseIdentifier: LinkingLabelsCollectionViewCell.name)
-//        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
     }
 }
 
@@ -121,6 +123,19 @@ extension LoginViewController: UICollectionViewDataSource {
             authCell.passwordText = { [weak self] text in
                 self?.credentials.password = text
             }
+        case .googleLoginButton:
+            guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell
+            else {
+                fatalError()
+            }
+            buttonCell.setButtonCollor(color: .gray)
+            buttonCell.buttonTitle = "Log in with Google"
+            buttonCell.buttonTapped = { [weak self] in
+                guard let self = self else { return }
+                GIDSignIn.sharedInstance().signIn()
+            }
+            
+            cell = buttonCell
             
         case .button:
             guard let buttonCell = collectionView.dequeueReusableCell(withReuseIdentifier: ButtonCollectionViewCell.name, for: indexPath) as? ButtonCollectionViewCell
@@ -172,6 +187,8 @@ extension LoginViewController: UICollectionViewDataSource {
             linkingLabelsCell.setBelowLabel(title: "Don't have an account")
             
             linkingLabelsCell.bellowLabelTapped = { [weak self] in
+
+//                setupGoogleSignIn()
                 self?.onRegister?()
             }
 
@@ -180,11 +197,32 @@ extension LoginViewController: UICollectionViewDataSource {
         return cell
     }
     
-    
+    private func setupGoogleSignIn() {
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().scopes = [kGTLRAuthScopeDrive]
+        GIDSignIn.sharedInstance()?.signInSilently()
+    }
 }
 
 
 // MARK: Delegate
+
+extension LoginViewController: GIDSignInDelegate, GIDSignInUIDelegate {
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let _ = error {
+            showAlert(from: self, title: "Error", message: "Something went wrong with google authorization")
+        } else {
+            let service = GTLRDriveService()
+            service.authorizer = user.authentication.fetcherAuthorizer()
+            GoogleServiceAPI.service = service
+            self.onLogin?()
+            print("Authenticate successfully")
+        }
+    }
+    
+    
+}
 
 extension LoginViewController: UICollectionViewDelegate {
     
@@ -200,6 +238,7 @@ private extension LoginViewController {
         case auth
         case button
         case linkingLabels
+        case googleLoginButton
         
         var cellModel: [LoginViewController.ModelsType] {
             switch self {
@@ -207,6 +246,7 @@ private extension LoginViewController {
             case .auth: return [.auth]
             case .button: return [.button]
             case .linkingLabels: return [.linkingLabels]
+            case .googleLoginButton: return [.googleLoginButton]
             }
         }
     }
@@ -216,6 +256,7 @@ private extension LoginViewController {
         case auth
         case button
         case linkingLabels
+        case googleLoginButton
     }
     
 }
@@ -228,7 +269,7 @@ extension LoginViewController: UICollectionViewDelegateFlowLayout {
         let screenHeight = collectionView.bounds.height
 
         switch self.headersType[section] {
-        case .logo, .auth, .button:
+        case .logo, .auth, .button, .googleLoginButton:
             return CGSize(width: 0, height: screenHeight * 0.02)
         case .linkingLabels:
             return CGSize(width: screenWidth * 0.9, height: 0)
@@ -250,6 +291,9 @@ extension LoginViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: width, height: height)
         case .linkingLabels:
             let height = collectionView.bounds.height * 0.28
+            return CGSize(width: width, height: height)
+        case .googleLoginButton:
+            let height = collectionView.bounds.height * 0.06
             return CGSize(width: width, height: height)
         }
     }

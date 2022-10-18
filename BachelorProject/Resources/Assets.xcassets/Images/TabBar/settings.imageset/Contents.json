@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icons8-settings-50(@1x).png",
+      "filename" : "settings.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icons8-settings-100(@2x).png",
+      "filename" : "settings 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icons8-settings-150(@3x).png",
+      "filename" : "settings 2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

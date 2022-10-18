@@ -11,6 +11,8 @@ public enum PersonalPermissions: String {
     case sendToServer = "sendToServer"
     case storeLocal = "storeLocal"
     case allowTakePhoto = "allowTakePhoto"
+    case allowRecordAudio
+    case allowPlayAudion
 }
 
 

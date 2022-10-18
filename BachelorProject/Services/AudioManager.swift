@@ -27,7 +27,6 @@ class AudioManager: NSObject {
     }
     
     func playAudioAssets(after timeLine: Int, and audioName: String) {
-       
         guard let audioData = NSDataAsset(name: audioName)?.data else {
             fatalError("Unable to find asset \(audioName)")
         }
@@ -36,9 +35,7 @@ class AudioManager: NSObject {
             self?.audioPlayer = try? AVAudioPlayer(data: audioData)
             self?.audioPlayer?.play()
         }
-        
     }
-    
 }
 
 extension AudioManager: AVAudioPlayerDelegate {

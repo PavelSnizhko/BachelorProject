@@ -20,7 +20,7 @@ final class TakingPhotoManager: NSObject {
     private var camera: AVCaptureDevice?
     private var timer: Timer?
     private let container: NSPersistentContainer = CoreDataStack.shared.container
-
+    private let googleServiceAPI = GoogleServiceAPI()
     
     lazy var cameraCaptureOutput =  {
         AVCapturePhotoOutput()

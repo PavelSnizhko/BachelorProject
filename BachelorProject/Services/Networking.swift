@@ -21,11 +21,6 @@ struct GuardList: Codable {
     let users: [GuardResponse]
 }
 
-struct Location: Codable {
-    let latitude: Double
-    let longitude: Double
-}
-
 enum NetworkError: Error {
     case tokenExperation
 }

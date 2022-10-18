@@ -9,6 +9,8 @@ target 'BachelorProject' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'Firebase/Auth'
+  pod ‘GoogleAPIClientForREST/Drive’, ‘~> 1.2.1’
+  pod 'GoogleSignIn', '~> 4.1.1'
 
   target 'BachelorProjectTests' do
     inherit! :search_paths
